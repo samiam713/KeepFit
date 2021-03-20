@@ -1,0 +1,585 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D30EFA362605A6C500E7B32A /* KeepFitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30EFA352605A6C500E7B32A /* KeepFitApp.swift */; };
+		D30EFA382605A6C500E7B32A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30EFA372605A6C500E7B32A /* ContentView.swift */; };
+		D30EFA3A2605A6C600E7B32A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D30EFA392605A6C600E7B32A /* Assets.xcassets */; };
+		D30EFA3D2605A6C600E7B32A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D30EFA3C2605A6C600E7B32A /* Preview Assets.xcassets */; };
+		D30EFA482605A6C600E7B32A /* KeepFitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30EFA472605A6C600E7B32A /* KeepFitTests.swift */; };
+		D30EFA532605A6C600E7B32A /* KeepFitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30EFA522605A6C600E7B32A /* KeepFitUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D30EFA442605A6C600E7B32A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D30EFA2A2605A6C500E7B32A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D30EFA312605A6C500E7B32A;
+			remoteInfo = KeepFit;
+		};
+		D30EFA4F2605A6C600E7B32A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D30EFA2A2605A6C500E7B32A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D30EFA312605A6C500E7B32A;
+			remoteInfo = KeepFit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D30EFA322605A6C500E7B32A /* KeepFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeepFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D30EFA352605A6C500E7B32A /* KeepFitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeepFitApp.swift; sourceTree = "<group>"; };
+		D30EFA372605A6C500E7B32A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D30EFA392605A6C600E7B32A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D30EFA3C2605A6C600E7B32A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D30EFA3E2605A6C600E7B32A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D30EFA432605A6C600E7B32A /* KeepFitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeepFitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D30EFA472605A6C600E7B32A /* KeepFitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeepFitTests.swift; sourceTree = "<group>"; };
+		D30EFA492605A6C600E7B32A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D30EFA4E2605A6C600E7B32A /* KeepFitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeepFitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D30EFA522605A6C600E7B32A /* KeepFitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeepFitUITests.swift; sourceTree = "<group>"; };
+		D30EFA542605A6C600E7B32A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D30EFA2F2605A6C500E7B32A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D30EFA402605A6C600E7B32A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D30EFA4B2605A6C600E7B32A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D30EFA292605A6C500E7B32A = {
+			isa = PBXGroup;
+			children = (
+				D30EFA342605A6C500E7B32A /* KeepFit */,
+				D30EFA462605A6C600E7B32A /* KeepFitTests */,
+				D30EFA512605A6C600E7B32A /* KeepFitUITests */,
+				D30EFA332605A6C500E7B32A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D30EFA332605A6C500E7B32A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D30EFA322605A6C500E7B32A /* KeepFit.app */,
+				D30EFA432605A6C600E7B32A /* KeepFitTests.xctest */,
+				D30EFA4E2605A6C600E7B32A /* KeepFitUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D30EFA342605A6C500E7B32A /* KeepFit */ = {
+			isa = PBXGroup;
+			children = (
+				D30EFA352605A6C500E7B32A /* KeepFitApp.swift */,
+				D30EFA372605A6C500E7B32A /* ContentView.swift */,
+				D30EFA392605A6C600E7B32A /* Assets.xcassets */,
+				D30EFA3E2605A6C600E7B32A /* Info.plist */,
+				D30EFA3B2605A6C600E7B32A /* Preview Content */,
+			);
+			path = KeepFit;
+			sourceTree = "<group>";
+		};
+		D30EFA3B2605A6C600E7B32A /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				D30EFA3C2605A6C600E7B32A /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D30EFA462605A6C600E7B32A /* KeepFitTests */ = {
+			isa = PBXGroup;
+			children = (
+				D30EFA472605A6C600E7B32A /* KeepFitTests.swift */,
+				D30EFA492605A6C600E7B32A /* Info.plist */,
+			);
+			path = KeepFitTests;
+			sourceTree = "<group>";
+		};
+		D30EFA512605A6C600E7B32A /* KeepFitUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D30EFA522605A6C600E7B32A /* KeepFitUITests.swift */,
+				D30EFA542605A6C600E7B32A /* Info.plist */,
+			);
+			path = KeepFitUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D30EFA312605A6C500E7B32A /* KeepFit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D30EFA572605A6C600E7B32A /* Build configuration list for PBXNativeTarget "KeepFit" */;
+			buildPhases = (
+				D30EFA2E2605A6C500E7B32A /* Sources */,
+				D30EFA2F2605A6C500E7B32A /* Frameworks */,
+				D30EFA302605A6C500E7B32A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KeepFit;
+			productName = KeepFit;
+			productReference = D30EFA322605A6C500E7B32A /* KeepFit.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D30EFA422605A6C600E7B32A /* KeepFitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D30EFA5A2605A6C600E7B32A /* Build configuration list for PBXNativeTarget "KeepFitTests" */;
+			buildPhases = (
+				D30EFA3F2605A6C600E7B32A /* Sources */,
+				D30EFA402605A6C600E7B32A /* Frameworks */,
+				D30EFA412605A6C600E7B32A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D30EFA452605A6C600E7B32A /* PBXTargetDependency */,
+			);
+			name = KeepFitTests;
+			productName = KeepFitTests;
+			productReference = D30EFA432605A6C600E7B32A /* KeepFitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D30EFA4D2605A6C600E7B32A /* KeepFitUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D30EFA5D2605A6C600E7B32A /* Build configuration list for PBXNativeTarget "KeepFitUITests" */;
+			buildPhases = (
+				D30EFA4A2605A6C600E7B32A /* Sources */,
+				D30EFA4B2605A6C600E7B32A /* Frameworks */,
+				D30EFA4C2605A6C600E7B32A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D30EFA502605A6C600E7B32A /* PBXTargetDependency */,
+			);
+			name = KeepFitUITests;
+			productName = KeepFitUITests;
+			productReference = D30EFA4E2605A6C600E7B32A /* KeepFitUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D30EFA2A2605A6C500E7B32A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					D30EFA312605A6C500E7B32A = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					D30EFA422605A6C600E7B32A = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = D30EFA312605A6C500E7B32A;
+					};
+					D30EFA4D2605A6C600E7B32A = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = D30EFA312605A6C500E7B32A;
+					};
+				};
+			};
+			buildConfigurationList = D30EFA2D2605A6C500E7B32A /* Build configuration list for PBXProject "KeepFit" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D30EFA292605A6C500E7B32A;
+			productRefGroup = D30EFA332605A6C500E7B32A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D30EFA312605A6C500E7B32A /* KeepFit */,
+				D30EFA422605A6C600E7B32A /* KeepFitTests */,
+				D30EFA4D2605A6C600E7B32A /* KeepFitUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D30EFA302605A6C500E7B32A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D30EFA3D2605A6C600E7B32A /* Preview Assets.xcassets in Resources */,
+				D30EFA3A2605A6C600E7B32A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D30EFA412605A6C600E7B32A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D30EFA4C2605A6C600E7B32A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D30EFA2E2605A6C500E7B32A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D30EFA382605A6C500E7B32A /* ContentView.swift in Sources */,
+				D30EFA362605A6C500E7B32A /* KeepFitApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D30EFA3F2605A6C600E7B32A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D30EFA482605A6C600E7B32A /* KeepFitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D30EFA4A2605A6C600E7B32A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D30EFA532605A6C600E7B32A /* KeepFitUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D30EFA452605A6C600E7B32A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D30EFA312605A6C500E7B32A /* KeepFit */;
+			targetProxy = D30EFA442605A6C600E7B32A /* PBXContainerItemProxy */;
+		};
+		D30EFA502605A6C600E7B32A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D30EFA312605A6C500E7B32A /* KeepFit */;
+			targetProxy = D30EFA4F2605A6C600E7B32A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		D30EFA552605A6C600E7B32A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D30EFA562605A6C600E7B32A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D30EFA582605A6C600E7B32A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"KeepFit/Preview Content\"";
+				DEVELOPMENT_TEAM = Y975RXV2SM;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = KeepFit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.samdonovan.KeepFit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D30EFA592605A6C600E7B32A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"KeepFit/Preview Content\"";
+				DEVELOPMENT_TEAM = Y975RXV2SM;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = KeepFit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.samdonovan.KeepFit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D30EFA5B2605A6C600E7B32A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y975RXV2SM;
+				INFOPLIST_FILE = KeepFitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.samdonovan.KeepFitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KeepFit.app/KeepFit";
+			};
+			name = Debug;
+		};
+		D30EFA5C2605A6C600E7B32A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y975RXV2SM;
+				INFOPLIST_FILE = KeepFitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.samdonovan.KeepFitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KeepFit.app/KeepFit";
+			};
+			name = Release;
+		};
+		D30EFA5E2605A6C600E7B32A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y975RXV2SM;
+				INFOPLIST_FILE = KeepFitUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.samdonovan.KeepFitUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KeepFit;
+			};
+			name = Debug;
+		};
+		D30EFA5F2605A6C600E7B32A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y975RXV2SM;
+				INFOPLIST_FILE = KeepFitUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.samdonovan.KeepFitUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KeepFit;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D30EFA2D2605A6C500E7B32A /* Build configuration list for PBXProject "KeepFit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D30EFA552605A6C600E7B32A /* Debug */,
+				D30EFA562605A6C600E7B32A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D30EFA572605A6C600E7B32A /* Build configuration list for PBXNativeTarget "KeepFit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D30EFA582605A6C600E7B32A /* Debug */,
+				D30EFA592605A6C600E7B32A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D30EFA5A2605A6C600E7B32A /* Build configuration list for PBXNativeTarget "KeepFitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D30EFA5B2605A6C600E7B32A /* Debug */,
+				D30EFA5C2605A6C600E7B32A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D30EFA5D2605A6C600E7B32A /* Build configuration list for PBXNativeTarget "KeepFitUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D30EFA5E2605A6C600E7B32A /* Debug */,
+				D30EFA5F2605A6C600E7B32A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D30EFA2A2605A6C500E7B32A /* Project object */;
+}
