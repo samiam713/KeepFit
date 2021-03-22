@@ -17,15 +17,44 @@ struct SearchView: View
     @State var userResults = [UserPreview]()
     @State var workoutResults = [Workout]()
     
-    func search()
+    //From Sam
+    /*func search()
     {
         userResults = HTTPRequester.get10Users(prefix: currentSearch)
-    }
+    }*/
  
     var body: some View
     {
-        SearchBar(text: $currentSearch)
-            .padding(.top, -30)
+        ZStack
+        {
+            VStack
+            {
+                SearchBar(text: $currentSearch)
+                    .padding(.top, 30)
+                
+                HStack
+                {
+                    Text("Users")
+                        .font(.system(size: 20))
+                        
+                }.padding()
+                Spacer()
+                
+                
+                
+                //From the searchbox template
+                /*
+                List(todoItems.filter({ searchText.isEmpty ? true : $0.name.contains(searchText) })) { item in
+                    Text(item.name)
+                }*/
+                
+                //Replacing items in the template with our variables WIP
+                /*
+                List(userResults.filter({ currentSearch.isEmpty ? true : $0.username.contains(currentSearch) })) { item in
+                    Text(item.name)
+                */
+            }
+        }
     }
 }
 
