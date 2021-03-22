@@ -45,6 +45,12 @@ struct ProfileView: View {
                         Text(user.heightDescription())
                         Text(user.weightDescription())
                     }
+                    
+                    Section(header: Text("Liked Videos")) {
+                        Text("") //placeholder
+                        //Text(user.likedWorkouts())
+                    }
+
 
                     Section {
                             Button("Update Profile", action: user.attemptToUpdate)
