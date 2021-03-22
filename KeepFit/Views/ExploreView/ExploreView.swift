@@ -10,7 +10,6 @@ import AVKit
 
 struct ExploreView: View
 {
-   
     
     var body: some View
     {
@@ -18,13 +17,43 @@ struct ExploreView: View
         {
             VStack
             {
-                Section(header: Text("Latest Videos and Livestreams"))
+                Section(header: Text("Latest Videos and Livestreams") .fontWeight(.bold) .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/) .multilineTextAlignment(.center))
                 {
                     VideoPlayer(player: AVPlayer(url:  URL(string: "https://bit.ly/swswift")!))
-                        .frame(height: 400)
-                    Text("20 min Full Body STRETCH/YOGA for STRESS & ANXIETY Relief")
-                }
+                        
+                        {
+                            //Text(video.title)
+                            VStack
+                            {
+                                Text("20 min Full Body STRETCH/YOGA for STRESS & ANXIETY Relief")
+                                        .foregroundColor(.black)
+                                        .background(Color.white.opacity(0.7))
+                            }.offset(y: 170)
+                        }
+                    .frame(height: 400)
+                    
+                    //Should link to user's profile
+                    Text("YogaUser1")
+                    
                 
+                
+                    VideoPlayer(player: AVPlayer(url:  URL(string: "https://bit.ly/swswift")!))
+                        
+                        {
+                            //Text(video.title)
+                            VStack
+                            {
+                                Text("The PERFECT Home Workout (Sets and Reps included)")
+                                        .foregroundColor(.black)
+                                        .background(Color.white.opacity(0.7))
+                            }.offset(y: 170)
+                        }
+                    .frame(height: 400)
+                    
+                    //Should link to user's profile
+                    Text("StrengthUser1")
+                    
+                }
             }
         }
     }
