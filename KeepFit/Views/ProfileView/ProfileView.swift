@@ -24,18 +24,13 @@ struct ProfileView: View {
                
                 Form {
                     
-                    Section(header: Text("Profile Picture")) {
+                    Section(header: Text("Profile Picture"))
+                    {
                         Image(uiImage: user.profilePicture)
                             .resizable()
                             .scaledToFit()
                             .clipShape(Circle())
                             .shadow(radius: 10)
-                        Button("Select New Picture From Photos", action: {
-                            user.changingSourceType = .photoLibrary
-                        })
-                        Button("Take Picture Using Camera", action: {
-                            user.changingSourceType = .camera
-                        })
                     }
                     
                     Section(header: Text("About Me")) {
@@ -51,11 +46,6 @@ struct ProfileView: View {
                     Section(header: Text("Liked Videos")) {
                         Text("") //placeholder
                         //Text(user.likedWorkouts())
-                    }
-
-
-                    Section {
-                            Button("Update Profile", action: user.attemptToUpdate)
                     }
                 }
             }
