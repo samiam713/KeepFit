@@ -25,12 +25,12 @@ struct ExploreView: View
                             //Text(video.title)
                             VStack
                             {
-                                Text("20 min Full Body STRETCH/YOGA for STRESS & ANXIETY Relief")
+                                Text("20 min Full Body STRETCH/YOGA for STRESS & ANXIETY Relief [LIVE]")
                                         .foregroundColor(.black)
                                         .background(Color.white.opacity(0.7))
                             }.offset(y: 170)
                         }
-                    .frame(height: 400)
+                        .frame(height: 400)
                     
                     //Should link to user's profile
                     Text("YogaUser1")
@@ -48,11 +48,10 @@ struct ExploreView: View
                                         .background(Color.white.opacity(0.7))
                             }.offset(y: 170)
                         }
-                    .frame(height: 400)
+                        .frame(height: 400)
                     
                     //Should link to user's profile
                     Text("StrengthUser1")
-                    
                 }
             }
         }
