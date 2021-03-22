@@ -28,6 +28,8 @@ struct ProfileView: View {
                         Image(uiImage: user.profilePicture)
                             .resizable()
                             .scaledToFit()
+                            .clipShape(Circle())
+                            .shadow(radius: 10)
                         Button("Select New Picture From Photos", action: {
                             user.changingSourceType = .photoLibrary
                         })
