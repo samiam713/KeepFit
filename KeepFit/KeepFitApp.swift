@@ -28,6 +28,13 @@ struct KeepFitApp: App {
     
     @ObservedObject var controller = keepFitAppController
     
+    init() {
+//        let encoder =  JSONEncoder()
+//        encoder.outputFormatting = .prettyPrinted
+//        let exampleUserJSON = try! encoder.encode(User.currentUser)
+//        print(String(data: exampleUserJSON, encoding: .utf8)!)
+    }
+    
     var body: some Scene {
         WindowGroup {
             

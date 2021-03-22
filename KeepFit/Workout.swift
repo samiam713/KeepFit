@@ -12,7 +12,7 @@ enum WorkoutCategory: String, CaseIterable {
     case HIIT, Yoga, Aerobics, Bodyweight
 }
 
-class Workout: NSObject, Codable, ObservableObject {
+class Workout: NSObject, Codable, ObservableObject, Identifiable {
     static var workoutCache = [String:Workout]()
 
     static func getWorkout(id: String) -> Workout {

@@ -24,21 +24,22 @@ struct MainView: View {
                         Label("Explore", systemImage: "network")
                     }
                     .tag(KeepFitAppController.CurrentTab.Explore)
+                // EXERCISE WILL INCLUDE LIVESTREAM
                 Text("c")
                     .tabItem {
                         Label("Exercise", systemImage: "heart.circle")
                     }
                     .tag(KeepFitAppController.CurrentTab.Exercise)
                 
-                Text("d")
+                SearchView()
                     .tabItem {
                         Label("Search", systemImage: "magnifyingglass")
                     }
                     .tag(KeepFitAppController.CurrentTab.Search)
                 
-                Text("TO BE IMPLEMENTED LATER")
+                Text("e")
                     .tabItem {
-                        Label("Livestream", systemImage: "video")
+                        Label("Categories", systemImage: "square.grid.2x2.fill")
                     }
                     .tag(KeepFitAppController.CurrentTab.Livestream)
             }

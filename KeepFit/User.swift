@@ -7,10 +7,11 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 enum Sex: String, CaseIterable {case Male, Female, Unspecified}
 
-class User: NSObject, ObservableObject {
+class User: NSObject, ObservableObject, Codable {
     
     static var currentUser = User()
     
@@ -31,12 +32,13 @@ class User: NSObject, ObservableObject {
     
     @Published var profilePicture = UIImage(named: "LarryWheels")!
     
-    @Published var following = [String]()
+    @Published var followingIDs = [String]()
     
     @Published var sessionIDs = [String]()
     @Published var likedWorkoutIDs = [String]()
     @Published var publishedWorkoutIDs = [String]()
     
+    func following() -> [UserPreview] {followingIDs.map(UserPreview.getUserPreview(id:))}
     func sessions() -> [WorkoutSession] {sessionIDs.map(WorkoutSession.getWorkoutSession(id:))}
     func likedWorkouts() -> [Workout] {likedWorkoutIDs.map(Workout.getWorkout(id:))}
     func publishedWorkouts() -> [Workout] {likedWorkoutIDs.map(Workout.getWorkout(id:))}
@@ -114,7 +116,7 @@ class User: NSObject, ObservableObject {
         case id, username, password
         case shortBiography, sex, inches, pounds
         case profilePicture
-        case following, sessionIDs, likedWorkoutIDs, publishedWorkoutIDs
+        case followingIDs, sessionIDs, likedWorkoutIDs, publishedWorkoutIDs
     }
     
     required init(from decoder: Decoder) throws {
@@ -122,19 +124,56 @@ class User: NSObject, ObservableObject {
         
         id = try container.decode(String.self, forKey: .id)
         username = try container.decode(String.self, forKey: .username)
+        password = try container.decode(String.self, forKey: .password)
         
+        shortBiography = try container.decode(String.self, forKey: .shortBiography)
+        let sexString = try container.decode(String.self, forKey: .sex)
+        sex = Sex(rawValue: sexString)!
+        inches = try container.decode(Int.self, forKey: .inches)
+        pounds = try container.decode(Int.self, forKey: .pounds)
+        
+        let profilePictureString = try container.decode(String.self, forKey: .profilePicture)
+        let profilePictureData = Data(base64Encoded: profilePictureString)!
+        profilePicture = UIImage(data: profilePictureData)!
+        
+        followingIDs = try container.decode([String].self, forKey: .followingIDs)
+        sessionIDs = try container.decode([String].self, forKey: .sessionIDs)
+        likedWorkoutIDs = try container.decode([String].self, forKey: .likedWorkoutIDs)
+        publishedWorkoutIDs = try container.decode([String].self, forKey: .publishedWorkoutIDs)
     }
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: Key.self)
         
-        // try container.encode(name, forKey: .name)
-       //  try container.encode(days, forKey: .days)
+        try container.encode(id, forKey: .id)
+        try container.encode(username, forKey: .username)
+        try container.encode(password, forKey: .password)
+        
+        try container.encode(shortBiography, forKey: .shortBiography)
+        try container.encode(sex.rawValue, forKey: .sex)
+        try container.encode(inches, forKey: .inches)
+        try container.encode(pounds, forKey: .pounds)
+        
+        try container.encode(profilePicture.pngData()!.base64EncodedString(), forKey: .profilePicture)
+        // try container.encode("This is a stand in string. Normally this is a massive string encodeding the profile picture", forKey: .profilePicture)
+        
+        try container.encode(followingIDs, forKey: .followingIDs)
+        try container.encode(sessionIDs, forKey: .sessionIDs)
+        try container.encode(likedWorkoutIDs, forKey: .likedWorkoutIDs)
+        try container.encode(publishedWorkoutIDs, forKey: .publishedWorkoutIDs)
     }
 }
 
-class UserPreview: Codable {
-    init(){fatalError()}
+class UserPreview: Codable, Identifiable {
+    init() {
+        id = "x"
+        username = "x"
+        shortBiography = "x"
+        profilePicture = UIImage(named: "LarryWheels")!
+        sessionIDs = []
+        likedWorkoutIDs = []
+        publishedWorkoutIDs = []
+    }
     static var userPreviewCache = [String:UserPreview]()
     
     // used for efficiency
@@ -151,6 +190,8 @@ class UserPreview: Codable {
         
         return userPreview
     }
+    
+    let id: String
     
     let username: String
     let shortBiography: String

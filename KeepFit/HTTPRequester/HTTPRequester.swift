@@ -9,20 +9,22 @@ import Foundation
 import UIKit
 
 enum HTTPRequester {
-    static let serverIP = "localhost"
+    static let serverIP = "ec2-18-225-9-181.us-east-2.compute.amazonaws.com"
     static let serverPort = 8000
     
     static let encoder = JSONEncoder()
     static let decoder = JSONDecoder()
     
-    static func getURL(path: String) -> URLComponents {
+    static func getURL(path: String, queries: [URLQueryItem] = []) -> URL {
         var components = URLComponents()
         
         components.scheme = "http"
         components.host = serverIP
         components.port = serverPort
-        components.path = path
+        components.path = "/api/" + path
         
-        return components
+        if !queries.isEmpty {components.queryItems = queries}
+        
+        return components.url!
     }
 }

@@ -214,10 +214,10 @@
 		D3E5EB83260675CD002DAD24 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D3FA246A26083A4100714157 /* ExerciseView */,
 				D3FA248526083C3500714157 /* WorkoutView */,
 				D3FA247C26083C0F00714157 /* UserPreviewView */,
 				D3FA247326083A5200714157 /* SearchView */,
-				D3FA246A26083A4100714157 /* ExerciseView */,
 				D3FA245E26083A0C00714157 /* ExploreView */,
 				D3FA2455260839F800714157 /* ProfileView */,
 				D30EFA372605A6C500E7B32A /* EntryView.swift */,
