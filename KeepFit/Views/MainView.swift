@@ -18,8 +18,7 @@ struct MainView: View {
                     .tabItem {
                         Label("Profile", systemImage: "person.crop.circle")
                     }
-                    .tag(KeepFitAppController.CurrentTab.Profile)
-                Text("b")
+                ExploreView()
                     .tabItem {
                         Label("Explore", systemImage: "network")
                     }
