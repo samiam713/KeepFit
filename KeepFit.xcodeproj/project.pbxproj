@@ -27,6 +27,12 @@
 		D3E5EB742605CF85002DAD24 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E5EB732605CF85002DAD24 /* Utilities.swift */; };
 		D3E5EB7F260675C0002DAD24 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E5EB7E260675C0002DAD24 /* MainView.swift */; };
 		D3E5EB85260675F2002DAD24 /* KeepFitLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E5EB84260675F2002DAD24 /* KeepFitLogoView.swift */; };
+		D3FA245726083A0800714157 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FA245626083A0800714157 /* ProfileView.swift */; };
+		D3FA246326083A3300714157 /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FA246226083A3300714157 /* ExploreView.swift */; };
+		D3FA246C26083A4A00714157 /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FA246B26083A4A00714157 /* ExerciseView.swift */; };
+		D3FA247526083A5C00714157 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FA247426083A5C00714157 /* SearchView.swift */; };
+		D3FA247E26083C1D00714157 /* UserPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FA247D26083C1D00714157 /* UserPreviewView.swift */; };
+		D3FA248726083C3E00714157 /* WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FA248626083C3E00714157 /* WorkoutView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +79,12 @@
 		D3E5EB732605CF85002DAD24 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		D3E5EB7E260675C0002DAD24 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		D3E5EB84260675F2002DAD24 /* KeepFitLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeepFitLogoView.swift; sourceTree = "<group>"; };
+		D3FA245626083A0800714157 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		D3FA246226083A3300714157 /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
+		D3FA246B26083A4A00714157 /* ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseView.swift; sourceTree = "<group>"; };
+		D3FA247426083A5C00714157 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		D3FA247D26083C1D00714157 /* UserPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreviewView.swift; sourceTree = "<group>"; };
+		D3FA248626083C3E00714157 /* WorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +214,12 @@
 		D3E5EB83260675CD002DAD24 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D3FA248526083C3500714157 /* WorkoutView */,
+				D3FA247C26083C0F00714157 /* UserPreviewView */,
+				D3FA247326083A5200714157 /* SearchView */,
+				D3FA246A26083A4100714157 /* ExerciseView */,
+				D3FA245E26083A0C00714157 /* ExploreView */,
+				D3FA2455260839F800714157 /* ProfileView */,
 				D30EFA372605A6C500E7B32A /* EntryView.swift */,
 				D3E5EB7E260675C0002DAD24 /* MainView.swift */,
 				D302C32226081F58008C7E8D /* WorkoutSession */,
@@ -210,6 +228,54 @@
 				D3E5EB84260675F2002DAD24 /* KeepFitLogoView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		D3FA2455260839F800714157 /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				D3FA245626083A0800714157 /* ProfileView.swift */,
+			);
+			path = ProfileView;
+			sourceTree = "<group>";
+		};
+		D3FA245E26083A0C00714157 /* ExploreView */ = {
+			isa = PBXGroup;
+			children = (
+				D3FA246226083A3300714157 /* ExploreView.swift */,
+			);
+			path = ExploreView;
+			sourceTree = "<group>";
+		};
+		D3FA246A26083A4100714157 /* ExerciseView */ = {
+			isa = PBXGroup;
+			children = (
+				D3FA246B26083A4A00714157 /* ExerciseView.swift */,
+			);
+			path = ExerciseView;
+			sourceTree = "<group>";
+		};
+		D3FA247326083A5200714157 /* SearchView */ = {
+			isa = PBXGroup;
+			children = (
+				D3FA247426083A5C00714157 /* SearchView.swift */,
+			);
+			path = SearchView;
+			sourceTree = "<group>";
+		};
+		D3FA247C26083C0F00714157 /* UserPreviewView */ = {
+			isa = PBXGroup;
+			children = (
+				D3FA247D26083C1D00714157 /* UserPreviewView.swift */,
+			);
+			path = UserPreviewView;
+			sourceTree = "<group>";
+		};
+		D3FA248526083C3500714157 /* WorkoutView */ = {
+			isa = PBXGroup;
+			children = (
+				D3FA248626083C3E00714157 /* WorkoutView.swift */,
+			);
+			path = WorkoutView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,6 +407,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3FA248726083C3E00714157 /* WorkoutView.swift in Sources */,
+				D3FA247526083A5C00714157 /* SearchView.swift in Sources */,
+				D3FA246C26083A4A00714157 /* ExerciseView.swift in Sources */,
 				D30EFA722605A7CF00E7B32A /* HTTPRequester.swift in Sources */,
 				D302C32726081F76008C7E8D /* WorkoutSessionView.swift in Sources */,
 				D3E5EB7F260675C0002DAD24 /* MainView.swift in Sources */,
@@ -350,9 +419,12 @@
 				D3E5EB6F2605C207002DAD24 /* ProfilePictureView.swift in Sources */,
 				D30EFA7B2605AB2A00E7B32A /* UserHTTPRequester.swift in Sources */,
 				D3959E052606D76A00F9F847 /* SearchHTTPRequester.swift in Sources */,
+				D3FA245726083A0800714157 /* ProfileView.swift in Sources */,
+				D3FA246326083A3300714157 /* ExploreView.swift in Sources */,
 				D30EFA6A2605A71D00E7B32A /* User.swift in Sources */,
 				D30EFA382605A6C500E7B32A /* EntryView.swift in Sources */,
 				D30EFA642605A70600E7B32A /* UserProfileView.swift in Sources */,
+				D3FA247E26083C1D00714157 /* UserPreviewView.swift in Sources */,
 				D3E5EB742605CF85002DAD24 /* Utilities.swift in Sources */,
 				D30EFA362605A6C500E7B32A /* KeepFitApp.swift in Sources */,
 				D3892AA22606C7AD0006CA38 /* WorkoutHTTPRequester.swift in Sources */,
