@@ -14,7 +14,7 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             TabView(selection: $controller.currentTab) {
-               Text("a")
+                ProfileView(user:User())
                     .tabItem {
                         Label("Profile", systemImage: "person.crop.circle")
                     }

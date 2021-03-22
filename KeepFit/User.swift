@@ -26,6 +26,8 @@ class User: NSObject, ObservableObject {
     
     @Published var sex = Sex.Unspecified
     
+    @Published var birthdate = Date()
+    
     @Published var inches = 68
     @Published var pounds = 160
     
@@ -155,6 +157,7 @@ class UserPreview: Codable {
     let username: String
     let shortBiography: String
     let profilePicture: UIImage
+    let birthdate: String
     
     let sessionIDs: [String]
     let likedWorkoutIDs: [String]

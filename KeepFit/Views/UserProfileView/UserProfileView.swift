@@ -52,6 +52,10 @@ struct UserProfileView: View {
                     
                     Section(header: Text("Fitness Data")) {
                         
+                        //Birthdate
+                        DatePicker("Input birthday", selection: $user.birthdate, in: ...Date(), displayedComponents: .date)
+                        
+                        //Sex
                         Picker("Choose Sex", selection: $user.sex) {
                             ForEach(Sex.allCases.indices) {
                                 Text(Sex.allCases[$0].rawValue)
@@ -59,7 +63,10 @@ struct UserProfileView: View {
                             }
                         }
                         
+                        //Height
                         Stepper(user.heightDescription(), value: $user.inches, in: 48...84)
+                        
+                        //Weight
                         Stepper(user.weightDescription(), value: $user.pounds, in: 50...300, step: 5)
                     }
                     
