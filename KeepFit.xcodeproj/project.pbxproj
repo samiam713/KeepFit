@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35271934260870890090D810 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35271933260870890090D810 /* SearchBar.swift */; };
 		D302C3132607E6CD008C7E8D /* CreateWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D302C3122607E6CD008C7E8D /* CreateWorkoutView.swift */; };
 		D302C3182607F0D3008C7E8D /* CreateWorkoutVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D302C3172607F0D3008C7E8D /* CreateWorkoutVideoView.swift */; };
 		D302C32726081F76008C7E8D /* WorkoutSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D302C32626081F76008C7E8D /* WorkoutSessionView.swift */; };
@@ -53,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		35271933260870890090D810 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		D302C3122607E6CD008C7E8D /* CreateWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWorkoutView.swift; sourceTree = "<group>"; };
 		D302C3172607F0D3008C7E8D /* CreateWorkoutVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWorkoutVideoView.swift; sourceTree = "<group>"; };
 		D302C32626081F76008C7E8D /* WorkoutSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSessionView.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				D3FA247426083A5C00714157 /* SearchView.swift */,
+				35271933260870890090D810 /* SearchBar.swift */,
 			);
 			path = SearchView;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				D3FA246326083A3300714157 /* ExploreView.swift in Sources */,
 				D30EFA6A2605A71D00E7B32A /* User.swift in Sources */,
 				D30EFA382605A6C500E7B32A /* EntryView.swift in Sources */,
+				35271934260870890090D810 /* SearchBar.swift in Sources */,
 				D30EFA642605A70600E7B32A /* UserProfileView.swift in Sources */,
 				D3FA247E26083C1D00714157 /* UserPreviewView.swift in Sources */,
 				D3E5EB742605CF85002DAD24 /* Utilities.swift in Sources */,
