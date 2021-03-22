@@ -31,7 +31,7 @@ struct CreateWorkoutView: View {
             }
             
             Section {
-                Button(workout.creatingVideoURL == nil ? "Record Video" : "Re-Record Video") {
+                Button(workout.creatingVideoURL == nil ? "Upload Video" : "Re-Upload Video") {
                     workout.recordingVideo = true
                 }
             }

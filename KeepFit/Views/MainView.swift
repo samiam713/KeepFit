@@ -35,11 +35,11 @@ struct MainView: View {
                     }
                     .tag(KeepFitAppController.CurrentTab.Search)
                 
-                Text("TO BE IMPLEMENTED LATER")
+                CreateWorkoutView(workout: Workout())
                     .tabItem {
-                        Label("Livestream", systemImage: "video")
+                        Label("Upload", systemImage: "video")
                     }
-                    .tag(KeepFitAppController.CurrentTab.Livestream)
+                    .tag(KeepFitAppController.CurrentTab.Upload)
             }
             .navigationBarTitle(controller.getTabName())
             .navigationBarItems(trailing:

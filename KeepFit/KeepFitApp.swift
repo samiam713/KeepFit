@@ -14,7 +14,7 @@ class KeepFitAppController: ObservableObject {
     
     @Published var currentView = CurrentView.entry
     
-    enum CurrentTab: String {case Profile, Explore, Exercise, Search, Livestream}
+    enum CurrentTab: String {case Profile, Explore, Exercise, Search, Upload}
     
     @Published var currentTab = CurrentTab.Exercise
     
