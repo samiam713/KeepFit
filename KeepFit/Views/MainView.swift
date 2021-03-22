@@ -17,7 +17,7 @@ struct MainView: View {
                 ProfileView(user:User())
                     .tabItem {
                         Label("Profile", systemImage: "person.crop.circle")
-                    }
+                    }.tag(KeepFitAppController.CurrentTab.Profile)
                 ExploreView()
                     .tabItem {
                         Label("Explore", systemImage: "network")
