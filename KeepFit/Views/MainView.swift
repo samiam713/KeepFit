@@ -30,7 +30,7 @@ struct MainView: View {
                     }
                     .tag(KeepFitAppController.CurrentTab.Exercise)
                 
-                Text("d")
+                SearchView(text: .constant(""))
                     .tabItem {
                         Label("Search", systemImage: "magnifyingglass")
                     }
