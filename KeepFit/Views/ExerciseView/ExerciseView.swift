@@ -8,6 +8,23 @@
 import SwiftUI
 import AVKit
 
+struct LikeButton : View {
+    @State var isPressed = false
+    var body: some View {
+        ZStack {
+            Image(systemName: "hand.thumbsup.fill")
+                .opacity(isPressed ? 1 : 0)
+                .scaleEffect(isPressed ? 1.0 : 0.1)
+                .animation(.linear)
+            Image(systemName: "hand.thumbsup")
+        }.font(.system(size: 20))
+            .onTapGesture {
+                self.isPressed.toggle()
+        }
+        .foregroundColor(isPressed ? .blue : .blue)
+    }
+}
+
 struct ExerciseView: View {
     var body: some View {
         
@@ -29,11 +46,13 @@ struct ExerciseView: View {
                                 }.offset(y: 170)
                             }
                             .frame(height: 400)
-                        
-                        //Should link to user's profile
-                        Text("YogaUser1")
-                        
-                    
+
+                        VStack
+                        {
+                            //Should link to user's profile
+                            Text("YogaUser1")
+                            LikeButton().offset(x: 140, y: -30)
+                        }
                     
                         VideoPlayer(player: AVPlayer(url:  URL(string: "https://bit.ly/swswift")!))
                             
@@ -50,6 +69,7 @@ struct ExerciseView: View {
                         
                         //Should link to user's profile
                         Text("StrengthUser1")
+                        LikeButton().offset(x: 140, y: -30)
                     }
                 }
             }
