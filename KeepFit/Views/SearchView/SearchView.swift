@@ -34,7 +34,7 @@ struct SearchView: View
                 
                 HStack
                 {
-                    Text("Users")
+                    Text("Results:")
                         .font(.system(size: 20))
                         
                 }.padding()
