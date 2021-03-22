@@ -7,12 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D302C3132607E6CD008C7E8D /* CreateWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D302C3122607E6CD008C7E8D /* CreateWorkoutView.swift */; };
+		D302C3182607F0D3008C7E8D /* CreateWorkoutVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D302C3172607F0D3008C7E8D /* CreateWorkoutVideoView.swift */; };
+		D302C32726081F76008C7E8D /* WorkoutSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D302C32626081F76008C7E8D /* WorkoutSessionView.swift */; };
 		D30EFA362605A6C500E7B32A /* KeepFitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30EFA352605A6C500E7B32A /* KeepFitApp.swift */; };
-		D30EFA382605A6C500E7B32A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30EFA372605A6C500E7B32A /* ContentView.swift */; };
+		D30EFA382605A6C500E7B32A /* EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30EFA372605A6C500E7B32A /* EntryView.swift */; };
 		D30EFA3A2605A6C600E7B32A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D30EFA392605A6C600E7B32A /* Assets.xcassets */; };
 		D30EFA3D2605A6C600E7B32A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D30EFA3C2605A6C600E7B32A /* Preview Assets.xcassets */; };
 		D30EFA482605A6C600E7B32A /* KeepFitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30EFA472605A6C600E7B32A /* KeepFitTests.swift */; };
 		D30EFA532605A6C600E7B32A /* KeepFitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30EFA522605A6C600E7B32A /* KeepFitUITests.swift */; };
+		D30EFA642605A70600E7B32A /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30EFA632605A70600E7B32A /* UserProfileView.swift */; };
+		D30EFA6A2605A71D00E7B32A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30EFA692605A71D00E7B32A /* User.swift */; };
+		D30EFA722605A7CF00E7B32A /* HTTPRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30EFA712605A7CF00E7B32A /* HTTPRequester.swift */; };
+		D30EFA7B2605AB2A00E7B32A /* UserHTTPRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30EFA7A2605AB2A00E7B32A /* UserHTTPRequester.swift */; };
+		D3892AA22606C7AD0006CA38 /* WorkoutHTTPRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3892AA12606C7AD0006CA38 /* WorkoutHTTPRequester.swift */; };
+		D3892AA72606C7C10006CA38 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3892AA62606C7C10006CA38 /* Workout.swift */; };
+		D3959E052606D76A00F9F847 /* SearchHTTPRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3959E042606D76A00F9F847 /* SearchHTTPRequester.swift */; };
+		D3E5EB6F2605C207002DAD24 /* ProfilePictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E5EB6E2605C207002DAD24 /* ProfilePictureView.swift */; };
+		D3E5EB742605CF85002DAD24 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E5EB732605CF85002DAD24 /* Utilities.swift */; };
+		D3E5EB7F260675C0002DAD24 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E5EB7E260675C0002DAD24 /* MainView.swift */; };
+		D3E5EB85260675F2002DAD24 /* KeepFitLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E5EB84260675F2002DAD24 /* KeepFitLogoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,9 +47,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D302C3122607E6CD008C7E8D /* CreateWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWorkoutView.swift; sourceTree = "<group>"; };
+		D302C3172607F0D3008C7E8D /* CreateWorkoutVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWorkoutVideoView.swift; sourceTree = "<group>"; };
+		D302C32626081F76008C7E8D /* WorkoutSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSessionView.swift; sourceTree = "<group>"; };
 		D30EFA322605A6C500E7B32A /* KeepFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeepFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D30EFA352605A6C500E7B32A /* KeepFitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeepFitApp.swift; sourceTree = "<group>"; };
-		D30EFA372605A6C500E7B32A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D30EFA372605A6C500E7B32A /* EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryView.swift; sourceTree = "<group>"; };
 		D30EFA392605A6C600E7B32A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D30EFA3C2605A6C600E7B32A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D30EFA3E2605A6C600E7B32A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -45,6 +62,17 @@
 		D30EFA4E2605A6C600E7B32A /* KeepFitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeepFitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D30EFA522605A6C600E7B32A /* KeepFitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeepFitUITests.swift; sourceTree = "<group>"; };
 		D30EFA542605A6C600E7B32A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D30EFA632605A70600E7B32A /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		D30EFA692605A71D00E7B32A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D30EFA712605A7CF00E7B32A /* HTTPRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequester.swift; sourceTree = "<group>"; };
+		D30EFA7A2605AB2A00E7B32A /* UserHTTPRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHTTPRequester.swift; sourceTree = "<group>"; };
+		D3892AA12606C7AD0006CA38 /* WorkoutHTTPRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutHTTPRequester.swift; sourceTree = "<group>"; };
+		D3892AA62606C7C10006CA38 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		D3959E042606D76A00F9F847 /* SearchHTTPRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHTTPRequester.swift; sourceTree = "<group>"; };
+		D3E5EB6E2605C207002DAD24 /* ProfilePictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePictureView.swift; sourceTree = "<group>"; };
+		D3E5EB732605CF85002DAD24 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		D3E5EB7E260675C0002DAD24 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		D3E5EB84260675F2002DAD24 /* KeepFitLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeepFitLogoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +100,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D302C3112607E6B3008C7E8D /* CreateWorkoutViews */ = {
+			isa = PBXGroup;
+			children = (
+				D302C3122607E6CD008C7E8D /* CreateWorkoutView.swift */,
+				D302C3172607F0D3008C7E8D /* CreateWorkoutVideoView.swift */,
+			);
+			path = CreateWorkoutViews;
+			sourceTree = "<group>";
+		};
+		D302C32226081F58008C7E8D /* WorkoutSession */ = {
+			isa = PBXGroup;
+			children = (
+				D302C32626081F76008C7E8D /* WorkoutSessionView.swift */,
+			);
+			path = WorkoutSession;
+			sourceTree = "<group>";
+		};
 		D30EFA292605A6C500E7B32A = {
 			isa = PBXGroup;
 			children = (
@@ -96,7 +141,11 @@
 			isa = PBXGroup;
 			children = (
 				D30EFA352605A6C500E7B32A /* KeepFitApp.swift */,
-				D30EFA372605A6C500E7B32A /* ContentView.swift */,
+				D30EFA692605A71D00E7B32A /* User.swift */,
+				D3892AA62606C7C10006CA38 /* Workout.swift */,
+				D3E5EB83260675CD002DAD24 /* Views */,
+				D30EFA792605AB0400E7B32A /* HTTPRequester */,
+				D3E5EB732605CF85002DAD24 /* Utilities.swift */,
 				D30EFA392605A6C600E7B32A /* Assets.xcassets */,
 				D30EFA3E2605A6C600E7B32A /* Info.plist */,
 				D30EFA3B2605A6C600E7B32A /* Preview Content */,
@@ -128,6 +177,39 @@
 				D30EFA542605A6C600E7B32A /* Info.plist */,
 			);
 			path = KeepFitUITests;
+			sourceTree = "<group>";
+		};
+		D30EFA682605A70B00E7B32A /* UserProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				D30EFA632605A70600E7B32A /* UserProfileView.swift */,
+				D3E5EB6E2605C207002DAD24 /* ProfilePictureView.swift */,
+			);
+			path = UserProfileView;
+			sourceTree = "<group>";
+		};
+		D30EFA792605AB0400E7B32A /* HTTPRequester */ = {
+			isa = PBXGroup;
+			children = (
+				D30EFA712605A7CF00E7B32A /* HTTPRequester.swift */,
+				D30EFA7A2605AB2A00E7B32A /* UserHTTPRequester.swift */,
+				D3892AA12606C7AD0006CA38 /* WorkoutHTTPRequester.swift */,
+				D3959E042606D76A00F9F847 /* SearchHTTPRequester.swift */,
+			);
+			path = HTTPRequester;
+			sourceTree = "<group>";
+		};
+		D3E5EB83260675CD002DAD24 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D30EFA372605A6C500E7B32A /* EntryView.swift */,
+				D3E5EB7E260675C0002DAD24 /* MainView.swift */,
+				D302C32226081F58008C7E8D /* WorkoutSession */,
+				D302C3112607E6B3008C7E8D /* CreateWorkoutViews */,
+				D30EFA682605A70B00E7B32A /* UserProfileView */,
+				D3E5EB84260675F2002DAD24 /* KeepFitLogoView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +341,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D30EFA382605A6C500E7B32A /* ContentView.swift in Sources */,
+				D30EFA722605A7CF00E7B32A /* HTTPRequester.swift in Sources */,
+				D302C32726081F76008C7E8D /* WorkoutSessionView.swift in Sources */,
+				D3E5EB7F260675C0002DAD24 /* MainView.swift in Sources */,
+				D3E5EB85260675F2002DAD24 /* KeepFitLogoView.swift in Sources */,
+				D302C3132607E6CD008C7E8D /* CreateWorkoutView.swift in Sources */,
+				D302C3182607F0D3008C7E8D /* CreateWorkoutVideoView.swift in Sources */,
+				D3E5EB6F2605C207002DAD24 /* ProfilePictureView.swift in Sources */,
+				D30EFA7B2605AB2A00E7B32A /* UserHTTPRequester.swift in Sources */,
+				D3959E052606D76A00F9F847 /* SearchHTTPRequester.swift in Sources */,
+				D30EFA6A2605A71D00E7B32A /* User.swift in Sources */,
+				D30EFA382605A6C500E7B32A /* EntryView.swift in Sources */,
+				D30EFA642605A70600E7B32A /* UserProfileView.swift in Sources */,
+				D3E5EB742605CF85002DAD24 /* Utilities.swift in Sources */,
 				D30EFA362605A6C500E7B32A /* KeepFitApp.swift in Sources */,
+				D3892AA22606C7AD0006CA38 /* WorkoutHTTPRequester.swift in Sources */,
+				D3892AA72606C7C10006CA38 /* Workout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
