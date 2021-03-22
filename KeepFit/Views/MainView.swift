@@ -23,7 +23,7 @@ struct MainView: View {
                         Label("Explore", systemImage: "network")
                     }
                     .tag(KeepFitAppController.CurrentTab.Explore)
-                Text("c")
+                ExerciseView()
                     .tabItem {
                         Label("Exercise", systemImage: "heart.circle")
                     }
