@@ -41,23 +41,24 @@ struct SearchView: View {
             Text("Results")
                 .italic()
             Divider()
-            ScrollView {
-                VStack {
-                    Text("Users")
-                        .font(.headline)
-                    ForEach(userResults) {(userPreview: UserPreview) in
-                        // I should be a nav link
-                        Text(userPreview.username)
-                    }
-                    Divider()
-                    Text("Workouts")
-                        .font(.headline)
-                    ForEach(workoutResults) {(workout: Workout) in
-                        // I should also be a nav link
-                        Text(workout.title)
-                    }
-                }
-            }
+            CategoriesView()
+//            ScrollView {
+//                VStack {
+//                    Text("Users")
+//                        .font(.headline)
+//                    ForEach(userResults) {(userPreview: UserPreview) in
+//                        // I should be a nav link
+//                        Text(userPreview.username)
+//                    }
+//                    Divider()
+//                    Text("Workouts")
+//                        .font(.headline)
+//                    ForEach(workoutResults) {(workout: Workout) in
+//                        // I should also be a nav link
+//                        Text(workout.title)
+//                    }
+//                }
+//            }
         }
     }
 }
