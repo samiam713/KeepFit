@@ -8,13 +8,19 @@
 import Foundation
 
 extension HTTPRequester {
-    static func get10Workouts(prefix: String) -> [Workout] {
+    static func searchWorkouts(prefix: String) -> [Workout] {
         // TODO: SERVER LOGIC
         fatalError()
     }
     
-    static func get10Users(prefix: String) -> [UserPreview] {
+    static func searchUsers(prefix: String) -> [UserPreview] {
         // TODO: SERVER LOGIC
         fatalError()
+    }
+    
+    static func getWorkoutsOfCategory(category: WorkoutCategory) -> [Workout] {
+        // TODO: SERVER LOGIC
+        return []
+        // fatalError()
     }
 }

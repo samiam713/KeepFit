@@ -10,11 +10,11 @@ import SwiftUI
 let keepFitAppController = KeepFitAppController()
 
 class KeepFitAppController: ObservableObject {
-    enum CurrentView: Int {case entry = 0, registering, editing, mainView}
+    enum CurrentView: Int {case entry = 0, registering, mainView}
     
-    @Published var currentView = CurrentView.entry
+    @Published var currentView = CurrentView.mainView
     
-    enum CurrentTab: String {case Profile, Explore, Exercise, Search, Livestream}
+    enum CurrentTab: String {case Profile, Explore, Exercise, Search, Categories}
     
     @Published var currentTab = CurrentTab.Exercise
     

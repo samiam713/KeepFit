@@ -36,12 +36,11 @@ struct MainView: View {
                         Label("Search", systemImage: "magnifyingglass")
                     }
                     .tag(KeepFitAppController.CurrentTab.Search)
-                
-                Text("e")
+                CategoriesView()
                     .tabItem {
                         Label("Categories", systemImage: "square.grid.2x2.fill")
                     }
-                    .tag(KeepFitAppController.CurrentTab.Livestream)
+                    .tag(KeepFitAppController.CurrentTab.Categories)
             }
             .navigationBarTitle(controller.getTabName())
             .navigationBarItems(trailing:

@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 extension UIImagePickerController.SourceType: Identifiable {
     public var id: Int {self.rawValue}
@@ -33,4 +34,19 @@ extension Date {
     func secondString() -> String {
         return Self.hourFormatter.string(from: self)
     }
+}
+
+extension View {
+    func centered() -> some View {
+        return HStack {
+            Spacer()
+            self
+            Spacer()
+        }
+    }
+}
+
+extension Color {
+    static let contrast = Color("Contrast")
+    static let noncontrast = Color("NonContrast")
 }

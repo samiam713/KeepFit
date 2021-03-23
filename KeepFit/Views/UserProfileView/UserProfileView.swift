@@ -16,10 +16,10 @@ struct UserProfileView: View {
     }
     
     var body: some View {
-//        NavigationView {
+        NavigationView {
             VStack {
-                KeepFitLogoView()
                 if !user.userRegistered {
+                KeepFitLogoView()
                 Text("Register User")
                     .font(.title2)
                     .italic()
@@ -81,17 +81,21 @@ struct UserProfileView: View {
                         } else {
                             Button("Complete User Update", action: user.attemptToUpdate)
                         }
+                        if !user.userRegistered {
+                            Button("Cancel User Registration", action: {keepFitAppController.currentView = .entry})
+                                .foregroundColor(.red)
+                        }
                     }
                 }
             }
-            // .navigationBarHidden(true)
+              .navigationBarHidden(true)
             .sheet(item: $user.changingSourceType) {_ in
                 ProfilePictureView(user: user)
             }
             .alert(isPresented: $user.validationError, content: {
                 Alert(title: Text(user.regUpdErrorString()), message: Text("Edit Form and Resubmit"), dismissButton: .cancel())
             })
-        // }
+         }
         .navigationBarTitle(user.userRegistered ? "Edit User" : "Register User")
     }
 }

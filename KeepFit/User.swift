@@ -140,6 +140,8 @@ class User: NSObject, ObservableObject, Codable {
         sessionIDs = try container.decode([String].self, forKey: .sessionIDs)
         likedWorkoutIDs = try container.decode([String].self, forKey: .likedWorkoutIDs)
         publishedWorkoutIDs = try container.decode([String].self, forKey: .publishedWorkoutIDs)
+        
+        self.userRegistered = true
     }
     
     func encode(to encoder: Encoder) throws {
@@ -164,7 +166,7 @@ class User: NSObject, ObservableObject, Codable {
     }
 }
 
-class UserPreview: Codable, Identifiable {
+class UserPreview: Decodable, Identifiable {
     init() {
         id = "x"
         username = "x"
@@ -205,13 +207,29 @@ class UserPreview: Codable, Identifiable {
     func likedWorkouts() -> [Workout] {likedWorkoutIDs.map(Workout.getWorkout(id:))}
     func publishedWorkouts() -> [Workout] {likedWorkoutIDs.map(Workout.getWorkout(id:))}
     
-    // DECODABLE
-    required init(from decoder: Decoder) throws {
-        fatalError()
+    enum Key: String, CodingKey {
+        case id, username
+        case shortBiography
+        case profilePicture
+        case sessionIDs, likedWorkoutIDs, publishedWorkoutIDs
     }
     
-    // ENCODABLE
-    func encode(to encoder: Encoder) throws {
-        fatalError()
+    // DECODABLE
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: Key.self)
+        
+        id = try container.decode(String.self, forKey: .id)
+        username = try container.decode(String.self, forKey: .username)
+        
+        shortBiography = try container.decode(String.self, forKey: .shortBiography)
+        
+        let profilePictureString = try container.decode(String.self, forKey: .profilePicture)
+        let profilePictureData = Data(base64Encoded: profilePictureString)!
+        profilePicture = UIImage(data: profilePictureData)!
+        
+        sessionIDs = try container.decode([String].self, forKey: .sessionIDs)
+        likedWorkoutIDs = try container.decode([String].self, forKey: .likedWorkoutIDs)
+        publishedWorkoutIDs = try container.decode([String].self, forKey: .publishedWorkoutIDs)
     }
+    
 }

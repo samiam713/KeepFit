@@ -9,14 +9,52 @@ import Foundation
 
 extension HTTPRequester {
     static func getUserPreview(id: String) -> UserPreview {
-        fatalError()
+
+        
+        let completionGroup = DispatchGroup()
+        completionGroup.enter()
+        
+        var userPreviewResult: UserPreview? = nil
+        
+        //Create the request
+        var request = URLRequest(url: getURL(path: "getUserPreview/"))
+        print(request.url!.absoluteString)
+        
+        // Construct the request
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try! encoder.encode(id)
+        request.timeoutInterval = 10
+        
+        //Create a URL Session
+        
+        let dataTask = URLSession.shared.dataTask(with: request) {(data, response, error) in
+            if let error = error {
+                fatalError(error.localizedDescription)
+            }
+            
+            //ensure the response status is 200 OK and that there is data
+            guard let response = response as? HTTPURLResponse, (200..<300).contains(response.statusCode), let data = data else {
+                fatalError("Not a valid response")
+            }
+                        
+            guard let userPreview = try? decoder.decode(UserPreview.self, from: data) else {
+                fatalError("NOT A VALID USER JSON")
+            }
+            
+            userPreviewResult = userPreview
+            completionGroup.leave()
+        }
+        
+        dataTask.resume()
+        
+        completionGroup.wait()
+        return userPreviewResult!
     }
     
     // returns true iff registered user
     // returns false iff username in use
     static func registerUser(user: User) -> Bool {
-        
-        return true
         
         let completionGroup = DispatchGroup()
         completionGroup.enter()
@@ -53,6 +91,7 @@ extension HTTPRequester {
             }
             
            registered = _registered
+            completionGroup.leave()
         }
         
         dataTask.resume()
@@ -63,13 +102,11 @@ extension HTTPRequester {
     
     static func updateUser(user: User) {
         
-        return
-        
         let completionGroup = DispatchGroup()
         completionGroup.enter()
         
         //Create the request
-        var request = URLRequest(url: getURL(path: "/register"))
+        var request = URLRequest(url: getURL(path: "update/"))
         print(request.url!.absoluteString)
         
         // Construct the request
@@ -90,6 +127,7 @@ extension HTTPRequester {
                 fatalError("Not a valid response")
             }
   
+            completionGroup.leave()
         }
         
         dataTask.resume()
@@ -104,7 +142,9 @@ extension HTTPRequester {
     enum LoginResult {case success(User), badPassword, badUsername}
     static func attemptLogin(username: String, password: String) -> LoginResult {
         
-        return .success(User())
+        let user = User()
+        user.userRegistered = true
+        return .success(user)
         
         let completionGroup = DispatchGroup()
         completionGroup.enter()
@@ -112,7 +152,7 @@ extension HTTPRequester {
         var loginResult: LoginResult? = nil
         
         //Create the request
-        var request = URLRequest(url: getURL(path: "/login"))
+        var request = URLRequest(url: getURL(path: "login/"))
         print(request.url!.absoluteString)
         
         // Construct the request
@@ -148,6 +188,7 @@ extension HTTPRequester {
             }
             
             loginResult = LoginResult.success(user)
+            completionGroup.leave()
         }
         
         dataTask.resume()
@@ -156,9 +197,44 @@ extension HTTPRequester {
         return loginResult!
     }
     
+    struct FollowUser: Encodable {
+        let followerID: String
+        let followingID: String
+    }
     static func followUser(otherID: String) {
         let myID = User.currentUser.id
-        // TODO: SERVER LOGIC
+        
+        let completionGroup = DispatchGroup()
+        completionGroup.enter()
+        
+        //Create the request
+        var request = URLRequest(url: getURL(path: "follow/"))
+        print(request.url!.absoluteString)
+        
+        // Construct the request
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try! encoder.encode(FollowUser(followerID: myID, followingID: otherID))
+        request.timeoutInterval = 10
+        
+        //Create a URL Session
+        
+        let dataTask = URLSession.shared.dataTask(with: request) {(data, response, error) in
+            if let error = error {
+                fatalError(error.localizedDescription)
+            }
+            
+            //ensure the response status is 200 OK and that there is data
+            guard let response = response as? HTTPURLResponse, (200..<300).contains(response.statusCode), let _ = data else {
+                fatalError("Not a valid response")
+            }
+            
+            completionGroup.leave()
+        }
+        
+        dataTask.resume()
+        
+        completionGroup.wait()
     }
     
 }

@@ -24,6 +24,10 @@ extension HTTPRequester {
         fatalError()
     }
     
+    static func unlikeWorkout(id: String) {
+        let myID = User.currentUser.id
+    }
+    
     static func getWorkoutSession(id: String) -> WorkoutSession {
         // TODO: SERVER LOGIC
         fatalError()
