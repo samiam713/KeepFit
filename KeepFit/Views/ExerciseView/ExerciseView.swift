@@ -34,6 +34,7 @@ struct ExerciseView: View {
                 {
                     Section(header: Text("Latest Videos and Livestreams") .fontWeight(.bold) .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/) .multilineTextAlignment(.center))
                     {
+                        
                         VideoPlayer(player: AVPlayer(url:  URL(string: "https://bit.ly/swswift")!))
                             
                             {

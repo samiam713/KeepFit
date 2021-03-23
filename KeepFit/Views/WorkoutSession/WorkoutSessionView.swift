@@ -11,35 +11,48 @@ import AVKit
 struct WorkoutSessionView: View {
     
     @ObservedObject var workout: Workout
-    @ObservedObject var workoutSession: WorkoutSession
-    
-    init(workoutID: String) {
-        let workout = Workout.getWorkout(id: workoutID)
-        self.workout = workout
-        self.workoutSession = WorkoutSession(workoutID: workout.id)
-    }
     
     var body: some View {
-        VStack {
-            Text("Started workout at \(workoutSession.startTime.secondString())")
-            VideoPlayer(player: AVPlayer(url: workout.videoURL()))
-            Text(workout.title)
-                .font(.title2)
-            Text(workout.category.rawValue)
-                .italic()
-            Text(workout.caption)
-            Divider()
-            
-            // one day... make this "sexy"
-            Button("Publish Workout", action: workoutSession.completeWorkout)
-                .disabled(workoutSession.workoutCompleted())
-        }
-        .navigationTitle("Workout Session")
+        
+            Form
+            {
+                VStack
+                {
+                    //Section(header: Text(workout.title) .fontWeight(.bold) .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/) .multilineTextAlignment(.center))
+                    Section(header: Text("20 min Full Body STRETCH/YOGA for STRESS & ANXIETY Relief [LIVE]")  .multilineTextAlignment(.center))
+                    {
+                        VideoPlayer(player: AVPlayer(url:  URL(string: "https://bit.ly/swswift")!))
+                            
+                            {
+                            }
+                            .frame(height: 400)
+
+                        VStack
+                        {
+                            //Should link to user's profile
+                            Text("YogaUser1")
+                                .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
+                            LikeButton().offset(x: 140, y: -30)
+                        }
+                    
+                    }
+                }
+                Section {
+                    Button(action: workout.attemptToPublishWorkout)
+                    {
+                        HStack{
+                            Spacer()
+                            Text("Completed Workout!")
+                            Spacer()
+                        }
+                    }
+                }
+            }
     }
 }
 
-//struct WorkoutSessionView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        WorkoutSessionView()
-//    }
-//}
+struct WorkoutSessionView_Previews: PreviewProvider {
+    static var previews: some View {
+        WorkoutSessionView(workout: Workout())
+    }
+}
