@@ -26,6 +26,7 @@
 		D3892AA22606C7AD0006CA38 /* WorkoutHTTPRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3892AA12606C7AD0006CA38 /* WorkoutHTTPRequester.swift */; };
 		D3892AA72606C7C10006CA38 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3892AA62606C7C10006CA38 /* Workout.swift */; };
 		D3959E052606D76A00F9F847 /* SearchHTTPRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3959E042606D76A00F9F847 /* SearchHTTPRequester.swift */; };
+		D3AFD07E260E3EE600E33443 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AFD07D260E3EE600E33443 /* ChangePasswordView.swift */; };
 		D3E5EB6F2605C207002DAD24 /* ProfilePictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E5EB6E2605C207002DAD24 /* ProfilePictureView.swift */; };
 		D3E5EB742605CF85002DAD24 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E5EB732605CF85002DAD24 /* Utilities.swift */; };
 		D3E5EB7F260675C0002DAD24 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E5EB7E260675C0002DAD24 /* MainView.swift */; };
@@ -81,6 +82,7 @@
 		D3892AA12606C7AD0006CA38 /* WorkoutHTTPRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutHTTPRequester.swift; sourceTree = "<group>"; };
 		D3892AA62606C7C10006CA38 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		D3959E042606D76A00F9F847 /* SearchHTTPRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHTTPRequester.swift; sourceTree = "<group>"; };
+		D3AFD07D260E3EE600E33443 /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 		D3E5EB6E2605C207002DAD24 /* ProfilePictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePictureView.swift; sourceTree = "<group>"; };
 		D3E5EB732605CF85002DAD24 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		D3E5EB7E260675C0002DAD24 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 			children = (
 				D30EFA632605A70600E7B32A /* UserProfileView.swift */,
 				D3E5EB6E2605C207002DAD24 /* ProfilePictureView.swift */,
+				D3AFD07D260E3EE600E33443 /* ChangePasswordView.swift */,
 			);
 			path = UserProfileView;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				D3FA246326083A3300714157 /* ExploreView.swift in Sources */,
 				D30EFA6A2605A71D00E7B32A /* User.swift in Sources */,
 				D30EFA382605A6C500E7B32A /* EntryView.swift in Sources */,
+				D3AFD07E260E3EE600E33443 /* ChangePasswordView.swift in Sources */,
 				D30EFA642605A70600E7B32A /* UserProfileView.swift in Sources */,
 				D3FA247E26083C1D00714157 /* UserPreviewView.swift in Sources */,
 				D3E5EB742605CF85002DAD24 /* Utilities.swift in Sources */,

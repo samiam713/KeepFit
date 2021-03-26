@@ -38,6 +38,8 @@ struct UserProfileView: View {
                                     .foregroundColor(.red)
                                     .italic()
                             }
+                        } else {
+                            NavigationLink("Change Password", destination: ChangePasswordView())
                         }
                     }
                     

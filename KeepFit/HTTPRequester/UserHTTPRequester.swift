@@ -51,6 +51,54 @@ extension HTTPRequester {
         return userPreviewResult!
     }
     
+    struct ResetPassword: Codable {
+        let id: String
+        let oldPassword: String
+        let newPassword: String
+    }
+    static func resetPassword(oldPassword: String, newPassword: String) -> Bool {
+        let completionGroup = DispatchGroup()
+        completionGroup.enter()
+        
+        var succeeded = false
+        
+        //Create the request
+        var request = URLRequest(url: getURL(path: "resetPassword/"))
+//        print(request.url!.absoluteString)
+        
+        // Construct the request
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        let resetPassword = ResetPassword(id: User.currentUser.id, oldPassword: oldPassword, newPassword: newPassword)
+        request.httpBody = try! encoder.encode(resetPassword)
+        request.timeoutInterval = 10
+        
+        //Create a URL Session
+        
+        let dataTask = URLSession.shared.dataTask(with: request) {(data, response, error) in
+            if let error = error {
+                fatalError(error.localizedDescription)
+            }
+            
+            //ensure the response status is 200 OK and that there is data
+            guard let response = response as? HTTPURLResponse, (200..<300).contains(response.statusCode), let data = data else {
+                fatalError("Not a valid response")
+            }
+                        
+            guard let _succeeded = try? decoder.decode(Bool.self, from: data) else {
+                fatalError("NOT A VALID USER JSON")
+            }
+            
+            succeeded = _succeeded
+            completionGroup.leave()
+        }
+        
+        dataTask.resume()
+        
+        completionGroup.wait()
+        return succeeded
+    }
+    
     // returns true iff registered user
     // returns false iff username in use
     static func registerUser(user: User) -> Bool {
