@@ -27,6 +27,8 @@ class User: NSObject, ObservableObject, Codable {
     
     @Published var sex = Sex.Unspecified
     
+    @Published var birthdate = Date()
+    
     @Published var inches = 68
     @Published var pounds = 160
     
