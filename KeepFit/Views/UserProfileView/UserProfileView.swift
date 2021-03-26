@@ -16,16 +16,9 @@ struct UserProfileView: View {
     }
     
     var body: some View {
-        NavigationView {
+        
             VStack {
-                if !user.userRegistered {
-                KeepFitLogoView()
-                Text("Register User")
-                    .font(.title2)
-                    .italic()
-                    .foregroundColor(.gray)
-                }
-            
+                
                 
                 Form {
                     
@@ -38,16 +31,19 @@ struct UserProfileView: View {
                                 .foregroundColor(.red)
                                 .italic()
                         }
-                        SecureField("Password", text: $user.password)
-                        if user.passwordError != "" {
-                            Text(user.passwordError)
-                                .foregroundColor(.red)
-                                .italic()
+                        if !user.userRegistered {
+                            SecureField("Password", text: $user.password)
+                            if user.passwordError != "" {
+                                Text(user.passwordError)
+                                    .foregroundColor(.red)
+                                    .italic()
+                            }
                         }
                     }
                     
                     Section(header: Text("About Me")) {
                         TextEditor(text: $user.shortBiography)
+                        Button("Complete Biography", action: hideKeyboard)
                     }
                     
                     Section(header: Text("Fitness Data")) {
@@ -77,6 +73,11 @@ struct UserProfileView: View {
                     
                     Section {
                         if !user.userRegistered {
+                            KeepFitLogoView()
+                            Text("Register User")
+                                .font(.title2)
+                                .italic()
+                                .foregroundColor(.gray)
                             Button("Complete User Registration", action: user.attemptToRegister)
                         } else {
                             Button("Complete User Update", action: user.attemptToUpdate)
@@ -87,15 +88,14 @@ struct UserProfileView: View {
                         }
                     }
                 }
-            }
-              .navigationBarHidden(true)
             .sheet(item: $user.changingSourceType) {_ in
                 ProfilePictureView(user: user)
             }
             .alert(isPresented: $user.validationError, content: {
                 Alert(title: Text(user.regUpdErrorString()), message: Text("Edit Form and Resubmit"), dismissButton: .cancel())
             })
-         }
+        }
+            //.navigationBarHidden(!user.userRegistered)
         .navigationBarTitle(user.userRegistered ? "Edit User" : "Register User")
     }
 }

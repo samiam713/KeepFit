@@ -50,3 +50,38 @@ extension Color {
     static let contrast = Color("Contrast")
     static let noncontrast = Color("NonContrast")
 }
+
+struct LazyView<T: View>: View {
+    @State var view: T?
+    
+    let closure: () -> T
+    
+    init(_ closure: @escaping () -> T) {
+        self.closure = closure
+    }
+    
+    var body: some View {
+        Group {
+            if view != nil {
+                view
+            } else {
+                Text("Loading...")
+            }
+        }
+        .onAppear() {
+            view = closure()
+        }
+    }
+}
+
+#if canImport(UIKit)
+extension View {
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}
+#endif
+
+extension Double {
+    func twoDecimalPlaces() -> String {String(format: "%.2f", self)}
+}

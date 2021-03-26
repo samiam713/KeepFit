@@ -41,7 +41,7 @@ class User: NSObject, ObservableObject, Codable {
     func following() -> [UserPreview] {followingIDs.map(UserPreview.getUserPreview(id:))}
     func sessions() -> [WorkoutSession] {sessionIDs.map(WorkoutSession.getWorkoutSession(id:))}
     func likedWorkouts() -> [Workout] {likedWorkoutIDs.map(Workout.getWorkout(id:))}
-    func publishedWorkouts() -> [Workout] {likedWorkoutIDs.map(Workout.getWorkout(id:))}
+    func publishedWorkouts() -> [Workout] {publishedWorkoutIDs.map(Workout.getWorkout(id:))}
     
     @Published var usernameError = ""
     @Published var passwordError = ""
@@ -60,22 +60,26 @@ class User: NSObject, ObservableObject, Codable {
     func heightDescription() -> String {"Height: \(inches/12)' \(inches%12)\""}
     func weightDescription() -> String {"Weight: \(pounds) lbs"}
     
+    func toUserPreview() -> UserPreview {
+        UserPreview(id: id, username: username, shortBiography: shortBiography, profilePicture: profilePicture, sessionIDs: sessionIDs, likedWorkoutIDs: likedWorkoutIDs, publishedWorkoutIDs: publishedWorkoutIDs)
+    }
+    
     // returns true iff valid username/password
     // if not valid, adds helpful error messages
     func validateData() -> Bool {
         var successful = true
         
         // update username error
-        if !(5...15).contains(username.count) {
-            usernameError = "Username must be 5-15 characters long"
+        if !(4...16).contains(username.count) {
+            usernameError = "Username must be 4-16 characters long"
             successful = false
         } else {
             usernameError = ""
         }
         
         if !userRegistered || password != "" {
-            if !(5...15).contains(password.count) {
-                passwordError = "Password must be 5-15 characters long"
+            if !(4...16).contains(password.count) {
+                passwordError = "Password must be 4-16 characters long"
                 successful = false
             }
             
@@ -120,28 +124,38 @@ class User: NSObject, ObservableObject, Codable {
     }
     
     required init(from decoder: Decoder) throws {
+        
+        super.init()
+        print("Got here!1")
         let container = try decoder.container(keyedBy: Key.self)
         
         id = try container.decode(String.self, forKey: .id)
         username = try container.decode(String.self, forKey: .username)
-        password = try container.decode(String.self, forKey: .password)
+        // password = try container.decode(String.self, forKey: .password)
         
         shortBiography = try container.decode(String.self, forKey: .shortBiography)
         let sexString = try container.decode(String.self, forKey: .sex)
         sex = Sex(rawValue: sexString)!
         inches = try container.decode(Int.self, forKey: .inches)
-        pounds = try container.decode(Int.self, forKey: .pounds)
+        pounds = Int(try container.decode(Double.self, forKey: .pounds))
         
         let profilePictureString = try container.decode(String.self, forKey: .profilePicture)
         let profilePictureData = Data(base64Encoded: profilePictureString)!
         profilePicture = UIImage(data: profilePictureData)!
         
         followingIDs = try container.decode([String].self, forKey: .followingIDs)
+        print(followingIDs)
         sessionIDs = try container.decode([String].self, forKey: .sessionIDs)
+        print(sessionIDs)
         likedWorkoutIDs = try container.decode([String].self, forKey: .likedWorkoutIDs)
+        print(likedWorkoutIDs)
         publishedWorkoutIDs = try container.decode([String].self, forKey: .publishedWorkoutIDs)
+        print(publishedWorkoutIDs)
         
+        // not from JSON
         self.userRegistered = true
+        
+        
     }
     
     func encode(to encoder: Encoder) throws {
@@ -167,20 +181,32 @@ class User: NSObject, ObservableObject, Codable {
 }
 
 class UserPreview: Decodable, Identifiable {
-    init() {
-        id = "x"
-        username = "x"
-        shortBiography = "x"
-        profilePicture = UIImage(named: "LarryWheels")!
-        sessionIDs = []
-        likedWorkoutIDs = []
-        publishedWorkoutIDs = []
+    init(id: String, username: String, shortBiography: String, profilePicture: UIImage, sessionIDs: [String], likedWorkoutIDs: [String], publishedWorkoutIDs: [String]) {
+        self.id = id
+        self.username = username
+        self.shortBiography = shortBiography
+        self.profilePicture = profilePicture
+        self.sessionIDs = sessionIDs
+        self.likedWorkoutIDs = likedWorkoutIDs
+        self.publishedWorkoutIDs = publishedWorkoutIDs
     }
+    
+//    init() {
+//        id = "x"
+//        username = "x"
+//        shortBiography = "x"
+//        profilePicture = UIImage(named: "LarryWheels")!
+//        sessionIDs = []
+//        likedWorkoutIDs = []
+//        publishedWorkoutIDs = []
+//    }
     static var userPreviewCache = [String:UserPreview]()
     
     // used for efficiency
     // we never download the same UserPreview twice
     static func getUserPreview(id: String) -> UserPreview {
+        
+        if id == User.currentUser.id {return User.currentUser.toUserPreview()}
         
         if let userPreview = Self.userPreviewCache[id] {
             return userPreview
@@ -207,6 +233,17 @@ class UserPreview: Decodable, Identifiable {
     func likedWorkouts() -> [Workout] {likedWorkoutIDs.map(Workout.getWorkout(id:))}
     func publishedWorkouts() -> [Workout] {likedWorkoutIDs.map(Workout.getWorkout(id:))}
     
+    func follow() {
+        HTTPRequester.followUser(otherID: id)
+        UserPreview.userPreviewCache[id] = self
+        User.currentUser.followingIDs.append(id)
+    }
+    
+    func unfollow() {
+        HTTPRequester.unfollowUser(otherID: id)
+        User.currentUser.followingIDs.removeAll(where: {$0 == id})
+    }
+    
     enum Key: String, CodingKey {
         case id, username
         case shortBiography
@@ -220,7 +257,6 @@ class UserPreview: Decodable, Identifiable {
         
         id = try container.decode(String.self, forKey: .id)
         username = try container.decode(String.self, forKey: .username)
-        
         shortBiography = try container.decode(String.self, forKey: .shortBiography)
         
         let profilePictureString = try container.decode(String.self, forKey: .profilePicture)

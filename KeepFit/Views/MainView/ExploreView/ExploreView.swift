@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct ExploreView: View {
-    var body: some View {
-        Text("placeholder")
+    @ObservedObject var currentUser = User.currentUser
+    
+    var body: some View
+    {
+        VStack {
+            List(currentUser.following()) {(userPreview: UserPreview) in
+                UserPreviewView.createNavigationLink(userPreview: userPreview)
+            }
+        }
     }
 }
 

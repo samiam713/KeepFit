@@ -20,7 +20,7 @@ struct CategoryView: View {
     
     var body: some View {
         List(workouts) {(workout: Workout) in
-            
+            WorkoutView.createNavigationLink(workout: workout)
         }
         .navigationTitle(category.rawValue)
     }

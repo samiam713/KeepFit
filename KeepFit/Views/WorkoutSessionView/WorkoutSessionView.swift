@@ -1,40 +1,49 @@
 //
-//  WorkoutSessionViews.swift
+//  WorkoutSessionView.swift
 //  KeepFit
 //
-//  Created by Samuel Donovan on 3/21/21.
+//  Created by Samuel Donovan on 3/23/21.
 //
 
 import SwiftUI
-import AVKit
 
 struct WorkoutSessionView: View {
     
-    @ObservedObject var workout: Workout
-    @ObservedObject var workoutSession: WorkoutSession
-    
-    init(workoutID: String) {
-        let workout = Workout.getWorkout(id: workoutID)
-        self.workout = workout
-        self.workoutSession = WorkoutSession(workoutID: workout.id)
+    static func createNavigationLink(session: WorkoutSession) -> some View {
+        return NavigationLink(destination: LazyView({WorkoutSessionView(session: session)})) {
+            HStack {
+                Text(session.workout().title)
+                    .italic()
+                Spacer()
+                Text("completed by \(session.user().username)")
+            }
+            .foregroundColor(.noncontrast)
+            .padding()
+            .background(Capsule().foregroundColor(.contrast))
+            .padding()
+        }
     }
     
+    let session: WorkoutSession
+    
     var body: some View {
-        VStack {
-            Text("Started workout at \(workoutSession.startTime.secondString())")
-            VideoPlayer(player: AVPlayer(url: workout.videoURL()))
-            Text(workout.title)
-                .font(.title2)
-            Text(workout.category.rawValue)
-                .italic()
-            Text(workout.caption)
-            Divider()
-            
-            // one day... make this "sexy"
-            Button("Publish Workout", action: workoutSession.completeWorkout)
-                .disabled(workoutSession.workoutCompleted())
+        Form {
+            Section {
+                Image(uiImage: session.user().profilePicture)
+                    .resizable()
+                    .scaledToFit()
+                Text("\(session.user().username) is on fire!")
+            }
+            Section {
+                Text("Completed on \(session.startTime.dateString())")
+                Text("Took \(session.endTime!.timeIntervalSince(session.startTime).twoDecimalPlaces())s")
+            }
+            Section {
+                KeepFitLogoView()
+                Text("\(session.caloriesBurned) calories burned")
+            }
         }
-        .navigationTitle("Workout Session")
+        .navigationTitle("\(session.user().username)'s Workout")
     }
 }
 

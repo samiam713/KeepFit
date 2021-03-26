@@ -10,7 +10,6 @@ import Foundation
 extension HTTPRequester {
     static func getUserPreview(id: String) -> UserPreview {
 
-        
         let completionGroup = DispatchGroup()
         completionGroup.enter()
         
@@ -142,9 +141,10 @@ extension HTTPRequester {
     enum LoginResult {case success(User), badPassword, badUsername}
     static func attemptLogin(username: String, password: String) -> LoginResult {
         
-        let user = User()
-        user.userRegistered = true
-        return .success(user)
+//        let user = User()
+//        user.userRegistered = true
+//        user.username = username
+//        return .success(user)
         
         let completionGroup = DispatchGroup()
         completionGroup.enter()
@@ -173,20 +173,23 @@ extension HTTPRequester {
                 fatalError("Not a valid response")
             }
             
-            guard data != "BADPASSWORD".data(using: .utf8) else {
+            guard data != "badpassword".data(using: .utf8) else {
                 loginResult = LoginResult.badPassword
+                completionGroup.leave()
                 return
             }
             
-            guard data != "BADUSERNAME".data(using: .utf8) else {
+            guard data != "badusername".data(using: .utf8) else {
                 loginResult = LoginResult.badUsername
+                completionGroup.leave()
                 return
             }
             
             guard let user = try? decoder.decode(User.self, from: data) else {
+                // print(String(data: data, encoding: .utf8)!)
                 fatalError("NOT A VALID USER JSON")
             }
-            
+            print("do i make it here")
             loginResult = LoginResult.success(user)
             completionGroup.leave()
         }
@@ -209,6 +212,46 @@ extension HTTPRequester {
         
         //Create the request
         var request = URLRequest(url: getURL(path: "follow/"))
+        print(request.url!.absoluteString)
+        
+        // Construct the request
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try! encoder.encode(FollowUser(followerID: myID, followingID: otherID))
+        request.timeoutInterval = 10
+        
+        //Create a URL Session
+        
+        let dataTask = URLSession.shared.dataTask(with: request) {(data, response, error) in
+            if let error = error {
+                fatalError(error.localizedDescription)
+            }
+            
+            //ensure the response status is 200 OK and that there is data
+            guard let response = response as? HTTPURLResponse, (200..<300).contains(response.statusCode), let _ = data else {
+                fatalError("Not a valid response")
+            }
+            
+            completionGroup.leave()
+        }
+        
+        dataTask.resume()
+        
+        completionGroup.wait()
+    }
+    
+    struct UnfollowUser: Encodable {
+        let followerID: String
+        let followingID: String
+    }
+    static func unfollowUser(otherID: String) {
+        let myID = User.currentUser.id
+        
+        let completionGroup = DispatchGroup()
+        completionGroup.enter()
+        
+        //Create the request
+        var request = URLRequest(url: getURL(path: "unfollow/"))
         print(request.url!.absoluteString)
         
         // Construct the request

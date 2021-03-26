@@ -61,9 +61,12 @@ struct EntryView: View {
                     }
                     .frame(width: proxy.size.width*0.6, alignment: .center)
                     Spacer()
-                    Button(action: entryViewController.startRegisteringNewUser) {
+                    NavigationLink(destination: UserProfileView(user: User.currentUser)) {
                         Label("Register New User", systemImage: "person.fill.badge.plus")
                     }
+//                    Button(action: entryViewController.startRegisteringNewUser) {
+//                        Label("Register New User", systemImage: "person.fill.badge.plus")
+//                    }
                     Spacer()
                 }
                 .frame(width: proxy.size.width)

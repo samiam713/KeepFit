@@ -14,18 +14,18 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             TabView(selection: $controller.currentTab) {
-               Text("a")
+               ProfileView()
                     .tabItem {
                         Label("Profile", systemImage: "person.crop.circle")
                     }
                     .tag(KeepFitAppController.CurrentTab.Profile)
-                Text("b")
+                ExploreView()
                     .tabItem {
                         Label("Explore", systemImage: "network")
                     }
                     .tag(KeepFitAppController.CurrentTab.Explore)
                 // EXERCISE WILL INCLUDE LIVESTREAM
-                Text("c")
+                ExerciseView()
                     .tabItem {
                         Label("Exercise", systemImage: "heart.circle")
                     }

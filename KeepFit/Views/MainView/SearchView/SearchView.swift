@@ -23,6 +23,7 @@ struct SearchView: View {
         VStack {
             HStack {
                 TextField("Keyword", text: $currentSearch)
+                    .disableAutocorrection(true)
                     .foregroundColor(.gray)
                     .padding()
                     .background(RoundedRectangle(cornerRadius: 5).stroke())
@@ -41,24 +42,21 @@ struct SearchView: View {
             Text("Results")
                 .italic()
             Divider()
-            CategoriesView()
-//            ScrollView {
-//                VStack {
-//                    Text("Users")
-//                        .font(.headline)
-//                    ForEach(userResults) {(userPreview: UserPreview) in
-//                        // I should be a nav link
-//                        Text(userPreview.username)
-//                    }
-//                    Divider()
-//                    Text("Workouts")
-//                        .font(.headline)
-//                    ForEach(workoutResults) {(workout: Workout) in
-//                        // I should also be a nav link
-//                        Text(workout.title)
-//                    }
-//                }
-//            }
+            ScrollView {
+                VStack {
+                    Text("Users")
+                        .font(.headline)
+                    ForEach(userResults) {(userPreview: UserPreview) in
+                        UserPreviewView.createNavigationLink(userPreview: userPreview)
+                    }
+                    Divider()
+                    Text("Workouts")
+                        .font(.headline)
+                    ForEach(workoutResults) {(workout: Workout) in
+                        WorkoutView.createNavigationLink(workout: workout)
+                    }
+                }
+            }
         }
     }
 }

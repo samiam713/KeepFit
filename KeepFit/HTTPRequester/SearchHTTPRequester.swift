@@ -8,19 +8,140 @@
 import Foundation
 
 extension HTTPRequester {
+    // perhaps these should be an [String]
     static func searchWorkouts(prefix: String) -> [Workout] {
-        // TODO: SERVER LOGIC
-        fatalError()
+        let completionGroup = DispatchGroup()
+        completionGroup.enter()
+        
+        //Create the request
+        // TODO: update path
+        var request = URLRequest(url: getURL(path: "searchWorkouts/"))
+        print(request.url!.absoluteString)
+        
+        var workouts = [Workout]()
+        
+        // Construct the request
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try! encoder.encode(prefix)
+        request.timeoutInterval = 10
+        
+        //Create a URL Session
+        
+        let dataTask = URLSession.shared.dataTask(with: request) {(data, response, error) in
+            if let error = error {
+                fatalError(error.localizedDescription)
+            }
+            
+            //ensure the response status is 200 OK and that there is data
+            guard let response = response as? HTTPURLResponse, (200..<300).contains(response.statusCode), let data = data else {
+                fatalError("Not a valid response")
+            }
+            
+            guard let _workouts = try? decoder.decode([Workout].self, from: data) else {
+                fatalError("Bad JSON")
+            }
+            
+            workouts = _workouts
+            
+            completionGroup.leave()
+        }
+        
+        dataTask.resume()
+        
+        completionGroup.wait()
+        
+        return workouts
     }
     
     static func searchUsers(prefix: String) -> [UserPreview] {
-        // TODO: SERVER LOGIC
-        fatalError()
+        let completionGroup = DispatchGroup()
+        completionGroup.enter()
+        
+        //Create the request
+        // TODO: update path
+        var request = URLRequest(url: getURL(path: "searchUsers/"))
+        print(request.url!.absoluteString)
+        
+        var users = [UserPreview]()
+        
+        // Construct the request
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try! encoder.encode(prefix)
+        request.timeoutInterval = 10
+        
+        //Create a URL Session
+        
+        let dataTask = URLSession.shared.dataTask(with: request) {(data, response, error) in
+            if let error = error {
+                fatalError(error.localizedDescription)
+            }
+            
+            //ensure the response status is 200 OK and that there is data
+            guard let response = response as? HTTPURLResponse, (200..<300).contains(response.statusCode), let data = data else {
+                fatalError("Not a valid response")
+            }
+            
+            guard let _users = try? decoder.decode([UserPreview].self, from: data) else {
+                fatalError("Bad JSON")
+            }
+            
+            users = _users
+            
+            completionGroup.leave()
+        }
+        
+        dataTask.resume()
+        
+        completionGroup.wait()
+        
+        return users
     }
     
     static func getWorkoutsOfCategory(category: WorkoutCategory) -> [Workout] {
-        // TODO: SERVER LOGIC
-        return []
-        // fatalError()
+        
+        let completionGroup = DispatchGroup()
+        completionGroup.enter()
+        
+        //Create the request
+        // TODO: update path
+        var request = URLRequest(url: getURL(path: "searchCategories/"))
+        print(request.url!.absoluteString)
+        
+        var workouts = [Workout]()
+        
+        // Construct the request
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try! encoder.encode(category.rawValue)
+        request.timeoutInterval = 10
+        
+        //Create a URL Session
+        
+        let dataTask = URLSession.shared.dataTask(with: request) {(data, response, error) in
+            if let error = error {
+                fatalError(error.localizedDescription)
+            }
+            
+            //ensure the response status is 200 OK and that there is data
+            guard let response = response as? HTTPURLResponse, (200..<300).contains(response.statusCode), let data = data else {
+                fatalError("Not a valid response")
+            }
+            
+            guard let _workouts = try? decoder.decode([Workout].self, from: data) else {
+                fatalError("Bad JSON")
+            }
+            
+            workouts = _workouts
+            
+            completionGroup.leave()
+        }
+        
+        dataTask.resume()
+        
+        completionGroup.wait()
+        
+        return workouts
     }
 }

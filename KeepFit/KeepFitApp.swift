@@ -10,9 +10,9 @@ import SwiftUI
 let keepFitAppController = KeepFitAppController()
 
 class KeepFitAppController: ObservableObject {
-    enum CurrentView: Int {case entry = 0, registering, mainView}
+    enum CurrentView: Int {case entry = 0, registering, mainView, creatingWorkout}
     
-    @Published var currentView = CurrentView.mainView
+    @Published var currentView = CurrentView.entry
     
     enum CurrentTab: String {case Profile, Explore, Exercise, Search, Categories}
     
@@ -46,6 +46,8 @@ struct KeepFitApp: App {
                 UserProfileView(user: User.currentUser)
             } else if controller.currentView == .mainView {
                  MainView()
+            } else if controller.currentView == .creatingWorkout {
+                CreateWorkoutView()
             }
             
         }

@@ -11,33 +11,64 @@ import AVKit
 struct WorkoutView: View {
     
     static func createNavigationLink(workout: Workout) -> some View {
-        return NavigationLink(destination: WorkoutView(workout: workout)) {
+        return NavigationLink(destination: LazyView({WorkoutView(workout: workout)})) {
             HStack {
                 Text(workout.title)
                     .italic()
                 Spacer()
-                Text("Creator: \(workout.creator().username)")
+                Text("by \(workout.creator().username)")
             }
             .foregroundColor(.noncontrast)
             .padding()
-            .background(RoundedRectangle(cornerRadius: 5.0).foregroundColor(.contrast))
+            .background(Capsule().foregroundColor(.contrast))
+            .padding()
         }
     }
     
-    let workout: Workout
+    @ObservedObject var workout: Workout
     
     var body: some View {
-        VStack {
-            VideoPlayer(player: AVPlayer(url: workout.videoURL()))
-            
-            // some sort of button to like/unlike
-        }
+//         ScrollView {
+            VStack {
+                VideoPlayer(player: AVPlayer(url: workout.videoURL()))
+                Form {
+                    
+                    Section(header: Text("Workout Info")) {
+                        HStack{
+                            Text(workout.title)
+                            Text("(\(workout.category.rawValue))")
+                                .italic()
+                        }
+                        .centered()
+                        Text(workout.caption)
+                    }
+                    
+                    Section(header: Text("Creation Info")) {
+                        Text("Creator: \(workout.creator().username)")
+                        Text("Created: \(workout.createdDate.dateString())")
+                    }
+                    
+                    Section {
+                        CreateWorkoutSessionView.createNavigationLink(workout: workout)
+                        if workout.videoLiked {
+                            Button(action: workout.unlikeVideo) {
+                                Label("Unlike Video", systemImage: "hand.thumbsup.fill")
+                            }
+                        } else {
+                            Button(action: workout.likeVideo) {
+                                Label("Like Video", systemImage: "hand.thumbsup")
+                            }
+                        }
+                    }
+                }
+            }
+//        }
         .navigationTitle(workout.title)
     }
 }
 
-//struct WorkoutView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        WorkoutView()
-//    }
-//}
+struct WorkoutView_Previews: PreviewProvider {
+    static var previews: some View {
+        WorkoutView(workout: Workout.getWorkout(id: "C0DC7CD7-4F67-4F46-B05A-F80280238F7D"))
+    }
+}

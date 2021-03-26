@@ -54,6 +54,8 @@ class Workout: NSObject, Codable, ObservableObject, Identifiable {
     
     @Published var videoLiked = false
     
+    @Published var errorMessage: String? = nil
+    
     func likeVideo() {
         HTTPRequester.likeWorkout(id: id)
         User.currentUser.likedWorkoutIDs.append(self.id)
@@ -67,12 +69,17 @@ class Workout: NSObject, Codable, ObservableObject, Identifiable {
     }
     
     func attemptToPublishWorkout() {
-        // check if URL != nil
-        // if so, set error message
-        // TODO: Make Error Message Alert in CreateWorkoutView
+        guard let creatingVideoURL = creatingVideoURL else {
+            errorMessage = "Must record a video!"
+            return
+        }
         
         // TODO: Publish workout to backend
-        // TODO:
+        HTTPRequester.publishWorkout(workout: self)
+        HTTPRequester.publishVideo(id: id, fromURL: creatingVideoURL)
+        User.currentUser.publishedWorkoutIDs.append(id)
+        Workout.workoutCache[id] = self
+        keepFitAppController.currentView = .mainView
     }
     
     
@@ -81,6 +88,7 @@ class Workout: NSObject, Codable, ObservableObject, Identifiable {
     func publishAndCacheVideo(url: URL) {
         HTTPRequester.publishVideo(id: id, fromURL: url)
         WorkoutVideoStore.addToStore(id: id, url: url)
+        User.currentUser.publishedWorkoutIDs.append(id)
     }
     
     enum Key: String, CodingKey {
@@ -146,7 +154,7 @@ class WorkoutVideoStore {
     }
 }
 
-class WorkoutSession: ObservableObject, Codable {
+class WorkoutSession: ObservableObject, Codable, Identifiable {
     
     init(workoutID: String) {
         self.workoutID = workoutID
@@ -171,24 +179,27 @@ class WorkoutSession: ObservableObject, Codable {
     
     // the workout id this WorkoutSession references
     var workoutID: String
+    func workout() -> Workout {Workout.getWorkout(id: workoutID)}
     
     // the user who completed the workout
     var userID = User.currentUser.id
+    func user() -> UserPreview {UserPreview.getUserPreview(id: userID)}
     
     @Published var startTime = Date()
-    @Published var endTime = Date()
+    @Published var endTime: Date? = nil
     
-    @Published var caloriesBurned = 0
+    @Published var caloriesBurned = 0.0
     
     func workoutCompleted() -> Bool {caloriesBurned != 0}
     
     func completeWorkout() {
         // TODO: calculate calories burned
-        caloriesBurned = 3*5*7 + Int.random(in: 0..<10)
+        caloriesBurned = 3*5*7 + Double.random(in: 0..<10)
         endTime = Date()
         
-        // TODO: Post to server
         HTTPRequester.publishWorkoutSession(session: self)
+        WorkoutSession.workoutSessionCache[self.id] = self
+        User.currentUser.sessionIDs.append(id)
     }
     
     enum Key: String, CodingKey {
@@ -206,7 +217,7 @@ class WorkoutSession: ObservableObject, Codable {
         
         startTime = Date(timeIntervalSince1970: try container.decode(Double.self, forKey: .startTime))
         endTime = Date(timeIntervalSince1970: try container.decode(Double.self, forKey: .endTime))
-        caloriesBurned = try container.decode(Int.self, forKey: .caloriesBurned)
+        caloriesBurned = try container.decode(Double.self, forKey: .caloriesBurned)
     }
     
     // ENCODABLE
@@ -218,7 +229,7 @@ class WorkoutSession: ObservableObject, Codable {
         try container.encode(userID, forKey: .userID)
         
         try container.encode(startTime.timeIntervalSince1970, forKey: .startTime)
-        try container.encode(endTime.timeIntervalSince1970, forKey: .endTime)
+        try container.encode(endTime!.timeIntervalSince1970, forKey: .endTime)
         try container.encode(caloriesBurned, forKey: .caloriesBurned)
     }
 }
