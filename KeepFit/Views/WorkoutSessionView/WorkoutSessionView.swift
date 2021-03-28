@@ -11,14 +11,14 @@ struct WorkoutSessionView: View {
     
     static func createNavigationLink(session: WorkoutSession) -> some View {
         return NavigationLink(destination: LazyView({WorkoutSessionView(session: session)})) {
-            HStack {
+            VStack {
                 Text(session.workout().title)
                     .italic()
-                Spacer()
                 Text("completed by \(session.user().username)")
             }
             .foregroundColor(.noncontrast)
             .padding()
+            .centered()
             .background(Capsule().foregroundColor(.contrast))
             .padding()
         }
@@ -36,11 +36,11 @@ struct WorkoutSessionView: View {
             }
             Section {
                 Text("Completed on \(session.startTime.dateString())")
-                Text("Took \(session.endTime!.timeIntervalSince(session.startTime).twoDecimalPlaces())s")
+                Text("Took \(session.startTime.timeIntervalSince(session.endTime!).twoDecimalPlaces())s")
             }
             Section {
                 KeepFitLogoView()
-                Text("\(session.caloriesBurned) calories burned")
+                Text("\(session.caloriesBurned.twoDecimalPlaces()) calories burned")
             }
         }
         .navigationTitle("\(session.user().username)'s Workout")

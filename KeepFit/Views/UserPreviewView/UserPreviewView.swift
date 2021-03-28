@@ -61,6 +61,7 @@ struct UserPreviewView: View {
                 VStack {
                     ForEach(userPreview.likedWorkouts()) {(workout: Workout) in
                         WorkoutView.createNavigationLink(workout: workout)
+                        Divider()
                     }
                 }
             }
@@ -69,6 +70,7 @@ struct UserPreviewView: View {
                 VStack {
                     ForEach(userPreview.publishedWorkouts()) {(workout: Workout) in
                         WorkoutView.createNavigationLink(workout: workout)
+                        Divider()
                     }
                 }
             }
@@ -77,6 +79,7 @@ struct UserPreviewView: View {
                 VStack {
                     ForEach(userPreview.sessions()) {(session: WorkoutSession) in
                         WorkoutSessionView.createNavigationLink(session: session)
+                        Divider()
                     }
                 }
             }

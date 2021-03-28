@@ -17,9 +17,14 @@ struct ExerciseView: View {
                 Button(action: {
                     keepFitAppController.currentView = .creatingWorkout
                 }) {
-                    Text("Create Workout")
-                        .font(.largeTitle)
-                        .foregroundColor(.noncontrast)
+                    HStack {
+                        Text("Create")
+                            .font(.largeTitle)
+                            .foregroundColor(.noncontrast)
+                        Text("Workout")
+                            .font(.largeTitle)
+                            .foregroundColor(.blue)
+                    }
                         .padding()
                         .background(RoundedRectangle(cornerRadius: 15.0).foregroundColor(.contrast))
                         .padding()

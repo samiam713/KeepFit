@@ -12,12 +12,12 @@ struct WorkoutView: View {
     
     static func createNavigationLink(workout: Workout) -> some View {
         return NavigationLink(destination: LazyView({WorkoutView(workout: workout)})) {
-            HStack {
+            VStack {
                 Text(workout.title)
                     .italic()
-                Spacer()
                 Text("by \(workout.creator().username)")
             }
+            .centered()
             .foregroundColor(.noncontrast)
             .padding()
             .background(Capsule().foregroundColor(.contrast))
