@@ -29,6 +29,7 @@ struct ProfileView: View {
                     Section(header: Text(user.username)) {
                         Text(user.shortBiography)
                             .centered()
+                        Text("Birthday: \(user.birthdate.dateString())")
                     }
                     
 

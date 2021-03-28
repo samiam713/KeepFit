@@ -57,9 +57,9 @@ struct UserProfileView: View {
                             }
                         }
                         
-//                        DatePicker(selection: $user.birthdate, in: ...Date(), displayedComponents: .date) {
-//                            Text("Birthdate")
-//                        }
+                        DatePicker(selection: $user.birthdate, in: ...Date(), displayedComponents: .date) {
+                            Text("Birthdate")
+                        }
                         
                         Stepper(user.heightDescription(), value: $user.inches, in: 48...84)
                         Stepper(user.weightDescription(), value: $user.pounds, in: 50...300, step: 5)

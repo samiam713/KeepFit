@@ -27,7 +27,7 @@ class User: NSObject, ObservableObject, Codable {
     
     @Published var sex = Sex.Unspecified
     
-    //@Published var birthdate = Date()
+    @Published var birthdate = Date()
     
     @Published var inches = 68
     @Published var pounds = 160
@@ -120,7 +120,7 @@ class User: NSObject, ObservableObject, Codable {
     
     enum Key: String, CodingKey {
         case id, username, password
-        case shortBiography, sex, inches, pounds
+        case shortBiography, sex, inches, pounds, birthdate
         case profilePicture
         case followingIDs, sessionIDs, likedWorkoutIDs, publishedWorkoutIDs
     }
@@ -128,7 +128,7 @@ class User: NSObject, ObservableObject, Codable {
     required init(from decoder: Decoder) throws {
         
         super.init()
-        print("Got here!1")
+        
         let container = try decoder.container(keyedBy: Key.self)
         
         id = try container.decode(String.self, forKey: .id)
@@ -146,13 +146,11 @@ class User: NSObject, ObservableObject, Codable {
         profilePicture = UIImage(data: profilePictureData)!
         
         followingIDs = try container.decode([String].self, forKey: .followingIDs)
-        print(followingIDs)
         sessionIDs = try container.decode([String].self, forKey: .sessionIDs)
-        print(sessionIDs)
         likedWorkoutIDs = try container.decode([String].self, forKey: .likedWorkoutIDs)
-        print(likedWorkoutIDs)
         publishedWorkoutIDs = try container.decode([String].self, forKey: .publishedWorkoutIDs)
-        print(publishedWorkoutIDs)
+        
+        birthdate = Date(timeIntervalSince1970: try container.decode(Double.self, forKey: .birthdate))
         
         // not from JSON
         self.userRegistered = true
@@ -171,6 +169,7 @@ class User: NSObject, ObservableObject, Codable {
         try container.encode(sex.rawValue, forKey: .sex)
         try container.encode(inches, forKey: .inches)
         try container.encode(pounds, forKey: .pounds)
+        try container.encode(birthdate.timeIntervalSince1970, forKey: .birthdate)
         
         try container.encode(profilePicture.pngData()!.base64EncodedString(), forKey: .profilePicture)
         // try container.encode("This is a stand in string. Normally this is a massive string encodeding the profile picture", forKey: .profilePicture)
