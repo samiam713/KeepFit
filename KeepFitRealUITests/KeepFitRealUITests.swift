@@ -358,6 +358,10 @@ class KeepFitRealUITests: XCTestCase {
 
         mKey.tap()
         eKey.tap()
+        
+        app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.buttons["Search"].tap()
+        app.scrollViews.otherElements.buttons["Sexy Time, by cliffy"].tap()
+                      
                         
                 
         
@@ -431,8 +435,8 @@ class KeepFitRealUITests: XCTestCase {
         XCUIApplication().navigationBars["Exercise"].buttons["Edit Profile"].tap()
         
         let tablesQuery = app.tables
-        tablesQuery.otherElements["Height: 5' 9\""].tap()
-        tablesQuery.otherElements["Weight: 150 lbs"].tap()
+        tablesQuery.otherElements["Height: 5' 10\""].tap()
+        tablesQuery.otherElements["Weight: 155 lbs"].tap()
         app/*@START_MENU_TOKEN@*/.tables.containing(.cell, identifier:"Change Password").element/*[[".tables.containing(.cell, identifier:\"Complete User Update\").element",".tables.containing(.cell, identifier:\"Take Picture Using Camera\").element",".tables.containing(.cell, identifier:\"Select Picture From Photos\").element",".tables.containing(.cell, identifier:\"Weight: 145 lbs\").element",".tables.containing(.cell, identifier:\"Height: 5' 8\\\"\").element",".tables.containing(.cell, identifier:\"Birthdate, Date Picker, Dec 13, 1982\").element",".tables.containing(.cell, identifier:\"Choose Sex\").element",".tables.containing(.cell, identifier:\"Complete Biography\").element",".tables.containing(.cell, identifier:\"Change Password\").element"],[[[-1,8],[-1,7],[-1,6],[-1,5],[-1,4],[-1,3],[-1,2],[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         tablesQuery.cells["Complete User Update"].children(matching: .other).element(boundBy: 0).tap()
          
@@ -1256,8 +1260,9 @@ class KeepFitRealUITests: XCTestCase {
         exploreButton.tap()
         
         let tablesQuery = app.tables
-        let cliffyElement = tablesQuery.cells["cliffy"].otherElements.containing(.button, identifier:"cliffy").element
-        cliffyElement.tap()
+        tablesQuery.children(matching: .cell).matching(identifier: "cliffy").element(boundBy: 0).buttons["cliffy"].tap()
+        
+//        cliffyElement.tap()
         tablesQuery/*@START_MENU_TOKEN@*/.buttons["Unfollow User"]/*[[".cells[\"Unfollow User\"].buttons[\"Unfollow User\"]",".buttons[\"Unfollow User\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         
         let cliffyNavigationBar = app.navigationBars["cliffy"]
@@ -1265,9 +1270,10 @@ class KeepFitRealUITests: XCTestCase {
         tabBar.buttons["Search"].tap()
         
         let keywordTextField = app.textFields["Keyword"]
-        keywordTextField.swipeLeft()
+        app.tabBars["Tab Bar"].buttons["Search"].tap()
+        app.textFields["Keyword"].tap()
         
-        app2/*@START_MENU_TOKEN@*/.buttons["shift"]/*[[".keyboards.buttons[\"shift\"]",".buttons[\"shift\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app/*@START_MENU_TOKEN@*/.buttons["shift"]/*[[".keyboards.buttons[\"shift\"]",".buttons[\"shift\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         
         let cKey = app2/*@START_MENU_TOKEN@*/.keys["c"]/*[[".keyboards.keys[\"c\"]",".keys[\"c\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
         cKey.tap()
@@ -1289,19 +1295,17 @@ class KeepFitRealUITests: XCTestCase {
         app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.buttons["Search"].tap()
         app.scrollViews.otherElements.buttons["cliffy"].tap()
         tablesQuery/*@START_MENU_TOKEN@*/.buttons["Follow User"]/*[[".cells[\"Follow User\"].buttons[\"Follow User\"]",".buttons[\"Follow User\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        cliffyNavigationBar.buttons["Search"].tap()
-        keywordTextField.tap()
-        exploreButton.tap()
-        cliffyElement.tap()
+        XCUIApplication().navigationBars["cliffy"].buttons["Search"].tap()
+                        
         
     }
-
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
-    }
+//
+//    func testLaunchPerformance() throws {
+//        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
+//            // This measures how long it takes to launch your application.
+//            measure(metrics: [XCTApplicationLaunchMetric()]) {
+//                XCUIApplication().launch()
+//            }
+//        }
+//    }
 }
