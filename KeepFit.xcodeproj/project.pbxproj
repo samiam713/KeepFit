@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35344D082611AB1A00B7AD9A /* KeepFitRealUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35344D072611AB1A00B7AD9A /* KeepFitRealUITests.swift */; };
 		D302C3132607E6CD008C7E8D /* CreateWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D302C3122607E6CD008C7E8D /* CreateWorkoutView.swift */; };
 		D302C3182607F0D3008C7E8D /* CreateWorkoutVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D302C3172607F0D3008C7E8D /* CreateWorkoutVideoView.swift */; };
 		D302C32726081F76008C7E8D /* CreateWorkoutSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D302C32626081F76008C7E8D /* CreateWorkoutSessionView.swift */; };
@@ -40,6 +41,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		35344D0A2611AB1A00B7AD9A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D30EFA2A2605A6C500E7B32A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D30EFA312605A6C500E7B32A;
+			remoteInfo = KeepFit;
+		};
 		D30EFA442605A6C600E7B32A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D30EFA2A2605A6C500E7B32A /* Project object */;
@@ -57,6 +65,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		35344D052611AB1A00B7AD9A /* KeepFitRealUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeepFitRealUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		35344D072611AB1A00B7AD9A /* KeepFitRealUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeepFitRealUITests.swift; sourceTree = "<group>"; };
+		35344D092611AB1A00B7AD9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D302C3122607E6CD008C7E8D /* CreateWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWorkoutView.swift; sourceTree = "<group>"; };
 		D302C3172607F0D3008C7E8D /* CreateWorkoutVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWorkoutVideoView.swift; sourceTree = "<group>"; };
 		D302C32626081F76008C7E8D /* CreateWorkoutSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWorkoutSessionView.swift; sourceTree = "<group>"; };
@@ -96,6 +107,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		35344D022611AB1A00B7AD9A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D30EFA2F2605A6C500E7B32A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -120,6 +138,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		35344D062611AB1A00B7AD9A /* KeepFitRealUITests */ = {
+			isa = PBXGroup;
+			children = (
+				35344D072611AB1A00B7AD9A /* KeepFitRealUITests.swift */,
+				35344D092611AB1A00B7AD9A /* Info.plist */,
+			);
+			path = KeepFitRealUITests;
+			sourceTree = "<group>";
+		};
 		D302C3112607E6B3008C7E8D /* CreateWorkoutViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +170,7 @@
 				D30EFA342605A6C500E7B32A /* KeepFit */,
 				D30EFA462605A6C600E7B32A /* KeepFitTests */,
 				D30EFA512605A6C600E7B32A /* KeepFitUITests */,
+				35344D062611AB1A00B7AD9A /* KeepFitRealUITests */,
 				D30EFA332605A6C500E7B32A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -153,6 +181,7 @@
 				D30EFA322605A6C500E7B32A /* KeepFit.app */,
 				D30EFA432605A6C600E7B32A /* KeepFitTests.xctest */,
 				D30EFA4E2605A6C600E7B32A /* KeepFitUITests.xctest */,
+				35344D052611AB1A00B7AD9A /* KeepFitRealUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -317,6 +346,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		35344D042611AB1A00B7AD9A /* KeepFitRealUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 35344D0E2611AB1A00B7AD9A /* Build configuration list for PBXNativeTarget "KeepFitRealUITests" */;
+			buildPhases = (
+				35344D012611AB1A00B7AD9A /* Sources */,
+				35344D022611AB1A00B7AD9A /* Frameworks */,
+				35344D032611AB1A00B7AD9A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				35344D0B2611AB1A00B7AD9A /* PBXTargetDependency */,
+			);
+			name = KeepFitRealUITests;
+			productName = KeepFitRealUITests;
+			productReference = 35344D052611AB1A00B7AD9A /* KeepFitRealUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		D30EFA312605A6C500E7B32A /* KeepFit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D30EFA572605A6C600E7B32A /* Build configuration list for PBXNativeTarget "KeepFit" */;
@@ -379,6 +426,10 @@
 				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
+					35344D042611AB1A00B7AD9A = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = D30EFA312605A6C500E7B32A;
+					};
 					D30EFA312605A6C500E7B32A = {
 						CreatedOnToolsVersion = 12.4;
 					};
@@ -408,11 +459,19 @@
 				D30EFA312605A6C500E7B32A /* KeepFit */,
 				D30EFA422605A6C600E7B32A /* KeepFitTests */,
 				D30EFA4D2605A6C600E7B32A /* KeepFitUITests */,
+				35344D042611AB1A00B7AD9A /* KeepFitRealUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		35344D032611AB1A00B7AD9A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D30EFA302605A6C500E7B32A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -439,6 +498,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		35344D012611AB1A00B7AD9A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35344D082611AB1A00B7AD9A /* KeepFitRealUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D30EFA2E2605A6C500E7B32A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -491,6 +558,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		35344D0B2611AB1A00B7AD9A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D30EFA312605A6C500E7B32A /* KeepFit */;
+			targetProxy = 35344D0A2611AB1A00B7AD9A /* PBXContainerItemProxy */;
+		};
 		D30EFA452605A6C600E7B32A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D30EFA312605A6C500E7B32A /* KeepFit */;
@@ -504,6 +576,44 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		35344D0C2611AB1A00B7AD9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 84JU8R37MG;
+				INFOPLIST_FILE = KeepFitRealUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.310.KeepFitRealUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KeepFit;
+			};
+			name = Debug;
+		};
+		35344D0D2611AB1A00B7AD9A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 84JU8R37MG;
+				INFOPLIST_FILE = KeepFitRealUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.310.KeepFitRealUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KeepFit;
+			};
+			name = Release;
+		};
 		D30EFA552605A6C600E7B32A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -627,7 +737,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"KeepFit/Preview Content\"";
-				DEVELOPMENT_TEAM = Y975RXV2SM;
+				DEVELOPMENT_TEAM = 84JU8R37MG;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = KeepFit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -635,7 +745,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.samdonovan.KeepFit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.stevenwilliams.KeepFit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -649,7 +759,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"KeepFit/Preview Content\"";
-				DEVELOPMENT_TEAM = Y975RXV2SM;
+				DEVELOPMENT_TEAM = 84JU8R37MG;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = KeepFit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -657,7 +767,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.samdonovan.KeepFit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.stevenwilliams.KeepFit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -669,8 +779,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Y975RXV2SM;
+				DEVELOPMENT_TEAM = 84JU8R37MG;
 				INFOPLIST_FILE = KeepFitTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -680,6 +792,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.samdonovan.KeepFitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KeepFit.app/KeepFit";
@@ -691,8 +805,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Y975RXV2SM;
+				DEVELOPMENT_TEAM = 84JU8R37MG;
 				INFOPLIST_FILE = KeepFitTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -702,6 +818,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.samdonovan.KeepFitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KeepFit.app/KeepFit";
@@ -712,15 +830,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Y975RXV2SM;
+				DEVELOPMENT_TEAM = 84JU8R37MG;
 				INFOPLIST_FILE = KeepFitUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.samdonovan.KeepFitUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.stevenwilliams.KeepFitUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -732,15 +851,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Y975RXV2SM;
+				DEVELOPMENT_TEAM = 84JU8R37MG;
 				INFOPLIST_FILE = KeepFitUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.samdonovan.KeepFitUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.stevenwilliams.KeepFitUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -751,6 +871,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		35344D0E2611AB1A00B7AD9A /* Build configuration list for PBXNativeTarget "KeepFitRealUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				35344D0C2611AB1A00B7AD9A /* Debug */,
+				35344D0D2611AB1A00B7AD9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D30EFA2D2605A6C500E7B32A /* Build configuration list for PBXProject "KeepFit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

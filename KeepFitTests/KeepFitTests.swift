@@ -5,34 +5,40 @@
 //  Created by Samuel Donovan on 3/19/21.
 //
 
+//NOT USING THIS FILE – USE KeepFitRealUITests.swift
+
 import XCTest
 @testable import KeepFit
 
 class KeepFitTests: XCTestCase {
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        let result = HTTPRequester.attemptLogin(username: "cliffy", password: "4272000")
-        switch result {
-        case .success(let user):
-            User.currentUser = user
-        default:
-            throw NSError()
-        }
+//        // Put setup code here. This method is called before the invocation of each test method in the class.
+//        let result = HTTPRequester.attemptLogin(username: "cliffy", password: "4272000")
+//        switch result {
+//        case .success(let user):
+//            User.currentUser = user
+//        default:
+//            throw NSError()
+//        }
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
-    
+    func testThis() throws
+    {
+        let app = XCUIApplication()
+        app.launch()
+    }
     // User tests
     
     // initialie User() set different heights and assert height description is correct
     func testHeightDescription() throws {
         let testUser = User()
         testUser.inches = 71
-        XCTAssert(testUser.heightDescription() == "whatever it should be", "Incorrect height description")
+        XCTAssertEqual(testUser.heightDescription(), "Height: 5' 11\"")
         
         // repeat for other heights (like 72,73)
     }
@@ -41,13 +47,42 @@ class KeepFitTests: XCTestCase {
     func testWeightDescription() throws {
         let testUser = User()
         testUser.pounds = 170
+        XCTAssertEqual(testUser.weightDescription(), "Weight: 170 lbs")
     }
     
+    // initialize User(), set different birthdays and assert birthday description is correct
+    func testBirthdate() throws {
+        let testUser = User()
+        testUser.birthdate = Date()
+        XCTAssertEqual(testUser.birthdate, Date())
+    }
+    
+    // initialize User(), set different birthdays and assert birthday description is correct
+    func testBioDescription() throws {
+        let testUser = User()
+        testUser.shortBiography = "Bio!@#$%^&*()-=_+"
+        XCTAssertEqual(testUser.shortBiography, "Bio!@#$%^&*()-=_+")
+    }
+    
+    // initialize Workout(), set different categories and assert category is correct
+    func testCatgegories() throws {
+        let testWorkout = Workout()
+        testWorkout.category = WorkoutCategory.Aerobics
+        XCTAssertEqual(testWorkout.category, WorkoutCategory.Aerobics)
+    }
+    
+    // initialize Workout(), set different categories and assert category is correct
+//    func testSearch() throws {
+//        let testWorkout = SearchView()
+//        testWorkout =
+//        XCTAssertEqual(testWorkout.category, WorkoutCategory.Aerobics)
+//    }
+//
     // log in user from server using HTTPRequester.attemptLogin(username: String, password: String)
     // make sure this runs "quickly" (whatever that means) using self.measure {}
     func userLoginTimeTest() throws {
         self.measure {
-            HTTPRequester.attemptLogin(username: <#T##String#>, password: <#T##String#>)
+            HTTPRequester.attemptLogin(username: "cliffy", password: "4272000")
         }
     }
     
@@ -63,23 +98,24 @@ class KeepFitTests: XCTestCase {
         // now, try and login as this user using HTTPRequester.attemptLogin
     }
     
-    // Workout (4)
-    func likeAndUnlikeVideo() {
-        
-        let workoutID = "CREATE ME THEN GET FROM DATABASE"
-        
-        // like workout using
-        HTTPRequester.likeWorkout(id: <#T##String#>)
-        // assert this
-        User.currentUser.likedWorkoutIDs.contains(workoutID)
-        
-        HTTPRequester.unlikeWorkout(id: <#T##String#>)
-        
-        // assert this
-        !User.currentUser.likedWorkoutIDs.contains(workoutID)
-        
-    }
-    
+//     Workout (4)
+//    func likeAndUnlikeVideo() {
+//
+//
+//        let workoutID = "2B607F61-F409-4C87-A962-63879BDF712D"
+//
+//        // like workout using
+//        HTTPRequester.likeWorkout(id: "2B607F61-F409-4C87-A962-63879BDF712D")
+//        // assert this
+//        User.currentUser.likedWorkoutIDs.contains("2B607F61-F409-4C87-A962-63879BDF712D")
+//
+//        HTTPRequester.unlikeWorkout(id: "2B607F61-F409-4C87-A962-63879BDF712D")
+//
+//        // assert this
+//        !User.currentUser.likedWorkoutIDs.contains("2B607F61-F409-4C87-A962-63879BDF712D")
+//
+//    }
+//
     // two WorkoutSession tests (4)
     
     // two UserPreview tests (3)
