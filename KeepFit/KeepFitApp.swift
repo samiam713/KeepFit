@@ -18,9 +18,9 @@ class KeepFitAppController: ObservableObject {
     
     @Published var currentTab = CurrentTab.Exercise
     
-    func getTabName() -> String {
-        return currentTab.rawValue
-    }
+    @Published var networkRequests = 0
+    
+    func getTabName() -> String {currentTab.rawValue}
 }
 
 @main
@@ -29,27 +29,29 @@ struct KeepFitApp: App {
     @ObservedObject var controller = keepFitAppController
     
     init() {
-//        let encoder =  JSONEncoder()
-//        encoder.outputFormatting = .prettyPrinted
-//        let exampleUserJSON = try! encoder.encode(User.currentUser)
-//        print(String(data: exampleUserJSON, encoding: .utf8)!)
+        //        let encoder =  JSONEncoder()
+        //        encoder.outputFormatting = .prettyPrinted
+        //        let exampleUserJSON = try! encoder.encode(User.currentUser)
+        //        print(String(data: exampleUserJSON, encoding: .utf8)!)
     }
     
     var body: some Scene {
         WindowGroup {
-            
-//                 CreateWorkoutView(workout: Workout())
-            
-            if controller.currentView == .entry {
-                 EntryView()
-            } else if controller.currentView == .registering {
-                UserProfileView(user: User.currentUser)
-            } else if controller.currentView == .mainView {
-                 MainView()
-            } else if controller.currentView == .creatingWorkout {
-                CreateWorkoutView()
+            ZStack {
+                if controller.currentView == .entry {
+                    EntryView()
+                } else if controller.currentView == .registering {
+                    UserProfileView(user: User.currentUser)
+                } else if controller.currentView == .mainView {
+                    MainView()
+                } else if controller.currentView == .creatingWorkout {
+                    CreateWorkoutView()
+                }
+                
+                if controller.networkRequests > 0 {
+                    LoadingAnimationView()
+                }
             }
-            
         }
     }
 }

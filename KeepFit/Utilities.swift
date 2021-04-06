@@ -70,18 +70,55 @@ struct LazyView<T: View>: View {
         }
         .onAppear() {
             view = closure()
+            print("Lazily Loaded View")
         }
     }
 }
 
-#if canImport(UIKit)
+extension View {
+    @ViewBuilder
+    func `if`<Content: View>(_ condition: Bool, content: (Self) -> Content) -> some View {
+        if condition {
+            content(self)
+        }
+        else {
+            self
+        }
+    }
+}
+
+//#if canImport(UIKit)
 extension View {
     func hideKeyboard() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
-#endif
+//#endif
 
 extension Double {
     func twoDecimalPlaces() -> String {String(format: "%.2f", self)}
+}
+
+class KeyboardObserver: NSObject, ObservableObject {
+    static let observer = KeyboardObserver()
+    
+    @Published var keyboardActive = false
+    
+    override init() {
+        super.init()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyBoardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyBoardDidHide(notification:)), name: UIResponder.keyboardDidHideNotification, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func keyBoardWillShow(notification: Notification) {
+        keyboardActive = true
+    }
+
+    @objc func keyBoardDidHide(notification: Notification) {
+        keyboardActive = false
+    }
 }

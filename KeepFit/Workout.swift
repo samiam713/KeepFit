@@ -189,12 +189,16 @@ class WorkoutSession: ObservableObject, Codable, Identifiable {
     @Published var endTime: Date? = nil
     
     @Published var caloriesBurned = 0.0
+    @Published var caloriesError: String? = nil
     
-    func workoutCompleted() -> Bool {caloriesBurned != 0}
+    func workoutCompleted() -> Bool {endTime != startTime}
     
     func completeWorkout() {
-        // TODO: calculate calories burned
-        caloriesBurned = 3*5*7 + Double.random(in: 0..<10)
+        
+        if caloriesBurned == 0.0 {
+            caloriesError = "Record how many calories you burned!"
+        }
+        
         endTime = Date()
         
         HTTPRequester.publishWorkoutSession(session: self)

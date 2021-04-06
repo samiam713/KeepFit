@@ -17,7 +17,7 @@ struct CategoriesView: View {
             VStack {
                 Spacer()
                 ForEach(WorkoutCategory.allCases.indices) {(i: Int) in
-                    NavigationLink(destination: CategoryView(category: WorkoutCategory.allCases[i])) {
+                    NavigationLink(destination: LazyView({CategoryView(category: WorkoutCategory.allCases[i])})) {
                         Text(WorkoutCategory.allCases[i].rawValue)
                             .bold()
                             .foregroundColor(.black)

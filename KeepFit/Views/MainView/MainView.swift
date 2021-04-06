@@ -21,7 +21,7 @@ struct MainView: View {
                     .tag(KeepFitAppController.CurrentTab.Profile)
                 ExploreView()
                     .tabItem {
-                        Label("Explore", systemImage: "network")
+                        Label("Explore", systemImage: "rectangle.stack.person.crop")
                     }
                     .tag(KeepFitAppController.CurrentTab.Explore)
                 // EXERCISE WILL INCLUDE LIVESTREAM

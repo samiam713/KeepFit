@@ -21,15 +21,15 @@ struct ChangePasswordView: View {
             return
         }
         
-        let succeeded = HTTPRequester.resetPassword(oldPassword: oldPassword, newPassword: newPassword)
-        
-        if !succeeded {
-            errorMessage = "Old password incorrect"
-        } else {
-            errorMessage = "Successful change"
+        HTTPRequester.resetPassword(oldPassword: oldPassword, newPassword: newPassword) {(succeeded: Bool) in
+            if !succeeded {
+                errorMessage = "Old password incorrect"
+            } else {
+                errorMessage = "Successful change"
+            }
+            oldPassword = ""
+            newPassword = ""
         }
-        oldPassword = ""
-        newPassword = ""
     }
     
     var body: some View {

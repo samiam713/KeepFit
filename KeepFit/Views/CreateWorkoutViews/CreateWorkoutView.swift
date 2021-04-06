@@ -10,6 +10,7 @@ import SwiftUI
 struct CreateWorkoutView: View {
     
     @ObservedObject var workout = Workout()
+    @ObservedObject var keyboardObserver = KeyboardObserver.observer
     
     var body: some View {
         NavigationView {
@@ -27,7 +28,10 @@ struct CreateWorkoutView: View {
                     
                     Section(header: Text("Caption")) {
                         TextEditor(text: $workout.caption)
-                        Button("Complete Caption", action: hideKeyboard)
+                        if keyboardObserver.keyboardActive {
+                            Button("Complete Caption", action: hideKeyboard)
+                                .centered()
+                        }
                     }
                     
                     Section(header: Text("Category")) {

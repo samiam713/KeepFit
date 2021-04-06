@@ -38,6 +38,9 @@ struct CreateWorkoutSessionView: View {
                     if workoutSession.endTime != nil {
                         Text("Ended workout at \(workoutSession.endTime!.secondString())")
                     }
+                    Slider(value: $workoutSession.caloriesBurned, in: 0...500, label: {
+                        Text("Calories Burned")
+                    })
                 }
                 Section {
                     HStack {
@@ -54,9 +57,14 @@ struct CreateWorkoutSessionView: View {
                         .disabled(workoutSession.workoutCompleted())
                 }
             }
+            .alert(item: $workoutSession.caloriesError) {(error: String) in
+                Alert(title: Text("Error"), message: Text(error), dismissButton: .cancel())
+            }
             .navigationTitle("Workout Session")
             .onAppear() {
-                workoutSession.startTime = Date()
+                let now = Date()
+                workoutSession.startTime = now
+                workoutSession.endTime = now
             }
         }
     }

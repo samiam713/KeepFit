@@ -28,6 +28,7 @@
 		D3892AA72606C7C10006CA38 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3892AA62606C7C10006CA38 /* Workout.swift */; };
 		D3959E052606D76A00F9F847 /* SearchHTTPRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3959E042606D76A00F9F847 /* SearchHTTPRequester.swift */; };
 		D3AFD07E260E3EE600E33443 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AFD07D260E3EE600E33443 /* ChangePasswordView.swift */; };
+		D3C569EA26154FB8007476EF /* LoadingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C569E926154FB8007476EF /* LoadingAnimation.swift */; };
 		D3E5EB6F2605C207002DAD24 /* ProfilePictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E5EB6E2605C207002DAD24 /* ProfilePictureView.swift */; };
 		D3E5EB742605CF85002DAD24 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E5EB732605CF85002DAD24 /* Utilities.swift */; };
 		D3E5EB7F260675C0002DAD24 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E5EB7E260675C0002DAD24 /* MainView.swift */; };
@@ -94,6 +95,7 @@
 		D3892AA62606C7C10006CA38 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		D3959E042606D76A00F9F847 /* SearchHTTPRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHTTPRequester.swift; sourceTree = "<group>"; };
 		D3AFD07D260E3EE600E33443 /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
+		D3C569E926154FB8007476EF /* LoadingAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingAnimation.swift; sourceTree = "<group>"; };
 		D3E5EB6E2605C207002DAD24 /* ProfilePictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePictureView.swift; sourceTree = "<group>"; };
 		D3E5EB732605CF85002DAD24 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		D3E5EB7E260675C0002DAD24 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 				D302C32226081F58008C7E8D /* CreateWorkoutSessionView */,
 				D35364BA26099B7900268AED /* MainView */,
 				D3E5EB84260675F2002DAD24 /* KeepFitLogoView.swift */,
+				D3C569E926154FB8007476EF /* LoadingAnimation.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 				D30EFA382605A6C500E7B32A /* EntryView.swift in Sources */,
 				D3AFD07E260E3EE600E33443 /* ChangePasswordView.swift in Sources */,
 				D30EFA642605A70600E7B32A /* UserProfileView.swift in Sources */,
+				D3C569EA26154FB8007476EF /* LoadingAnimation.swift in Sources */,
 				D3FA247E26083C1D00714157 /* UserPreviewView.swift in Sources */,
 				D3E5EB742605CF85002DAD24 /* Utilities.swift in Sources */,
 				D30EFA362605A6C500E7B32A /* KeepFitApp.swift in Sources */,
@@ -737,7 +741,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"KeepFit/Preview Content\"";
-				DEVELOPMENT_TEAM = 84JU8R37MG;
+				DEVELOPMENT_TEAM = Y975RXV2SM;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = KeepFit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -745,7 +749,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.stevenwilliams.KeepFit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.samdonovan.KeepFit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -759,7 +763,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"KeepFit/Preview Content\"";
-				DEVELOPMENT_TEAM = 84JU8R37MG;
+				DEVELOPMENT_TEAM = Y975RXV2SM;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = KeepFit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -767,7 +771,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.stevenwilliams.KeepFit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.samdonovan.KeepFit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

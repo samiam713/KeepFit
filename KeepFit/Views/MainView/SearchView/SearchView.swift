@@ -15,8 +15,16 @@ struct SearchView: View {
     @State var workoutResults = [Workout]()
     
     func search() {
+        hideKeyboard()
         userResults = HTTPRequester.searchUsers(prefix: currentSearch)
         workoutResults = HTTPRequester.searchWorkouts(prefix: currentSearch)
+        
+        for userPreview in userResults {
+            UserPreview.userPreviewCache[userPreview.id] = userPreview
+        }
+        for workout in workoutResults {
+            Workout.workoutCache[workout.id] = workout
+        }
     }
     
     var body: some View {

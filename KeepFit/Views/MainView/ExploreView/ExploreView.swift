@@ -13,10 +13,16 @@ struct ExploreView: View {
     var body: some View
     {
         VStack {
-            List(currentUser.following()) {(userPreview: UserPreview) in
-                UserPreviewView.createNavigationLink(userPreview: userPreview)
+            if currentUser.following.isEmpty {
+                Text("No friends!🤷🏼‍♂️")
+                    .centered()
+            } else {
+                List(currentUser.following) {(userPreview: UserPreview) in
+                    UserPreviewView.createNavigationLink(userPreview: userPreview)
+                }
             }
         }
+        .onAppear(perform: currentUser.updateFollowing)
     }
 }
 

@@ -42,6 +42,13 @@ struct WorkoutSessionView: View {
                 KeepFitLogoView()
                 Text("\(session.caloriesBurned.twoDecimalPlaces()) calories burned")
             }
+            Section {
+                if session.userID == User.currentUser.id {
+                    Button("Delete Workout Sessions", action: {User.currentUser.clearWorkoutSession(id: session.id)})
+                        .foregroundColor(.red)
+                }
+                
+            }
         }
         .navigationTitle("\(session.user().username)'s Workout")
     }

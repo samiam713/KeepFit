@@ -32,7 +32,7 @@ class User: NSObject, ObservableObject, Codable {
     @Published var inches = 68
     @Published var pounds = 160
     
-    @Published var profilePicture = UIImage(named: "LarryWheels")!
+    @Published var profilePicture = UIImage(named: "DefaultProfile")!
     
     @Published var followingIDs = [String]()
     
@@ -40,7 +40,17 @@ class User: NSObject, ObservableObject, Codable {
     @Published var likedWorkoutIDs = [String]()
     @Published var publishedWorkoutIDs = [String]()
     
-    func following() -> [UserPreview] {followingIDs.map(UserPreview.getUserPreview(id:))}
+    @Published var following = [UserPreview]()
+    func updateFollowing() {
+        keepFitAppController.networkRequests += 1
+        DispatchQueue.global(qos: .userInitiated).async {
+            let following = self.followingIDs.map(UserPreview.getUserPreview(id:))
+            DispatchQueue.main.async {
+                self.following = following
+                keepFitAppController.networkRequests -= 1
+            }
+        }
+    }
     func sessions() -> [WorkoutSession] {sessionIDs.map(WorkoutSession.getWorkoutSession(id:))}
     func likedWorkouts() -> [Workout] {likedWorkoutIDs.map(Workout.getWorkout(id:))}
     func publishedWorkouts() -> [Workout] {publishedWorkoutIDs.map(Workout.getWorkout(id:))}
@@ -116,6 +126,23 @@ class User: NSObject, ObservableObject, Codable {
     
     func selectImage(sourceType: UIImagePickerController.SourceType) {
         self.changingSourceType = sourceType
+    }
+    
+    func clearWorkoutSessions() {
+        for workoutSessionID in sessionIDs {
+            clearWorkoutSession(id: workoutSessionID)
+        }
+    }
+    
+    func clearWorkoutSession(id: String) {
+        HTTPRequester.deleteWorkoutSession(workoutSessionID: id)
+        sessionIDs.removeAll(where: {$0 == id})
+    }
+    
+    func deleteWorkout(id: String) {
+        HTTPRequester.deleteWorkout(workoutID: id)
+        publishedWorkoutIDs.removeAll(where: {$0 == id})
+        likedWorkoutIDs.removeAll(where: {$0 == id})
     }
     
     enum Key: String, CodingKey {

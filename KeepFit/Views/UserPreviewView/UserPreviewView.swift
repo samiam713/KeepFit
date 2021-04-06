@@ -58,30 +58,23 @@ struct UserPreviewView: View {
             }
             
             Section(header: Text("Liked Workouts")) {
-                VStack {
-                    ForEach(userPreview.likedWorkouts()) {(workout: Workout) in
-                        WorkoutView.createNavigationLink(workout: workout)
-                        Divider()
-                    }
+                List(userPreview.likedWorkouts()) {(workout: Workout) in
+                    WorkoutView.createNavigationLink(workout: workout)
                 }
             }
             
             Section(header: Text("Published Workouts")) {
-                VStack {
-                    ForEach(userPreview.publishedWorkouts()) {(workout: Workout) in
-                        WorkoutView.createNavigationLink(workout: workout)
-                        Divider()
-                    }
+                List(userPreview.publishedWorkouts()) {(workout: Workout) in
+                    WorkoutView.createNavigationLink(workout: workout)
                 }
             }
             
             Section(header: Text("Completed Workouts")) {
-                VStack {
-                    ForEach(userPreview.sessions()) {(session: WorkoutSession) in
-                        WorkoutSessionView.createNavigationLink(session: session)
-                        Divider()
-                    }
+                List(userPreview.sessions()) {(session: WorkoutSession) in
+                    WorkoutSessionView.createNavigationLink(session: session)
                 }
+                Button("Clear Completed Workout History", action: currentUser.clearWorkoutSessions)
+                    .foregroundColor(.red)
             }
         }
         .navigationTitle(userPreview.username)

@@ -44,7 +44,9 @@ struct WorkoutView: View {
                     }
                     
                     Section(header: Text("Creation Info")) {
-                        Text("Creator: \(workout.creator().username)")
+                        NavigationLink("Creator: \(workout.creator().username)", destination:
+                            LazyView({UserPreviewView(userPreview: workout.creator())})
+                        )
                         Text("Created: \(workout.createdDate.dateString())")
                     }
                     
@@ -58,6 +60,10 @@ struct WorkoutView: View {
                             Button(action: workout.likeVideo) {
                                 Label("Like Video", systemImage: "hand.thumbsup")
                             }
+                        }
+                        if workout.creatorID == User.currentUser.id {
+                            Button("Delete Workout", action: {User.currentUser.deleteWorkout(id: workout.id)})
+                                .foregroundColor(.red)
                         }
                     }
                 }
