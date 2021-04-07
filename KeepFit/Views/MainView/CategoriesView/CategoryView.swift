@@ -13,18 +13,60 @@ struct CategoryView: View {
     
     let workouts: [Workout]
     
+    @State var currentWorkouts = [Workout]()
+    @State var currentSearch = ""
+    
     init(category: WorkoutCategory) {
         self.category = category
-        self.workouts = HTTPRequester.getWorkoutsOfCategory(category: category)
+        let workouts = HTTPRequester.getWorkoutsOfCategory(category: category)
+        self.workouts = workouts
+        self.currentWorkouts = workouts
+    }
+    
+    func search() {
+        currentWorkouts = workouts.filter({$0.matches(keyword: currentSearch)})
+        hideKeyboard()
+        currentSearch = ""
+    }
+    
+    func reset() {
+        if currentWorkouts.count != workouts.count {
+            currentWorkouts = workouts
+        }
     }
     
     var body: some View {
-        List(workouts) {(workout: Workout) in
-            WorkoutView.createNavigationLink(workout: workout)
+        VStack {
+            HStack {
+                TextField("Keyword", text: $currentSearch)
+                    .disableAutocorrection(true)
+                    .foregroundColor(.gray)
+                    .padding()
+                    .background(RoundedRectangle(cornerRadius: 5).stroke())
+                
+                if currentSearch != "" {
+                    Button(action: search) {
+                        Label("Search", systemImage: "magnifyingglass")
+                            .transition(.move(edge: .trailing))
+                            .animation(.default)
+                    }
+                } else {
+                    Button(action: reset) {
+                        Label("Reset", systemImage: "clear")
+                            .transition(.move(edge: .trailing))
+                            .animation(.default)
+                    }
+                }
+            }
+            .padding()
+            List(workouts) {(workout: Workout) in
+                WorkoutView.createNavigationLink(workout: workout)
+            }
         }
         .navigationTitle(category.rawValue)
     }
 }
+
 
 //struct CategoryView_Previews: PreviewProvider {
 //    static var previews: some View {

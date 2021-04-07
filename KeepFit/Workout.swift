@@ -91,6 +91,12 @@ class Workout: NSObject, Codable, ObservableObject, Identifiable {
         User.currentUser.publishedWorkoutIDs.append(id)
     }
     
+    func matches(keyword: String) -> Bool {
+        let lc = keyword.lowercased()
+        return creator().username.lowercased().contains(lc) ||
+            title.lowercased().contains(lc)
+    }
+    
     enum Key: String, CodingKey {
         case id, creatorID
         case createdDate

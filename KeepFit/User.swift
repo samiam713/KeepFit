@@ -40,6 +40,9 @@ class User: NSObject, ObservableObject, Codable {
     @Published var likedWorkoutIDs = [String]()
     @Published var publishedWorkoutIDs = [String]()
     
+    // TODO
+    @Published var tenRecentSearches = [String]()
+    
     @Published var following = [UserPreview]()
     func updateFollowing() {
         keepFitAppController.networkRequests += 1
@@ -143,6 +146,13 @@ class User: NSObject, ObservableObject, Codable {
         HTTPRequester.deleteWorkout(workoutID: id)
         publishedWorkoutIDs.removeAll(where: {$0 == id})
         likedWorkoutIDs.removeAll(where: {$0 == id})
+    }
+    
+    func addSearch(keyword: String) {
+        tenRecentSearches.insert(keyword, at: 0)
+        HTTPRequester.storeSearch(userID: id, keyword: keyword, date: Date().timeIntervalSince1970)
+        // could be if instead of while... defensive programming
+        while tenRecentSearches.count > 10 {_ = tenRecentSearches.popLast()}
     }
     
     enum Key: String, CodingKey {
