@@ -35,12 +35,15 @@ struct CreateWorkoutSessionView: View {
             Form {
                 Section() {
                     Text("Started workout at \(workoutSession.startTime.secondString())")
-                    if workoutSession.endTime != nil {
+                    if workoutSession.endTime != workoutSession.startTime {
                         Text("Ended workout at \(workoutSession.endTime!.secondString())")
                     }
+                }
+                Section {
                     Slider(value: $workoutSession.caloriesBurned, in: 0...500, label: {
                         Text("Calories Burned")
                     })
+                    Text("\(workoutSession.caloriesBurned) calories Burned")
                 }
                 Section {
                     HStack {

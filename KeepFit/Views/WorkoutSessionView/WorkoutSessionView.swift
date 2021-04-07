@@ -44,7 +44,7 @@ struct WorkoutSessionView: View {
             }
             Section {
                 if session.userID == User.currentUser.id {
-                    Button("Delete Workout Sessions", action: {User.currentUser.clearWorkoutSession(id: session.id)})
+                    Button("Delete Workout Session", action: {User.currentUser.clearWorkoutSession(id: session.id)})
                         .foregroundColor(.red)
                 }
                 

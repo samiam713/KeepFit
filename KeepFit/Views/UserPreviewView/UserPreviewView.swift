@@ -73,8 +73,6 @@ struct UserPreviewView: View {
                 List(userPreview.sessions()) {(session: WorkoutSession) in
                     WorkoutSessionView.createNavigationLink(session: session)
                 }
-                Button("Clear Completed Workout History", action: currentUser.clearWorkoutSessions)
-                    .foregroundColor(.red)
             }
         }
         .navigationTitle(userPreview.username)

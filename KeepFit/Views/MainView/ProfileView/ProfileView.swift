@@ -41,6 +41,8 @@ struct ProfileView: View {
                     List(user.sessions()) {(session: WorkoutSession) in
                         WorkoutSessionView.createNavigationLink(session: session)
                     }
+                    Button("Clear Completed Workout History", action: user.clearWorkoutSessions)
+                        .foregroundColor(.red)
                 }
                 
                 Section(header: Text("My Workouts")) {
