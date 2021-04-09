@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct ExploreView: View {
+struct FriendExploreView: View {
+    
     @ObservedObject var currentUser = User.currentUser
     
-    var body: some View
-    {
-        VStack {
-            if currentUser.following.isEmpty {
+    var body: some View {
+        Group {
+            if !currentUser.following.isEmpty {
                 Text("No friends!🤷🏼‍♂️")
                     .centered()
             } else {
@@ -22,12 +22,65 @@ struct ExploreView: View {
                 }
             }
         }
+        .navigationTitle("Friend Activity")
         .onAppear(perform: currentUser.updateFollowing)
+    }
+}
+
+struct ExploreView: View {
+    
+    let tenMostLikedWorkouts: [Workout]
+    
+    init() {
+        // self.tenMostLikedWorkouts = .init(repeating: .init(), count: 5)
+         let tenMostLikedWorkoutIDs = HTTPRequester.get10MostLikedWorkouts()
+         self.tenMostLikedWorkouts = tenMostLikedWorkoutIDs.map({HTTPRequester.getWorkout(id: $0)})
+    }
+    
+    var body: some View
+    {
+        VStack {
+            HStack {
+                Text("Explore")
+                    .font(.largeTitle)
+                    .foregroundColor(.primary)
+                Text("Fit")
+                    .font(.largeTitle)
+                    .foregroundColor(.blue)
+            }
+            Divider()
+            Text("Most Popular Videos")
+                .underline()
+                .font(.title2)
+                .padding()
+            List(0..<10) {(i: Int) in
+                HStack {
+                    Image(systemName: "\(i+1).circle\(i.isMultiple(of: 2) ? ".fill" : "")")
+                        .font(Font.system(size: 36))
+                    if i < tenMostLikedWorkouts.count {
+                        Spacer()
+                        WorkoutView.createNavigationLink(workout: tenMostLikedWorkouts[i])
+                        Spacer()
+                    } else {
+                        Spacer()
+                    }
+                }
+            }
+            Divider()
+            NavigationLink(
+                destination: FriendExploreView(), label: {
+                    Label("Friend Activity", systemImage: "person.2.square.stack")
+                        .font(.system(size: 24))
+                })
+            
+        }
     }
 }
 
 struct ExploreView_Previews: PreviewProvider {
     static var previews: some View {
-        ExploreView()
+        NavigationView {
+            ExploreView()
+        }
     }
 }

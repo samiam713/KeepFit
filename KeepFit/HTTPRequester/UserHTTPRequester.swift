@@ -423,4 +423,39 @@ extension HTTPRequester {
         
         completionGroup.wait()
     }
+    
+    static func deleteAccount(userID: String) {
+        
+        let completionGroup = DispatchGroup()
+        completionGroup.enter()
+        
+        //Create the request
+        var request = URLRequest(url: getURL(path: "deleteAccount/"))
+        print(request.url!.absoluteString)
+        
+        // Construct the request
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try! encoder.encode(userID)
+        request.timeoutInterval = 10
+        
+        //Create a URL Session
+        
+        let dataTask = URLSession.shared.dataTask(with: request) {(data, response, error) in
+            if let error = error {
+                fatalError(error.localizedDescription)
+            }
+            
+            //ensure the response status is 200 OK and that there is data
+            guard let response = response as? HTTPURLResponse, (200..<300).contains(response.statusCode), let _ = data else {
+                fatalError("Not a valid response")
+            }
+            
+            completionGroup.leave()
+        }
+        
+        dataTask.resume()
+        completionGroup.wait()
+    }
+
 }

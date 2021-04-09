@@ -12,6 +12,7 @@ struct UserProfileView: View {
     @ObservedObject var user: User
     @ObservedObject var keyboardObserver = KeyboardObserver.observer
     
+    
     init(user: User) {
         self.user = user
     }
@@ -92,6 +93,12 @@ struct UserProfileView: View {
                 if !user.userRegistered {
                     Button("Cancel User Registration", action: {keepFitAppController.currentView = .entry})
                         .foregroundColor(.red)
+                } else {
+                    Button("Cancel User Registration", action: {keepFitAppController.currentView = .entry})
+                        .foregroundColor(.red)
+                        .alert(isPresented: user.destroyingUser, content: {
+                            Alert(title: Text("Delete User?"), primaryButton: Alert.Button.destructive(Text("Confirm"), action: user.destroyUser), secondaryButton: .cancel())
+                        })
                 }
             }
         }

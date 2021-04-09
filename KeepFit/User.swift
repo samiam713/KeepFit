@@ -63,6 +63,7 @@ class User: NSObject, ObservableObject, Codable {
     @Published var changingSourceType: UIImagePickerController.SourceType? = nil
     
     @Published var userRegistered = false
+    @Published var destroyingUser = false
     
     @Published var validationError = false
     func regUpdErrorString() -> String {"\(userRegistered ? "Update" : "Registration") Error"}
@@ -119,6 +120,12 @@ class User: NSObject, ObservableObject, Codable {
             usernameError = "Username already in use"
             validationError = true
         }
+    }
+    
+    func destroyUser() {
+        HTTPRequester.deleteAccount(userID: id)
+        User.currentUser = User()
+        keepFitAppController.currentView = .entry
     }
     
     func attemptToUpdate() {
