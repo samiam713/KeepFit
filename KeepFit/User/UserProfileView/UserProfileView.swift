@@ -94,9 +94,9 @@ struct UserProfileView: View {
                     Button("Cancel User Registration", action: {keepFitAppController.currentView = .entry})
                         .foregroundColor(.red)
                 } else {
-                    Button("Cancel User Registration", action: {keepFitAppController.currentView = .entry})
+                    Button("Cancel User Registration", action: {user.destroyingUser = true})
                         .foregroundColor(.red)
-                        .alert(isPresented: user.destroyingUser, content: {
+                        .alert(isPresented: $user.destroyingUser, content: {
                             Alert(title: Text("Delete User?"), primaryButton: Alert.Button.destructive(Text("Confirm"), action: user.destroyUser), secondaryButton: .cancel())
                         })
                 }

@@ -39,8 +39,10 @@ class User: NSObject, ObservableObject, Codable {
     @Published var sessionIDs = [String]()
     @Published var likedWorkoutIDs = [String]()
     @Published var publishedWorkoutIDs = [String]()
+    @Published var workoutPlans = [WorkoutPlan]()
     
-    // TODO
+    let eventStore = EventStore()
+    
     @Published var tenRecentSearches = [String]()
     
     @Published var following = [UserPreview]()
@@ -139,14 +141,23 @@ class User: NSObject, ObservableObject, Codable {
     }
     
     func clearWorkoutSessions() {
-        for workoutSessionID in sessionIDs {
-            clearWorkoutSession(id: workoutSessionID)
+        for workoutSession in sessions() {
+            clearWorkoutSession(session: workoutSession)
         }
     }
     
-    func clearWorkoutSession(id: String) {
-        HTTPRequester.deleteWorkoutSession(workoutSessionID: id)
-        sessionIDs.removeAll(where: {$0 == id})
+    func completeWorkoutSession(session: WorkoutSession) {
+        HTTPRequester.publishWorkoutSession(session: session)
+        WorkoutSession.workoutSessionCache[session.id] = session
+        eventStore.addSession(session: session)
+        sessionIDs.append(id)
+    }
+    
+    func clearWorkoutSession(session: WorkoutSession) {
+        session.isDeleted = true
+        HTTPRequester.deleteWorkoutSession(workoutSessionID: session.id)
+        eventStore.removeSession(session: session)
+        sessionIDs.removeAll(where: {$0 == session.id})
     }
     
     func deleteWorkout(id: String) {
@@ -162,11 +173,42 @@ class User: NSObject, ObservableObject, Codable {
         while tenRecentSearches.count > 10 {_ = tenRecentSearches.popLast()}
     }
     
+    func addPlan(workout: Workout, date: Date) -> Bool {
+        
+        guard !(DayComponents(date: date) < eventStore.today) else {return false}
+        
+        // create plan
+        let workoutPlan = WorkoutPlan(workout: workout, date: date)
+        
+        // post to server
+        HTTPRequester.publishWorkoutPlan(plan: workoutPlan)
+        
+        // add to list
+        workoutPlans.append(workoutPlan)
+        
+        // add to eventstore
+        eventStore.addPlan(plan: workoutPlan)
+        
+        return true
+    }
+    
+    func deletePlan(plan: WorkoutPlan) {
+        // remove from server
+        HTTPRequester.deleteWorkoutPlan(id: plan.id)
+        
+        // remove from list
+        workoutPlans.removeAll() {$0 == plan}
+        
+        // remove from eventstores
+        eventStore.removePlan(plan: plan)
+    }
+    
     enum Key: String, CodingKey {
         case id, username, password
         case shortBiography, sex, inches, pounds, birthdate
         case profilePicture
-        case followingIDs, sessionIDs, likedWorkoutIDs, publishedWorkoutIDs
+        case tenRecentSearches
+        case followingIDs, sessionIDs, likedWorkoutIDs, publishedWorkoutIDs, workoutPlans
     }
     
     required init(from decoder: Decoder) throws {
@@ -189,17 +231,27 @@ class User: NSObject, ObservableObject, Codable {
         let profilePictureData = Data(base64Encoded: profilePictureString)!
         profilePicture = UIImage(data: profilePictureData)!
         
+        tenRecentSearches = try container.decode([String].self, forKey: .tenRecentSearches)
+        
         followingIDs = try container.decode([String].self, forKey: .followingIDs)
         sessionIDs = try container.decode([String].self, forKey: .sessionIDs)
         likedWorkoutIDs = try container.decode([String].self, forKey: .likedWorkoutIDs)
         publishedWorkoutIDs = try container.decode([String].self, forKey: .publishedWorkoutIDs)
+        let workoutPlans = try container.decode([WorkoutPlan].self, forKey: .workoutPlans)
+        for workoutPlan in workoutPlans {
+            if DayComponents(date: workoutPlan.date) < eventStore.today {
+                HTTPRequester.deleteWorkoutPlan(id: workoutPlan.id)
+            } else {
+                self.workoutPlans.append(workoutPlan)
+            }
+        }
         
         birthdate = Date(timeIntervalSince1970: try container.decode(Double.self, forKey: .birthdate))
         
         // not from JSON
         self.userRegistered = true
         
-        
+        eventStore.populate(user: self)
     }
     
     func encode(to encoder: Encoder) throws {

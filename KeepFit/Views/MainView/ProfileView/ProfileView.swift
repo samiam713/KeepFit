@@ -37,6 +37,12 @@ struct ProfileView: View {
                     Text("\(user.sessions().reduce(0, {(res: Double,wos: WorkoutSession) in res + wos.caloriesBurned}).twoDecimalPlaces()) total calories burned")
                 }
                 
+                Section(header: Text("Fit Calendar")) {
+                    NavigationLink(destination: FitCalendarView()) {
+                        Label("View the Fit Calendar", systemImage: "calendar")
+                    }
+                }
+                
                 Section(header: Text("Workout Sessions")) {
                     List(user.sessions()) {(session: WorkoutSession) in
                         WorkoutSessionView.createNavigationLink(session: session)

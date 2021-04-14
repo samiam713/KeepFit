@@ -44,12 +44,13 @@ struct WorkoutSessionView: View {
             }
             Section {
                 if session.userID == User.currentUser.id {
-                    Button("Delete Workout Session", action: {User.currentUser.clearWorkoutSession(id: session.id)})
+                    Button("Delete Workout Session", action: {User.currentUser.clearWorkoutSession(session: session)})
                         .foregroundColor(.red)
                 }
                 
             }
         }
+        .disabled(session.isDeleted)
         .navigationTitle("\(session.user().username)'s Workout")
     }
 }

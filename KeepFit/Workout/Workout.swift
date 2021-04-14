@@ -160,7 +160,9 @@ class WorkoutVideoStore {
     }
 }
 
-class WorkoutSession: ObservableObject, Codable, Identifiable {
+class WorkoutSession: ObservableObject, Codable, Identifiable, Equatable {
+    
+    static func ==(lhs: WorkoutSession, rhs: WorkoutSession) -> Bool {lhs.id == rhs.id}
     
     init(workoutID: String) {
         self.workoutID = workoutID
@@ -197,9 +199,11 @@ class WorkoutSession: ObservableObject, Codable, Identifiable {
     @Published var caloriesBurned = 0.0
     @Published var caloriesError: String? = nil
     
+    @Published var isDeleted = false
+    
     func workoutCompleted() -> Bool {endTime != startTime}
     
-    func completeWorkout() {
+    func completeWorkoutSession() {
         
         if caloriesBurned == 0.0 {
             caloriesError = "Record how many calories you burned!"
@@ -207,9 +211,7 @@ class WorkoutSession: ObservableObject, Codable, Identifiable {
         
         endTime = Date()
         
-        HTTPRequester.publishWorkoutSession(session: self)
-        WorkoutSession.workoutSessionCache[self.id] = self
-        User.currentUser.sessionIDs.append(id)
+        User.currentUser.completeWorkoutSession(session: self)
     }
     
     enum Key: String, CodingKey {

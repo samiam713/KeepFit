@@ -56,7 +56,7 @@ struct CreateWorkoutSessionView: View {
                 }
                 // one day... make this "sexy"
                 Section {
-                    Button("Publish Workout", action: workoutSession.completeWorkout)
+                    Button("Publish Workout", action: workoutSession.completeWorkoutSession)
                         .disabled(workoutSession.workoutCompleted())
                 }
             }
