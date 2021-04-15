@@ -194,7 +194,7 @@ class WorkoutSession: ObservableObject, Codable, Identifiable, Equatable {
     func user() -> UserPreview {UserPreview.getUserPreview(id: userID)}
     
     @Published var startTime = Date()
-    @Published var endTime: Date? = nil
+    @Published var endTime = Date()
     
     @Published var caloriesBurned = 0.0
     @Published var caloriesError: String? = nil
@@ -207,6 +207,7 @@ class WorkoutSession: ObservableObject, Codable, Identifiable, Equatable {
         
         if caloriesBurned == 0.0 {
             caloriesError = "Record how many calories you burned!"
+            return
         }
         
         endTime = Date()
@@ -241,7 +242,7 @@ class WorkoutSession: ObservableObject, Codable, Identifiable, Equatable {
         try container.encode(userID, forKey: .userID)
         
         try container.encode(startTime.timeIntervalSince1970, forKey: .startTime)
-        try container.encode(endTime!.timeIntervalSince1970, forKey: .endTime)
+        try container.encode(endTime.timeIntervalSince1970, forKey: .endTime)
         try container.encode(caloriesBurned, forKey: .caloriesBurned)
     }
 }

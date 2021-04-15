@@ -35,8 +35,8 @@ struct CreateWorkoutSessionView: View {
             Form {
                 Section() {
                     Text("Started workout at \(workoutSession.startTime.secondString())")
-                    if workoutSession.endTime != workoutSession.startTime {
-                        Text("Ended workout at \(workoutSession.endTime!.secondString())")
+                    if workoutSession.workoutCompleted() {
+                        Text("Ended workout at \(workoutSession.endTime.secondString())")
                     }
                 }
                 Section {

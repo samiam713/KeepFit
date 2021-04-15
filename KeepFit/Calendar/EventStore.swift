@@ -24,7 +24,7 @@ class EventStore: ObservableObject {
     }
     
     func addSession(session: WorkoutSession) {
-        let dc = DayComponents(date: session.endTime!)
+        let dc = DayComponents(date: session.endTime)
         
         if sessions[dc] != nil {
             sessions[dc]!.append(session)
@@ -34,7 +34,7 @@ class EventStore: ObservableObject {
     }
     
     func removeSession(session: WorkoutSession) {
-        let dc = DayComponents(date: session.endTime!)
+        let dc = DayComponents(date: session.endTime)
         guard sessions[dc] != nil else {return}
         
         sessions[dc]!.removeAll(where: {session == $0})

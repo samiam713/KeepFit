@@ -51,10 +51,8 @@ struct FitCalendarView: View {
                 Button(action: decrementMonth) {Image(systemName: "chevron.backward.circle").font(.system(size: 24))}
                     .padding()
                 Spacer()
-                
                 Text("\(Calendar.gregMonthSymbols[month-1]) \(year.description)")
                     .font(.headline)
-                
                 Spacer()
                 Button(action: incrementMonth) {Image(systemName: "chevron.forward.circle").font(.system(size: 24))}
                     .padding()

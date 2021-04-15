@@ -64,19 +64,19 @@ struct WorkoutView: View {
                             Label("Like Video", systemImage: "hand.thumbsup")
                         }
                     }
-                    
-                    Section(header: Text("Plan Workout")) {
-                        DatePicker("Planned Workout Date and Time", selection: $selectedDate, displayedComponents: [.date, .hourAndMinute])
-                        Button("Plan Workout!", action: {
-                            if !User.currentUser.addPlan(workout: workout, date: selectedDate) {
-                                workoutPlanError = "Can't plan a workout in the past!"
-                            }
-                        })
-                        .alert(item: $workoutPlanError) {(errorMessage: String) in
-                            Alert(title: Text("Workout Plan Error"), message: Text(errorMessage), dismissButton: .cancel())
+                }
+                Section(header: Text("Plan Workout")) {
+                    DatePicker("Date and Time", selection: $selectedDate, displayedComponents: [.date, .hourAndMinute])
+                    Button("Plan Workout!", action: {
+                        if !User.currentUser.addPlan(workout: workout, date: selectedDate) {
+                            workoutPlanError = "Can't plan a workout in the past!"
                         }
+                    })
+                    .alert(item: $workoutPlanError) {(errorMessage: String) in
+                        Alert(title: Text("Workout Plan Error"), message: Text(errorMessage), dismissButton: .cancel())
                     }
-                    
+                }
+                Section {
                     if workout.creatorID == User.currentUser.id {
                         Button("Delete Workout", action: {User.currentUser.deleteWorkout(id: workout.id)})
                             .foregroundColor(.red)

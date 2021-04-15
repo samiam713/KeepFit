@@ -24,7 +24,7 @@ struct WorkoutSessionView: View {
         }
     }
     
-    let session: WorkoutSession
+    @ObservedObject var session: WorkoutSession
     
     var body: some View {
         Form {
@@ -36,21 +36,20 @@ struct WorkoutSessionView: View {
             }
             Section {
                 Text("Completed on \(session.startTime.dateString())")
-                Text("Took \(session.startTime.timeIntervalSince(session.endTime!).twoDecimalPlaces())s")
+                Text("Took \(session.endTime.timeIntervalSince(session.startTime).twoDecimalPlaces()) seconds")
             }
             Section {
                 KeepFitLogoView()
                 Text("\(session.caloriesBurned.twoDecimalPlaces()) calories burned")
             }
             Section {
-                if session.userID == User.currentUser.id {
+                if !session.isDeleted && session.userID == User.currentUser.id {
                     Button("Delete Workout Session", action: {User.currentUser.clearWorkoutSession(session: session)})
                         .foregroundColor(.red)
                 }
                 
             }
         }
-        .disabled(session.isDeleted)
         .navigationTitle("\(session.user().username)'s Workout")
     }
 }

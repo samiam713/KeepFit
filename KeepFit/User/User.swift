@@ -147,10 +147,10 @@ class User: NSObject, ObservableObject, Codable {
     }
     
     func completeWorkoutSession(session: WorkoutSession) {
-        HTTPRequester.publishWorkoutSession(session: session)
         WorkoutSession.workoutSessionCache[session.id] = session
+        HTTPRequester.publishWorkoutSession(session: session)
         eventStore.addSession(session: session)
-        sessionIDs.append(id)
+        sessionIDs.append(session.id)
     }
     
     func clearWorkoutSession(session: WorkoutSession) {
@@ -251,7 +251,9 @@ class User: NSObject, ObservableObject, Codable {
         // not from JSON
         self.userRegistered = true
         
-        eventStore.populate(user: self)
+        DispatchQueue.main.async {
+            self.eventStore.populate(user: self)
+        }
     }
     
     func encode(to encoder: Encoder) throws {

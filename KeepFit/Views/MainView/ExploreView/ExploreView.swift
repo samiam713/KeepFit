@@ -33,8 +33,8 @@ struct ExploreView: View {
     
     init() {
         // self.tenMostLikedWorkouts = .init(repeating: .init(), count: 5)
-         let tenMostLikedWorkoutIDs = HTTPRequester.get10MostLikedWorkouts()
-         self.tenMostLikedWorkouts = tenMostLikedWorkoutIDs.map({HTTPRequester.getWorkout(id: $0)})
+        let tenMostLikedWorkoutIDs = HTTPRequester.get10MostLikedWorkouts()
+        self.tenMostLikedWorkouts = tenMostLikedWorkoutIDs.map({HTTPRequester.getWorkout(id: $0)})
     }
     
     var body: some View
@@ -72,7 +72,7 @@ struct ExploreView: View {
                     Label("Friend Activity", systemImage: "person.2.square.stack")
                         .font(.system(size: 24))
                 })
-            
+                .padding()
         }
     }
 }

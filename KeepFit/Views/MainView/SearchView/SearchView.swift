@@ -16,10 +16,6 @@ struct SearchView: View {
     
     @ObservedObject var user = User.currentUser
     
-    init() {
-        user.tenRecentSearches = ["asdf","fdas"]
-    }
-    
     func search() {
         hideKeyboard()
         userResults = HTTPRequester.searchUsers(prefix: currentSearch)

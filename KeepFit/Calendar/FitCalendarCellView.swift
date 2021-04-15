@@ -38,6 +38,7 @@ struct FitCalendarCellView: View {
                             
                         }
                     }
+                    
                     .foregroundColor(Color.noncontrast)
                     .background(RoundedRectangle(cornerRadius: 2.0).foregroundColor(.contrast))
                 }
@@ -70,11 +71,13 @@ struct FitCalendarDayView: View {
                             Text("Workout \"\(plan.workout().title)\" Planned")
                             Text(plan.date.secondString())
                                 .italic()
-                            HStack {
-                                Button("Complete Plan") {
-                                    User.currentUser.deletePlan(plan: plan)
-                                }
-                                CreateWorkoutSessionView.createNavigationLink(workout: plan.workout())
+                            NavigationLink(destination: WorkoutPlanView(plan: plan)) {
+                                Text("#keepfit")
+                                    .centered()
+                                    .foregroundColor(.white)
+                                    .padding()
+                                    .background(Capsule().foregroundColor(.blue))
+                                    .padding()
                             }
                         }
                     }
@@ -82,5 +85,29 @@ struct FitCalendarDayView: View {
             }
         }
         .navigationBarTitle(Text(dayComponents.prettyPrint()))
+    }
+}
+
+struct WorkoutPlanView: View {
+    @ObservedObject var user = User.currentUser
+    
+    let plan: WorkoutPlan
+    
+    var body: some View {
+        VStack {
+            if user.workoutPlans.contains(plan) {
+                Button(action: {
+                    User.currentUser.deletePlan(plan: plan)
+                }) {
+                    Text("Complete Plan")
+                        .font(.title2)
+                        .padding()
+                        .foregroundColor(.noncontrast)
+                        .background(Capsule().foregroundColor(.contrast))
+                }
+                Divider()
+            }
+            CreateWorkoutSessionView(workout: plan.workout())
+        }
     }
 }

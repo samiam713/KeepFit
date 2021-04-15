@@ -9,7 +9,8 @@ import Foundation
 
 extension HTTPRequester {
     
-    struct StoreSearch: Codable {
+    struct StoreSearch: Encodable {
+        let id = UUID().uuidString
         let userID: String
         let keyword: String
         let date: Double

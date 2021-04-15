@@ -52,6 +52,6 @@ class WorkoutPlan: Equatable, Codable, Identifiable {
         try container.encode(userID, forKey: .userID)
         try container.encode(workoutID, forKey: .workoutID)
         
-        try container.encode(date, forKey: .date)
+        try container.encode(date.timeIntervalSince1970, forKey: .date)
     }
 }
