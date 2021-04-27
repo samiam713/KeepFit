@@ -65,6 +65,17 @@ struct WorkoutView: View {
                         }
                     }
                 }
+                Section(header: Text("Comments")) {
+                    List(workout.comments) {(comment: Workout.Comment) in
+                        WorkoutCommentView.createNavigationLink(comment: comment)
+                    }
+                }
+                
+                Section {
+                    CreateWorkoutCommentView.createNavigationLink(workout: workout)
+                }
+                
+                
                 Section(header: Text("Plan Workout")) {
                     DatePicker("Date and Time", selection: $selectedDate, displayedComponents: [.date, .hourAndMinute])
                     Button("Plan Workout!", action: {

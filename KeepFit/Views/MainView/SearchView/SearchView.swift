@@ -14,6 +14,9 @@ struct SearchView: View {
     @State var userResults = [UserPreview]()
     @State var workoutResults = [Workout]()
     
+    @State var showingUsers = true
+    @State var showingWorkouts = true
+    
     @ObservedObject var user = User.currentUser
     
     func search() {
@@ -53,16 +56,22 @@ struct SearchView: View {
                 Divider()
                 ScrollView {
                     VStack {
-                        Text("Users")
-                            .font(.headline)
-                        ForEach(userResults) {(userPreview: UserPreview) in
-                            UserPreviewView.createNavigationLink(userPreview: userPreview)
+                        Toggle("Showing Users", isOn: $showingUsers)
+                        if showingUsers {
+                            Text("Users")
+                                .font(.headline)
+                            ForEach(userResults) {(userPreview: UserPreview) in
+                                UserPreviewView.createNavigationLink(userPreview: userPreview)
+                            }
                         }
                         Divider()
-                        Text("Workouts")
-                            .font(.headline)
-                        ForEach(workoutResults) {(workout: Workout) in
-                            WorkoutView.createNavigationLink(workout: workout)
+                        Toggle("Showing Workouts", isOn: $showingWorkouts)
+                        if showingWorkouts {
+                            Text("Workouts")
+                                .font(.headline)
+                            ForEach(workoutResults) {(workout: Workout) in
+                                WorkoutView.createNavigationLink(workout: workout)
+                            }
                         }
                     }
                 }

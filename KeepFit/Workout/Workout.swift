@@ -12,7 +12,52 @@ enum WorkoutCategory: String, CaseIterable {
     case HIIT, Yoga, Aerobics, Bodyweight, Cardio, Strength
 }
 
+extension Workout {
+    class Comment: ObservableObject, Codable, Identifiable {
+        let id: String
+        let userID: String
+        let workoutID: String
+        var comment: String
+        
+        init(comment: String, workoutID: String) {
+            self.id = UUID().uuidString
+            self.userID = User.currentUser.id
+            self.comment = comment
+            self.workoutID = workoutID
+        }
+        
+        func userPreview() -> UserPreview {UserPreview.getUserPreview(id: self.userID)}
+        
+        enum Key: String, CodingKey {
+            case id, userID, comment, workoutID
+        }
+        
+        // DECODABLE
+        required init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: Key.self)
+            
+            id = try container.decode(String.self, forKey: .id)
+            userID = try container.decode(String.self, forKey: .userID)
+            workoutID = try container.decode(String.self, forKey: .workoutID)
+            comment = try container.decode(String.self, forKey: .comment)
+        }
+        
+        // ENCODABLE
+        func encode(to encoder: Encoder) throws {
+            var container = encoder.container(keyedBy: Key.self)
+            
+            try container.encode(id, forKey: .id)
+            try container.encode(userID, forKey: .userID)
+            try container.encode(workoutID, forKey: .workoutID)
+            try container.encode(comment, forKey: .comment)
+        }
+    }
+}
+
 class Workout: NSObject, Codable, ObservableObject, Identifiable {
+    
+    static let maxWorkoutVideoBytes: Int = Int.max
+    
     static var workoutCache = [String:Workout]()
 
     static func getWorkout(id: String) -> Workout {
@@ -54,7 +99,10 @@ class Workout: NSObject, Codable, ObservableObject, Identifiable {
     
     @Published var videoLiked = false
     
-    @Published var errorMessage: String? = nil
+    @Published var creationErrorMessage: String? = nil
+    
+    @Published var commentsEnabled = true
+    @Published var comments = [Comment]()
     
     func likeVideo() {
         HTTPRequester.likeWorkout(id: id)
@@ -70,7 +118,7 @@ class Workout: NSObject, Codable, ObservableObject, Identifiable {
     
     func attemptToPublishWorkout() {
         guard let creatingVideoURL = creatingVideoURL else {
-            errorMessage = "Must record a video!"
+            creationErrorMessage = "Must record a video!"
             return
         }
         
@@ -97,10 +145,17 @@ class Workout: NSObject, Codable, ObservableObject, Identifiable {
             title.lowercased().contains(lc)
     }
     
+    func add(commentString: String) {
+        let comment = Comment(comment: commentString, workoutID: id)
+        self.comments.append(comment)
+        HTTPRequester.publishComment(comment: comment)
+    }
+    
     enum Key: String, CodingKey {
         case id, creatorID
         case createdDate
         case title, caption, category
+        case comments, commentsEnabled
     }
     
     // DECODABLE
@@ -119,6 +174,9 @@ class Workout: NSObject, Codable, ObservableObject, Identifiable {
         let categoryString = try container.decode(String.self, forKey: .category)
         category = WorkoutCategory(rawValue: categoryString)!
         
+        comments = try container.decode([Comment].self, forKey: .comments)
+        commentsEnabled = try container.decode(Bool.self, forKey: .commentsEnabled)
+        
         // custom
         beenPublished = true
         videoLiked = User.currentUser.likedWorkoutIDs.contains(id)
@@ -136,6 +194,8 @@ class Workout: NSObject, Codable, ObservableObject, Identifiable {
         try container.encode(title, forKey: .title)
         try container.encode(caption, forKey: .caption)
         try container.encode(category.rawValue, forKey: .category)
+        
+        try container.encode(commentsEnabled, forKey: .commentsEnabled)
     }
 }
 

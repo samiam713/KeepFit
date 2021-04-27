@@ -122,6 +122,11 @@ class User: NSObject, ObservableObject, Codable {
         return successful
     }
     
+    func logout() {
+        User.currentUser = User()
+        keepFitAppController.currentView = .entry
+    }
+    
     func attemptToRegister() {
         guard validateData() else {return}
         userRegistered = HTTPRequester.registerUser(user: self)
@@ -173,6 +178,8 @@ class User: NSObject, ObservableObject, Codable {
         HTTPRequester.deleteWorkout(workoutID: id)
         publishedWorkoutIDs.removeAll(where: {$0 == id})
         likedWorkoutIDs.removeAll(where: {$0 == id})
+        workoutPlans.removeAll() {(plan: WorkoutPlan) in plan.workoutID == id}
+        sessionIDs.removeAll(where: {WorkoutSession.getWorkoutSession(id: $0).workoutID == id})
     }
     
     func addSearch(keyword: String) {

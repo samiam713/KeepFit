@@ -22,6 +22,11 @@
 		D30EFA722605A7CF00E7B32A /* HTTPRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30EFA712605A7CF00E7B32A /* HTTPRequester.swift */; };
 		D30EFA7B2605AB2A00E7B32A /* UserHTTPRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30EFA7A2605AB2A00E7B32A /* UserHTTPRequester.swift */; };
 		D334DA50260AD08900438F09 /* WorkoutSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D334DA4F260AD08900438F09 /* WorkoutSessionView.swift */; };
+		D34428D126388DF9002D07CC /* CommentViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34428D026388DF9002D07CC /* CommentViews.swift */; };
+		D34428D42638B0C7002D07CC /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34428D32638B0C7002D07CC /* FileManager.swift */; };
+		D34428D72638B667002D07CC /* SitupCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34428D62638B667002D07CC /* SitupCounter.swift */; };
+		D34429142638D67B002D07CC /* SitupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34429132638D67B002D07CC /* SitupView.swift */; };
+		D34429162638D6AC002D07CC /* TurnMySwagOn.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D34429152638D6AC002D07CC /* TurnMySwagOn.mp3 */; };
 		D35364AD26099B6E00268AED /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35364AC26099B6E00268AED /* CategoriesView.swift */; };
 		D35364C226099C0000268AED /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35364C126099C0000268AED /* CategoryView.swift */; };
 		D3707EBA2624F3090091C942 /* FitCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3707EB92624F3090091C942 /* FitCalendarView.swift */; };
@@ -94,6 +99,11 @@
 		D30EFA712605A7CF00E7B32A /* HTTPRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequester.swift; sourceTree = "<group>"; };
 		D30EFA7A2605AB2A00E7B32A /* UserHTTPRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHTTPRequester.swift; sourceTree = "<group>"; };
 		D334DA4F260AD08900438F09 /* WorkoutSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSessionView.swift; sourceTree = "<group>"; };
+		D34428D026388DF9002D07CC /* CommentViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViews.swift; sourceTree = "<group>"; };
+		D34428D32638B0C7002D07CC /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
+		D34428D62638B667002D07CC /* SitupCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitupCounter.swift; sourceTree = "<group>"; };
+		D34429132638D67B002D07CC /* SitupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitupView.swift; sourceTree = "<group>"; };
+		D34429152638D6AC002D07CC /* TurnMySwagOn.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TurnMySwagOn.mp3; sourceTree = "<group>"; };
 		D35364AC26099B6E00268AED /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
 		D35364C126099C0000268AED /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		D3707EB92624F3090091C942 /* FitCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitCalendarView.swift; sourceTree = "<group>"; };
@@ -201,14 +211,16 @@
 		D30EFA342605A6C500E7B32A /* KeepFit */ = {
 			isa = PBXGroup;
 			children = (
+				D34428D52638B48C002D07CC /* SitupCounter */,
 				D30EFA352605A6C500E7B32A /* KeepFitApp.swift */,
 				D3707EB82624F2F60091C942 /* Calendar */,
 				D3707EE12624F78E0091C942 /* User */,
 				D3707EE22624F8F50091C942 /* Workout */,
 				D3E5EB83260675CD002DAD24 /* Views */,
 				D30EFA792605AB0400E7B32A /* HTTPRequester */,
-				D3E5EB732605CF85002DAD24 /* Utilities.swift */,
+				D34428D22638B0BA002D07CC /* Utilities */,
 				D30EFA392605A6C600E7B32A /* Assets.xcassets */,
+				D34429152638D6AC002D07CC /* TurnMySwagOn.mp3 */,
 				D30EFA3E2605A6C600E7B32A /* Info.plist */,
 				D30EFA3B2605A6C600E7B32A /* Preview Content */,
 			);
@@ -268,6 +280,24 @@
 				D334DA4F260AD08900438F09 /* WorkoutSessionView.swift */,
 			);
 			path = WorkoutSessionView;
+			sourceTree = "<group>";
+		};
+		D34428D22638B0BA002D07CC /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				D3E5EB732605CF85002DAD24 /* Utilities.swift */,
+				D34428D32638B0C7002D07CC /* FileManager.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		D34428D52638B48C002D07CC /* SitupCounter */ = {
+			isa = PBXGroup;
+			children = (
+				D34428D62638B667002D07CC /* SitupCounter.swift */,
+				D34429132638D67B002D07CC /* SitupView.swift */,
+			);
+			path = SitupCounter;
 			sourceTree = "<group>";
 		};
 		D35364AB26099B3200268AED /* CategoriesView */ = {
@@ -381,6 +411,7 @@
 			isa = PBXGroup;
 			children = (
 				D3FA248626083C3E00714157 /* WorkoutView.swift */,
+				D34428D026388DF9002D07CC /* CommentViews.swift */,
 			);
 			path = WorkoutView;
 			sourceTree = "<group>";
@@ -519,6 +550,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D30EFA3D2605A6C600E7B32A /* Preview Assets.xcassets in Resources */,
+				D34429162638D6AC002D07CC /* TurnMySwagOn.mp3 in Resources */,
 				D30EFA3A2605A6C600E7B32A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -562,6 +594,7 @@
 				D3E5EB85260675F2002DAD24 /* KeepFitLogoView.swift in Sources */,
 				D302C3132607E6CD008C7E8D /* CreateWorkoutView.swift in Sources */,
 				D334DA50260AD08900438F09 /* WorkoutSessionView.swift in Sources */,
+				D34428D72638B667002D07CC /* SitupCounter.swift in Sources */,
 				D35364AD26099B6E00268AED /* CategoriesView.swift in Sources */,
 				D302C3182607F0D3008C7E8D /* CreateWorkoutVideoView.swift in Sources */,
 				D3E5EB6F2605C207002DAD24 /* ProfilePictureView.swift in Sources */,
@@ -569,6 +602,7 @@
 				D3959E052606D76A00F9F847 /* SearchHTTPRequester.swift in Sources */,
 				D3707EC42624F3140091C942 /* FitCalendarCellView.swift in Sources */,
 				D3FA245726083A0800714157 /* ProfileView.swift in Sources */,
+				D34428D42638B0C7002D07CC /* FileManager.swift in Sources */,
 				D35364C226099C0000268AED /* CategoryView.swift in Sources */,
 				D3707EE42624F9330091C942 /* WorkoutPlan.swift in Sources */,
 				D3707EBA2624F3090091C942 /* FitCalendarView.swift in Sources */,
@@ -576,10 +610,12 @@
 				D3707ED82624F67E0091C942 /* EventStore.swift in Sources */,
 				D30EFA6A2605A71D00E7B32A /* User.swift in Sources */,
 				D30EFA382605A6C500E7B32A /* EntryView.swift in Sources */,
+				D34429142638D67B002D07CC /* SitupView.swift in Sources */,
 				D3AFD07E260E3EE600E33443 /* ChangePasswordView.swift in Sources */,
 				D30EFA642605A70600E7B32A /* UserProfileView.swift in Sources */,
 				D3C569EA26154FB8007476EF /* LoadingAnimation.swift in Sources */,
 				D3FA247E26083C1D00714157 /* UserPreviewView.swift in Sources */,
+				D34428D126388DF9002D07CC /* CommentViews.swift in Sources */,
 				D3E5EB742605CF85002DAD24 /* Utilities.swift in Sources */,
 				D30EFA362605A6C500E7B32A /* KeepFitApp.swift in Sources */,
 				D3892AA22606C7AD0006CA38 /* WorkoutHTTPRequester.swift in Sources */,

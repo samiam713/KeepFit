@@ -30,6 +30,13 @@ struct ExerciseView: View {
                         .padding()
                 }
                 Divider()
+                
+                NavigationLink(destination: SitupView()) {
+                    Label("Do Situps!", systemImage: "face.smiling.fill")
+                }
+                .padding()
+                
+                Divider()
                 Text("Liked Workouts")
                     .font(.title)
                     .bold()

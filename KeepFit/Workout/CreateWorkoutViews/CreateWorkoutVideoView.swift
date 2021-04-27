@@ -28,16 +28,23 @@ struct CreateWorkoutVideoView: UIViewControllerRepresentable {
 // delegate for the ImagePickerControllerDelegate
 extension Workout: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
-
-    
     // delegate function
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         if let videoURL = info[UIImagePickerController.InfoKey.mediaURL] as? URL {
-            print(videoURL.absoluteURL)
-            self.creatingVideoURL = videoURL
-            self.recordingVideo = false
+            if FileManager.bytesForLocalURL(localURL: videoURL)! <= Workout.maxWorkoutVideoBytes {
+                print(videoURL.absoluteURL)
+                self.creatingVideoURL = videoURL
+            } else {
+                // Video exceeds \(Workout.maxWorkoutVideoBytes) bytes
+                creationErrorMessage = "Video Too Large (exceeds \(Workout.maxWorkoutVideoBytes) bytes)"
+            }
+        } else {
+            // Video Recording Error
+            creationErrorMessage = "Video Recording Error"
         }
+        
+        self.recordingVideo = false
     }
     
 }

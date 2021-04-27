@@ -43,18 +43,25 @@ struct ProfileView: View {
                     }
                 }
                 
-                Section(header: Text("Workout Sessions")) {
-                    List(user.sessions()) {(session: WorkoutSession) in
-                        WorkoutSessionView.createNavigationLink(session: session)
-                    }
-                    Button("Clear Completed Workout History", action: user.clearWorkoutSessions)
-                        .foregroundColor(.red)
+                Section(header: Text("Review Stuff")) {
+                    NavigationLink("Review Workout Sessions", destination:
+                                    VStack {
+                                        List(user.sessions()) {(session: WorkoutSession) in
+                                            WorkoutSessionView.createNavigationLink(session: session)
+                                        }
+                                        Button("Clear Completed Workout History", action: user.clearWorkoutSessions)
+                                            .foregroundColor(.red)
+                                    })
+                    
+                    NavigationLink("Review My Workouts", destination:
+                                    List(user.publishedWorkouts()) {(workout: Workout) in
+                                        WorkoutView.createNavigationLink(workout: workout)
+                                    })
                 }
                 
-                Section(header: Text("My Workouts")) {
-                    List(user.publishedWorkouts()) {(workout: Workout) in
-                        WorkoutView.createNavigationLink(workout: workout)
-                    }
+                Section {
+                    Button("Logout", action: user.logout)
+                        .foregroundColor(.red)
                 }
             }
             
