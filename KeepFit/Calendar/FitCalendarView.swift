@@ -12,6 +12,8 @@ struct FitCalendarView: View {
     @State var year: Int // = 2021
     @State var month: Int //= 1
     
+    @ObservedObject var user = User.currentUser
+    
     init() {
         let today = DayComponents.today()
         _year = State(initialValue: today.year)
@@ -46,7 +48,6 @@ struct FitCalendarView: View {
     
     var body: some View {
         VStack {
-            
             HStack {
                 Button(action: decrementMonth) {Image(systemName: "chevron.backward.circle").font(.system(size: 24))}
                     .padding()
@@ -56,6 +57,23 @@ struct FitCalendarView: View {
                 Spacer()
                 Button(action: incrementMonth) {Image(systemName: "chevron.forward.circle").font(.system(size: 24))}
                     .padding()
+            }
+            if let nearestPlan = user.nearestPlan {
+                VStack {
+                    Text("Workout \"\(nearestPlan.workout().title)\" Up Next")
+                    Text(nearestPlan.date.dateString())
+                        .italic()
+                    NavigationLink(destination: WorkoutPlanView(plan: nearestPlan)) {
+                        Text("#keepfit")
+                            .centered()
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Capsule().foregroundColor(.blue))
+                            .padding()
+                    }
+                }
+            } else {
+                Text("No Planned Workouts Yet")
             }
             
             // 6*7 grid
@@ -68,7 +86,7 @@ struct FitCalendarView: View {
                 ZStack {
                     ForEach(DayComponents.getDayComponents(year: year, month: month)) {(dayComponents: DayComponents) in
                         NavigationLink(destination: FitCalendarDayView(dayComponents: dayComponents)) {
-                        FitCalendarCellView(dayComponents: dayComponents)
+                            FitCalendarCellView(dayComponents: dayComponents)
                         }
                         .buttonStyle(PlainButtonStyle())
                         .frame(width: DayComponents.getStride(proxy: proxy).xStride, height: DayComponents.getStride(proxy: proxy).yStride, alignment: .center)

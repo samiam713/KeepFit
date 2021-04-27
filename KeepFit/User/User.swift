@@ -82,6 +82,15 @@ class User: NSObject, ObservableObject, Codable {
         UserPreview(id: id, username: username, shortBiography: shortBiography, profilePicture: profilePicture, sessionIDs: sessionIDs, likedWorkoutIDs: likedWorkoutIDs, publishedWorkoutIDs: publishedWorkoutIDs)
     }
     
+    static func nearestPlanReducer(current: WorkoutPlan?, next: WorkoutPlan) -> WorkoutPlan? {
+        guard let current = current else {return next}
+        return current.date < next.date ? current : next
+    }
+    
+    var nearestPlan: WorkoutPlan? {
+        return workoutPlans.reduce(nil, Self.nearestPlanReducer(current:next:))
+    }
+    
     // returns true iff valid username/password
     // if not valid, adds helpful error messages
     func validateData() -> Bool {

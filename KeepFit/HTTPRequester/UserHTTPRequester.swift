@@ -36,7 +36,7 @@ extension HTTPRequester {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try! encoder.encode(id)
-        request.timeoutInterval = 10
+        request.timeoutInterval = Self.timeoutDeadline
         
         //Create a URL Session
         
@@ -97,7 +97,7 @@ extension HTTPRequester {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         let resetPassword = ResetPassword(id: User.currentUser.id, oldPassword: oldPassword, newPassword: newPassword)
         request.httpBody = try! encoder.encode(resetPassword)
-        request.timeoutInterval = 10
+        request.timeoutInterval = Self.timeoutDeadline
         
         //Create a URL Session
         
@@ -142,7 +142,7 @@ extension HTTPRequester {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try! encoder.encode(user)
-        request.timeoutInterval = 10
+        request.timeoutInterval = 30
         
         //Create a URL Session
         
@@ -186,7 +186,7 @@ extension HTTPRequester {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try! encoder.encode(user)
-        request.timeoutInterval = 10
+        request.timeoutInterval = Self.timeoutDeadline
         
         //Create a URL Session
         
@@ -233,7 +233,7 @@ extension HTTPRequester {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try! encoder.encode(LoginData(username: username, password: password))
-        request.timeoutInterval = 10
+        request.timeoutInterval = Self.timeoutDeadline
         
         //Create a URL Session
         
@@ -292,7 +292,7 @@ extension HTTPRequester {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try! encoder.encode(FollowUser(followerID: myID, followingID: otherID))
-        request.timeoutInterval = 10
+        request.timeoutInterval = Self.timeoutDeadline
         
         //Create a URL Session
         
@@ -332,7 +332,7 @@ extension HTTPRequester {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try! encoder.encode(FollowUser(followerID: myID, followingID: otherID))
-        request.timeoutInterval = 10
+        request.timeoutInterval = Self.timeoutDeadline
         
         //Create a URL Session
         
@@ -367,7 +367,7 @@ extension HTTPRequester {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try! encoder.encode(workoutSessionID)
-        request.timeoutInterval = 10
+        request.timeoutInterval = Self.timeoutDeadline
         
         //Create a URL Session
         
@@ -402,7 +402,7 @@ extension HTTPRequester {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try! encoder.encode(workoutID)
-        request.timeoutInterval = 10
+        request.timeoutInterval = Self.timeoutDeadline
         
         //Create a URL Session
         
@@ -437,7 +437,7 @@ extension HTTPRequester {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try! encoder.encode(userID)
-        request.timeoutInterval = 10
+        request.timeoutInterval = Self.timeoutDeadline
         
         //Create a URL Session
         

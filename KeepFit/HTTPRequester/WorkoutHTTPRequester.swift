@@ -263,7 +263,7 @@ extension HTTPRequester {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try! encoder.encode(session)
-        request.timeoutInterval = 10
+        request.timeoutInterval = Self.timeoutDeadline
         
         //Create a URL Session
         
@@ -299,7 +299,7 @@ extension HTTPRequester {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try! encoder.encode(workoutID)
-        request.timeoutInterval = 10
+        request.timeoutInterval = Self.timeoutDeadline
         
         //Create a URL Session
         
@@ -346,7 +346,7 @@ extension HTTPRequester {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         let videoData = try! Data(contentsOf: fromURL)
         request.httpBody = try! encoder.encode(PostVideo(workoutID: id, videoData: videoData.base64EncodedString()))
-        request.timeoutInterval = 10
+        request.timeoutInterval = Self.timeoutDeadline
         
         //Create a URL Session
         
@@ -381,7 +381,7 @@ extension HTTPRequester {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try! encoder.encode(plan)
-        request.timeoutInterval = 10
+        request.timeoutInterval = Self.timeoutDeadline
         
         //Create a URL Session
         
@@ -415,7 +415,7 @@ extension HTTPRequester {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try! encoder.encode(id)
-        request.timeoutInterval = 10
+        request.timeoutInterval = Self.timeoutDeadline
         
         //Create a URL Session
         

@@ -29,7 +29,7 @@ extension HTTPRequester {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try! encoder.encode(StoreSearch(userID: userID, keyword: keyword, date: date))
-        request.timeoutInterval = 10
+        request.timeoutInterval = Self.timeoutDeadline
         
         //Create a URL Session
         
@@ -67,7 +67,7 @@ extension HTTPRequester {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try! encoder.encode(prefix)
-        request.timeoutInterval = 10
+        request.timeoutInterval = Self.timeoutDeadline
         
         //Create a URL Session
         
@@ -112,7 +112,7 @@ extension HTTPRequester {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try! encoder.encode(prefix)
-        request.timeoutInterval = 10
+        request.timeoutInterval = Self.timeoutDeadline
         
         //Create a URL Session
         
@@ -158,7 +158,7 @@ extension HTTPRequester {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try! encoder.encode(category.rawValue)
-        request.timeoutInterval = 10
+        request.timeoutInterval = Self.timeoutDeadline
         
         //Create a URL Session
         

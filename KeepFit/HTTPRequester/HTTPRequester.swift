@@ -16,6 +16,8 @@ enum HTTPRequester {
     static let encoder = JSONEncoder()
     static let decoder = JSONDecoder()
     
+    static let timeoutDeadline: TimeInterval = 30
+    
     static func getURL(path: String, queries: [URLQueryItem] = []) -> URL {
         var components = URLComponents()
         
