@@ -10,7 +10,14 @@ import SwiftUI
 let keepFitAppController = KeepFitAppController()
 
 class KeepFitAppController: ObservableObject {
-    enum CurrentView: Int {case entry = 0, registering, mainView, creatingWorkout}
+    enum CurrentView: Equatable {case entry, registering, mainView, creatingWorkout, recommendingWorkout(workout: Workout)}
+    func getRecommending() -> Workout? {
+        switch currentView {
+        case .recommendingWorkout(workout: let workout):
+            return workout
+        default: return nil
+        }
+    }
     
     @Published var currentView = CurrentView.entry
     
@@ -21,6 +28,17 @@ class KeepFitAppController: ObservableObject {
     @Published var networkRequests = 0
     
     func getTabName() -> String {currentTab.rawValue}
+    
+    func login(user: User) {
+        User.currentUser = user
+        if let session = user.mostRecentSession(),
+           let recommendedID = HTTPRequester.getMostLikedWorkoutOfCategory(category: session.workout().category.rawValue) {
+            let recommended = Workout.getWorkout(id: recommendedID)
+            currentView = .recommendingWorkout(workout: recommended)
+        } else {
+            keepFitAppController.currentView = .mainView
+        }
+    }
 }
 
 @main
@@ -46,6 +64,9 @@ struct KeepFitApp: App {
                     MainView()
                 } else if controller.currentView == .creatingWorkout {
                     CreateWorkoutView()
+                }
+                else if let recommended = controller.getRecommending() {
+                    
                 }
                 
                 if controller.networkRequests > 0 {

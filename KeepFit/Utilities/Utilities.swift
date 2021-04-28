@@ -122,3 +122,19 @@ class KeyboardObserver: NSObject, ObservableObject {
         keyboardActive = false
     }
 }
+
+extension Sequence {
+    func findExtremum(useFirst: (Element,Element) -> Bool) -> Element? {
+        
+        var iterator = self.makeIterator()
+        guard var current = iterator.next() else {return nil}
+        
+        while let potential = iterator.next() {
+            if useFirst(potential,current) {
+                current = potential
+            }
+        }
+        
+        return current
+    }
+}

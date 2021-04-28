@@ -9,6 +9,49 @@ import Foundation
 
 extension HTTPRequester {
     
+    static func getMostLikedWorkoutOfCategory(category: String) -> String? {
+        let completionGroup = DispatchGroup()
+        completionGroup.enter()
+        
+        var workoutID: String? = nil
+        
+        //Create the request
+        // TODO: update path
+        var request = URLRequest(url: getURL(path: "getMostLikedWorkoutOfCategory/"))
+        print(request.url!.absoluteString)
+        
+        // Construct the request
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        request.timeoutInterval = Self.timeoutDeadline
+        
+        //Create a URL Session
+        
+        let dataTask = URLSession.shared.dataTask(with: request) {(data, response, error) in
+            if let error = error {
+                fatalError(error.localizedDescription)
+            }
+            
+            //ensure the response status is 200 OK and that there is data
+            guard let response = response as? HTTPURLResponse, (200..<300).contains(response.statusCode), let data = data else {
+                fatalError("Not a valid response")
+            }
+                        
+            guard let _workoutID = try? decoder.decode(String?.self, from: data) else {
+                fatalError("NOT A VALID USER JSON")
+            }
+            
+            workoutID = _workoutID
+            completionGroup.leave()
+        }
+        
+        dataTask.resume()
+        
+        completionGroup.wait()
+        return workoutID!
+    }
+    
     static func get10MostLikedWorkouts() -> [String] {
         let completionGroup = DispatchGroup()
         completionGroup.enter()

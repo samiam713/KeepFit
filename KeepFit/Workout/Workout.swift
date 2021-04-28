@@ -26,7 +26,7 @@ extension Workout {
             self.workoutID = workoutID
         }
         
-        func userPreview() -> UserPreview {UserPreview.getUserPreview(id: self.userID)}
+        func userPreview() -> UserPreview {UserPreview.getUserPreview(id: userID)}
         
         enum Key: String, CodingKey {
             case id, userID, comment, workoutID

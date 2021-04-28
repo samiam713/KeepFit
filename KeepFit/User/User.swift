@@ -122,6 +122,8 @@ class User: NSObject, ObservableObject, Codable {
         return successful
     }
     
+    func mostRecentSession() -> WorkoutSession? {sessions().findExtremum(useFirst: {$0.endTime > $1.endTime})}
+    
     func logout() {
         User.currentUser = User()
         keepFitAppController.currentView = .entry

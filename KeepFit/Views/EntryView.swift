@@ -22,8 +22,7 @@ class EntryViewController: ObservableObject {
         let result = HTTPRequester.attemptLogin(username: username, password: password)
         switch result {
         case .success(let user):
-            User.currentUser = user
-            keepFitAppController.currentView = .mainView
+            keepFitAppController.login(user: user)
         case .badPassword:
             attemptLoginError = "Incorrect Password for User \(username)"
         case .badUsername:
