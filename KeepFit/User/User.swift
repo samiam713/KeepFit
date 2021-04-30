@@ -348,7 +348,7 @@ class UserPreview: Decodable, Identifiable {
     
     func sessions() -> [WorkoutSession] {sessionIDs.map(WorkoutSession.getWorkoutSession(id:))}
     func likedWorkouts() -> [Workout] {likedWorkoutIDs.map(Workout.getWorkout(id:))}
-    func publishedWorkouts() -> [Workout] {likedWorkoutIDs.map(Workout.getWorkout(id:))}
+    func publishedWorkouts() -> [Workout] {publishedWorkoutIDs.map(Workout.getWorkout(id:))}
     
     func follow() {
         HTTPRequester.followUser(otherID: id)
