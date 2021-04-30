@@ -29,11 +29,15 @@
 		D34429162638D6AC002D07CC /* TurnMySwagOn.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D34429152638D6AC002D07CC /* TurnMySwagOn.mp3 */; };
 		D35364AD26099B6E00268AED /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35364AC26099B6E00268AED /* CategoriesView.swift */; };
 		D35364C226099C0000268AED /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35364C126099C0000268AED /* CategoryView.swift */; };
+		D3665BF7263C883D006A7921 /* LivestreamHTTPRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3665BF6263C883D006A7921 /* LivestreamHTTPRequester.swift */; };
+		D3665BF9263C88ED006A7921 /* LivestreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3665BF8263C88ED006A7921 /* LivestreamView.swift */; };
 		D3707EBA2624F3090091C942 /* FitCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3707EB92624F3090091C942 /* FitCalendarView.swift */; };
 		D3707EC42624F3140091C942 /* FitCalendarCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3707EC32624F3140091C942 /* FitCalendarCellView.swift */; };
 		D3707ECA2624F3230091C942 /* DayComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3707EC92624F3230091C942 /* DayComponents.swift */; };
 		D3707ED82624F67E0091C942 /* EventStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3707ED72624F67E0091C942 /* EventStore.swift */; };
 		D3707EE42624F9330091C942 /* WorkoutPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3707EE32624F9330091C942 /* WorkoutPlan.swift */; };
+		D37533BE263C65590077CDAB /* CreateLivestreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37533BD263C65590077CDAB /* CreateLivestreamView.swift */; };
+		D37533C0263C656C0077CDAB /* Livestream.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37533BF263C656C0077CDAB /* Livestream.swift */; };
 		D3892AA22606C7AD0006CA38 /* WorkoutHTTPRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3892AA12606C7AD0006CA38 /* WorkoutHTTPRequester.swift */; };
 		D3892AA72606C7C10006CA38 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3892AA62606C7C10006CA38 /* Workout.swift */; };
 		D3959E052606D76A00F9F847 /* SearchHTTPRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3959E042606D76A00F9F847 /* SearchHTTPRequester.swift */; };
@@ -107,11 +111,15 @@
 		D34429152638D6AC002D07CC /* TurnMySwagOn.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TurnMySwagOn.mp3; sourceTree = "<group>"; };
 		D35364AC26099B6E00268AED /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
 		D35364C126099C0000268AED /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		D3665BF6263C883D006A7921 /* LivestreamHTTPRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivestreamHTTPRequester.swift; sourceTree = "<group>"; };
+		D3665BF8263C88ED006A7921 /* LivestreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivestreamView.swift; sourceTree = "<group>"; };
 		D3707EB92624F3090091C942 /* FitCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitCalendarView.swift; sourceTree = "<group>"; };
 		D3707EC32624F3140091C942 /* FitCalendarCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitCalendarCellView.swift; sourceTree = "<group>"; };
 		D3707EC92624F3230091C942 /* DayComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayComponents.swift; sourceTree = "<group>"; };
 		D3707ED72624F67E0091C942 /* EventStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventStore.swift; sourceTree = "<group>"; };
 		D3707EE32624F9330091C942 /* WorkoutPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPlan.swift; sourceTree = "<group>"; };
+		D37533BD263C65590077CDAB /* CreateLivestreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLivestreamView.swift; sourceTree = "<group>"; };
+		D37533BF263C656C0077CDAB /* Livestream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Livestream.swift; sourceTree = "<group>"; };
 		D3892AA12606C7AD0006CA38 /* WorkoutHTTPRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutHTTPRequester.swift; sourceTree = "<group>"; };
 		D3892AA62606C7C10006CA38 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		D3959E042606D76A00F9F847 /* SearchHTTPRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHTTPRequester.swift; sourceTree = "<group>"; };
@@ -213,8 +221,9 @@
 		D30EFA342605A6C500E7B32A /* KeepFit */ = {
 			isa = PBXGroup;
 			children = (
-				D34428D52638B48C002D07CC /* SitupCounter */,
 				D30EFA352605A6C500E7B32A /* KeepFitApp.swift */,
+				D37533BC263C65420077CDAB /* Livestream */,
+				D34428D52638B48C002D07CC /* SitupCounter */,
 				D3707EB82624F2F60091C942 /* Calendar */,
 				D3707EE12624F78E0091C942 /* User */,
 				D3707EE22624F8F50091C942 /* Workout */,
@@ -272,6 +281,7 @@
 				D30EFA7A2605AB2A00E7B32A /* UserHTTPRequester.swift */,
 				D3892AA12606C7AD0006CA38 /* WorkoutHTTPRequester.swift */,
 				D3959E042606D76A00F9F847 /* SearchHTTPRequester.swift */,
+				D3665BF6263C883D006A7921 /* LivestreamHTTPRequester.swift */,
 			);
 			path = HTTPRequester;
 			sourceTree = "<group>";
@@ -357,6 +367,16 @@
 				D3ECF651263915D500C258A0 /* RecommendWorkoutView.swift */,
 			);
 			path = Workout;
+			sourceTree = "<group>";
+		};
+		D37533BC263C65420077CDAB /* Livestream */ = {
+			isa = PBXGroup;
+			children = (
+				D37533BD263C65590077CDAB /* CreateLivestreamView.swift */,
+				D37533BF263C656C0077CDAB /* Livestream.swift */,
+				D3665BF8263C88ED006A7921 /* LivestreamView.swift */,
+			);
+			path = Livestream;
 			sourceTree = "<group>";
 		};
 		D3E5EB83260675CD002DAD24 /* Views */ = {
@@ -590,6 +610,7 @@
 				D3FA248726083C3E00714157 /* WorkoutView.swift in Sources */,
 				D3FA247526083A5C00714157 /* SearchView.swift in Sources */,
 				D3FA246C26083A4A00714157 /* ExerciseView.swift in Sources */,
+				D3665BF9263C88ED006A7921 /* LivestreamView.swift in Sources */,
 				D3ECF652263915D500C258A0 /* RecommendWorkoutView.swift in Sources */,
 				D30EFA722605A7CF00E7B32A /* HTTPRequester.swift in Sources */,
 				D3707ECA2624F3230091C942 /* DayComponents.swift in Sources */,
@@ -602,10 +623,12 @@
 				D35364AD26099B6E00268AED /* CategoriesView.swift in Sources */,
 				D302C3182607F0D3008C7E8D /* CreateWorkoutVideoView.swift in Sources */,
 				D3E5EB6F2605C207002DAD24 /* ProfilePictureView.swift in Sources */,
+				D3665BF7263C883D006A7921 /* LivestreamHTTPRequester.swift in Sources */,
 				D30EFA7B2605AB2A00E7B32A /* UserHTTPRequester.swift in Sources */,
 				D3959E052606D76A00F9F847 /* SearchHTTPRequester.swift in Sources */,
 				D3707EC42624F3140091C942 /* FitCalendarCellView.swift in Sources */,
 				D3FA245726083A0800714157 /* ProfileView.swift in Sources */,
+				D37533BE263C65590077CDAB /* CreateLivestreamView.swift in Sources */,
 				D34428D42638B0C7002D07CC /* FileManager.swift in Sources */,
 				D35364C226099C0000268AED /* CategoryView.swift in Sources */,
 				D3707EE42624F9330091C942 /* WorkoutPlan.swift in Sources */,
@@ -614,6 +637,7 @@
 				D3707ED82624F67E0091C942 /* EventStore.swift in Sources */,
 				D30EFA6A2605A71D00E7B32A /* User.swift in Sources */,
 				D30EFA382605A6C500E7B32A /* EntryView.swift in Sources */,
+				D37533C0263C656C0077CDAB /* Livestream.swift in Sources */,
 				D34429142638D67B002D07CC /* SitupView.swift in Sources */,
 				D3AFD07E260E3EE600E33443 /* ChangePasswordView.swift in Sources */,
 				D30EFA642605A70600E7B32A /* UserProfileView.swift in Sources */,

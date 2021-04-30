@@ -35,8 +35,8 @@ struct ChangePasswordView: View {
     var body: some View {
         Form {
             Section {
-                TextField("Old Password", text: $oldPassword)
-                TextField("New Password", text: $newPassword)
+                SecureField("Old Password", text: $oldPassword)
+                SecureField("New Password", text: $newPassword)
             }
             Section {
                 Button("Update", action: attemptChange)

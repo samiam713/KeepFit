@@ -35,6 +35,8 @@ struct ExerciseView: View {
                     Label("Do Situps!", systemImage: "face.smiling.fill")
                 }
                 .padding()
+                .background(RoundedRectangle(cornerRadius: 10).stroke())
+                .padding()
                 
                 Divider()
                 Text("Liked Workouts")

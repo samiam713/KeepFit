@@ -66,7 +66,7 @@ struct KeepFitApp: App {
                     CreateWorkoutView()
                 }
                 else if let recommended = controller.getRecommending() {
-                    
+                    RecommendWorkoutView(workout: recommended)
                 }
                 
                 if controller.networkRequests > 0 {

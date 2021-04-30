@@ -20,6 +20,7 @@ class SitupCounter: ObservableObject {
         restartAudio()
         restartTimer()
         doingSitups = true
+        situpCount = 0
     }
     
     func stop() {
@@ -66,7 +67,7 @@ class SitupCounter: ObservableObject {
     
     func restartTimer() {
         stopTimer()
-        timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(Self.timerUpdate), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(Self.timerUpdate), userInfo: nil, repeats: true)
     }
     
     @objc func timerUpdate() {self.situpCount += 1}

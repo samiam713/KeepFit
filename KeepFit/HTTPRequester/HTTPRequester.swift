@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 
 enum HTTPRequester {
-//    static let serverIP = "169.254.215.13"
-    static let serverIP = "ec2-18-225-9-181.us-east-2.compute.amazonaws.com"
+    static let serverIP = "169.254.224.48"
+    // static let serverIP = "ec2-18-225-9-181.us-east-2.compute.amazonaws.com"
     static let serverPort = 8000
     
     static let encoder = JSONEncoder()

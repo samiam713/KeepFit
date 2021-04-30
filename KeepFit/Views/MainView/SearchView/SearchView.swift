@@ -57,6 +57,7 @@ struct SearchView: View {
                 ScrollView {
                     VStack {
                         Toggle("Showing Users", isOn: $showingUsers)
+                            .padding()
                         if showingUsers {
                             Text("Users")
                                 .font(.headline)
@@ -66,6 +67,7 @@ struct SearchView: View {
                         }
                         Divider()
                         Toggle("Showing Workouts", isOn: $showingWorkouts)
+                            .padding()
                         if showingWorkouts {
                             Text("Workouts")
                                 .font(.headline)

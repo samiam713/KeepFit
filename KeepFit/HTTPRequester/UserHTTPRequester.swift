@@ -142,7 +142,7 @@ extension HTTPRequester {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try! encoder.encode(user)
-        request.timeoutInterval = 30
+        request.timeoutInterval = Self.timeoutDeadline
         
         //Create a URL Session
         

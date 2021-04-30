@@ -20,10 +20,12 @@ struct SitupView: View {
                 RoundedRectangle(cornerRadius: 5.0)
                     .foregroundColor(.blue.opacity(0.5))
                 VStack {
-                Text("Situps")
+                Text("Situps:")
+                    .font(.title)
                 Text(situpCounter.situpCount.description)
+                    .font(Font.system(size: 48))
+                    .padding()
                 }
-                .font(.title)
             }
             .padding()
             Divider()
@@ -37,8 +39,9 @@ struct SitupView: View {
             }
             .padding()
             .background(Capsule())
-            Text("Making this view was 20 minutes of my life I will never get back")
+            Text("Implementing this was 20 minutes of my life I will never get back")
                 .italic()
+                .multilineTextAlignment(.center)
                 .padding()
         }
     }

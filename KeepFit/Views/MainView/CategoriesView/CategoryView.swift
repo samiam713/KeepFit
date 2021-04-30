@@ -13,18 +13,19 @@ struct CategoryView: View {
     
     let workouts: [Workout]
     
-    @State var currentWorkouts = [Workout]()
+    @State var currentWorkouts: [Workout]
     @State var currentSearch = ""
     
     init(category: WorkoutCategory) {
         self.category = category
         let workouts = HTTPRequester.getWorkoutsOfCategory(category: category)
         self.workouts = workouts
-        self.currentWorkouts = workouts
+        _currentWorkouts = State(initialValue: workouts)
     }
     
     func search() {
-        currentWorkouts = workouts.filter({$0.matches(keyword: currentSearch)})
+        let ans = workouts.filter({$0.matches(keyword: currentSearch)})
+        currentWorkouts = ans
         hideKeyboard()
         currentSearch = ""
     }
@@ -59,7 +60,7 @@ struct CategoryView: View {
                 }
             }
             .padding()
-            List(workouts) {(workout: Workout) in
+            List(currentWorkouts) {(workout: Workout) in
                 WorkoutView.createNavigationLink(workout: workout)
             }
         }

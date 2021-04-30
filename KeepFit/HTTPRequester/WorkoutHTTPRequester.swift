@@ -23,6 +23,7 @@ extension HTTPRequester {
         // Construct the request
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try! encoder.encode(category)
         
         request.timeoutInterval = Self.timeoutDeadline
         
@@ -67,7 +68,7 @@ extension HTTPRequester {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        request.timeoutInterval = 10
+        request.timeoutInterval = Self.timeoutDeadline
         
         //Create a URL Session
         
@@ -110,7 +111,7 @@ extension HTTPRequester {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try! encoder.encode(id)
-        request.timeoutInterval = 10
+        request.timeoutInterval = Self.timeoutDeadline
         
         //Create a URL Session
         
@@ -151,7 +152,7 @@ extension HTTPRequester {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try! encoder.encode(workout)
-        request.timeoutInterval = 10
+        request.timeoutInterval = Self.timeoutDeadline
         
         //Create a URL Session
         
@@ -191,7 +192,7 @@ extension HTTPRequester {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try! encoder.encode(LikeWorkout(userID: myID, workoutID: id))
-        request.timeoutInterval = 10
+        request.timeoutInterval = Self.timeoutDeadline
         
         //Create a URL Session
         
@@ -228,7 +229,7 @@ extension HTTPRequester {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try! encoder.encode(LikeWorkout(userID: myID, workoutID: id))
-        request.timeoutInterval = 10
+        request.timeoutInterval = Self.timeoutDeadline
         
         //Create a URL Session
         
@@ -265,7 +266,7 @@ extension HTTPRequester {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try! encoder.encode(id)
-        request.timeoutInterval = 10
+        request.timeoutInterval = Self.timeoutDeadline
         
         //Create a URL Session
         
