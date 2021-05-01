@@ -56,7 +56,7 @@ extension Workout {
 
 class Workout: NSObject, Codable, ObservableObject, Identifiable {
     
-    static let maxWorkoutVideoBytes: Int = Int.max
+    static let maxWorkoutVideoBytes: Int = 6291456
     
     static var workoutCache = [String:Workout]()
 
@@ -103,6 +103,8 @@ class Workout: NSObject, Codable, ObservableObject, Identifiable {
     
     @Published var commentsEnabled = true
     @Published var comments = [Comment]()
+    
+    @Published var beenDeleted = false
     
     func likeVideo() {
         HTTPRequester.likeWorkout(id: id)

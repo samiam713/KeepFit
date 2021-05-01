@@ -89,13 +89,17 @@ struct WorkoutView: View {
                 }
                 Section {
                     if workout.creatorID == User.currentUser.id {
-                        Button("Delete Workout", action: {User.currentUser.deleteWorkout(id: workout.id)})
+                        Button("Delete Workout", action: {
+                                User.currentUser.deleteWorkout(id: workout.id)
+                            workout.beenDeleted = true
+                        })
                             .foregroundColor(.red)
                     }
                 }
                 
             }
         }
+        .disabled(workout.beenDeleted)
         //        }
         .navigationTitle(workout.title)
     }

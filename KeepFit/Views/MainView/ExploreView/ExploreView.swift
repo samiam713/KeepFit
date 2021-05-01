@@ -67,13 +67,20 @@ struct ExploreView: View {
                 }
             }
             Divider()
+            VStack {
             NavigationLink(
                 destination: FriendExploreView(), label: {
                     Label("Friend Activity", systemImage: "person.2.square.stack")
-                        .font(.system(size: 24))
                 })
-                .padding()
+                Divider()
+                LivestreamStoreView.createNavigationLink()
+                Divider()
+                CreateLivestreamView.createNavigationLink()
+                
+            }
+            .font(.system(size: 24))
         }
+        .padding([.top,.bottom])
     }
 }
 

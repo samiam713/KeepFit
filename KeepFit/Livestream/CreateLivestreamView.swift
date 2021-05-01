@@ -9,6 +9,12 @@ import SwiftUI
 
 struct CreateLivestreamView: View {
     
+    static func createNavigationLink() -> some View {
+        NavigationLink(destination: Self()) {
+            Label("Create Livestream", systemImage: "video.badge.plus")
+        }
+    }
+    
     @State var urlString = ""
     @State var description = ""
     @State var date = Date()
@@ -27,13 +33,14 @@ struct CreateLivestreamView: View {
         
         let livestream = Livestream(url: url, description: description, date: date)
         
-        Livestream.add(livestream: livestream)
+        LivestreamStore.singleton.add(livestream: livestream)
         completedCreation = true
     }
     
 
     var body: some View {
         Form {
+            
             Section(header: Text("Livestream URL")) {
                 TextField("", text: $urlString)
             }
@@ -46,12 +53,21 @@ struct CreateLivestreamView: View {
             Section(header: Text("Livestream Date")) {
                 DatePicker("Choose Date:", selection: $date)
             }
+            
+            if completedCreation {
+                Section {
+                    Button("Create new", action: {completedCreation = false}).centered()
+                }
+            } else {
+                Section {
+                    Button("Publish", action: self.publishLiveStream).centered()
+                }
+            }
         }
-        .disabled(completedCreation)
         .alert(item: $errorMessage) {(errorMessage: String) in
             Alert(title: Text("Create Livestream Error"), message: Text(errorMessage), dismissButton: .cancel())
         }
-        .navigationBarTitle(Text("Create Livestream"))
+        .navigationBarTitle(Text("Join Livestream"))
     }
 }
 
