@@ -9,6 +9,52 @@ import Foundation
 
 extension HTTPRequester {
     
+    static func getFollowers() -> [UserPreview.ID] {
+        let completionGroup = DispatchGroup()
+        completionGroup.enter()
+        
+        //Create the request
+        // TODO: update path
+        var request = URLRequest(url: getURL(path: "getFollowers/"))
+        print(request.url!.absoluteString)
+        
+        var followers = [UserPreview.ID]()
+        
+        let id = User.currentUser.id
+        
+        // Construct the request
+        request.httpMethod = "POST"
+        request.httpBody = try! encoder.encode(id)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        request.timeoutInterval = Self.timeoutDeadline
+        
+        //Create a URL Session
+        
+        let dataTask = URLSession.shared.dataTask(with: request) {(data, response, error) in
+            if let error = error {
+                fatalError(error.localizedDescription)
+            }
+            
+            //ensure the response status is 200 OK and that there is data
+            guard let response = response as? HTTPURLResponse, (200..<300).contains(response.statusCode), let data = data else {
+                fatalError("Not a valid response")
+            }
+            
+            guard let _followers = try? decoder.decode([UserPreview.ID].self, from: data) else {
+                fatalError("NOT A VALID USER JSON")
+            }
+            
+            followers = _followers
+            completionGroup.leave()
+        }
+        
+        dataTask.resume()
+        completionGroup.wait()
+        
+        return followers
+    }
+    
 //    static func getUserPreview(id: String, callback: @escaping (UserPreview) -> ()) {
 //        keepFitAppController.networkRequests += 1
 //        DispatchQueue.global(qos: .userInitiated).async {

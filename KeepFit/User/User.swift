@@ -221,6 +221,15 @@ class User: NSObject, ObservableObject, Codable {
         eventStore.removePlan(plan: plan)
     }
     
+    func getFollowingPublishedWorkouts() -> [Workout] {
+        updateFollowing()
+        var workouts = [Workout]()
+        for followingUser in following {
+            workouts.append(contentsOf: followingUser.publishedWorkouts())
+        }
+        return workouts
+    }
+    
     enum Key: String, CodingKey {
         case id, username, password
         case shortBiography, sex, inches, pounds, birthdate
@@ -272,6 +281,8 @@ class User: NSObject, ObservableObject, Codable {
         DispatchQueue.main.async {
             self.eventStore.populate(user: self)
         }
+        
+        updateFollowing()
     }
     
     func encode(to encoder: Encoder) throws {
@@ -383,6 +394,7 @@ class UserPreview: Decodable, Identifiable {
         sessionIDs = try container.decode([String].self, forKey: .sessionIDs)
         likedWorkoutIDs = try container.decode([String].self, forKey: .likedWorkoutIDs)
         publishedWorkoutIDs = try container.decode([String].self, forKey: .publishedWorkoutIDs)
+        
     }
     
 }

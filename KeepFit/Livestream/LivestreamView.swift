@@ -20,9 +20,9 @@ struct LivestreamStoreView: View {
     var body: some View {
         VStack {
             Button("Refresh", action: livestreamStore.refresh)
-        List(livestreamStore.livestreams) {(livestream: Livestream) in
-            LivestreamView.createNavigationLink(livestream: livestream)
-        }
+            List(livestreamStore.livestreams) {(livestream: Livestream) in
+                LivestreamView.createNavigationLink(livestream: livestream)
+            }
         }
         .navigationBarTitle("Livestreams")
     }
@@ -30,7 +30,7 @@ struct LivestreamStoreView: View {
 
 struct LivestreamView: View {
     
-    let livestream: Livestream
+    @ObservedObject var livestream: Livestream
     
     static func createNavigationLink(livestream: Livestream) -> some View {
         NavigationLink(destination: Self(livestream: livestream)) {
@@ -50,9 +50,23 @@ struct LivestreamView: View {
                 Text(livestream.date.dateString())
                 Text(livestream.date.secondString())
             }
-            Section {
-                Button("Start Livestream!", action: livestream.open)
+            Section{
+                Text("Maximum Participants: \(livestream.maximumParticipants)")
             }
+            Section {
+                if livestream.joined {
+                    Button("Leave Livestream", action: livestream.leave)
+                } else {
+                    Button("Join Livestream!", action: livestream.attemptToEnter)
+                }
+            }
+            Section {
+                Button("Delete Livestream", action: livestream.delete)
+            }
+        }
+        .disabled(livestream.isDeleted)
+        .alert(item: $livestream.errorMessage) {(errorMessage: String) in
+            Alert(title: Text("Operation Failed"), message: Text(errorMessage), dismissButton: .cancel())
         }
         .navigationBarTitle("\(livestream.creator().username)'s stream")
     }

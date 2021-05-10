@@ -42,6 +42,8 @@
 		D3892AA22606C7AD0006CA38 /* WorkoutHTTPRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3892AA12606C7AD0006CA38 /* WorkoutHTTPRequester.swift */; };
 		D3892AA72606C7C10006CA38 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3892AA62606C7C10006CA38 /* Workout.swift */; };
 		D3959E052606D76A00F9F847 /* SearchHTTPRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3959E042606D76A00F9F847 /* SearchHTTPRequester.swift */; };
+		D39F2CBA264602C800064536 /* FollowerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39F2CB9264602C800064536 /* FollowerListView.swift */; };
+		D39F2CBC264602D500064536 /* FollowingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39F2CBB264602D500064536 /* FollowingListView.swift */; };
 		D3AFD07E260E3EE600E33443 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AFD07D260E3EE600E33443 /* ChangePasswordView.swift */; };
 		D3C569EA26154FB8007476EF /* LoadingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C569E926154FB8007476EF /* LoadingAnimation.swift */; };
 		D3E5EB6F2605C207002DAD24 /* ProfilePictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E5EB6E2605C207002DAD24 /* ProfilePictureView.swift */; };
@@ -49,6 +51,7 @@
 		D3E5EB7F260675C0002DAD24 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E5EB7E260675C0002DAD24 /* MainView.swift */; };
 		D3E5EB85260675F2002DAD24 /* KeepFitLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E5EB84260675F2002DAD24 /* KeepFitLogoView.swift */; };
 		D3ECF652263915D500C258A0 /* RecommendWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3ECF651263915D500C258A0 /* RecommendWorkoutView.swift */; };
+		D3F808A8264738A100CEA32C /* FollowingPublishedExercisesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F808A7264738A100CEA32C /* FollowingPublishedExercisesView.swift */; };
 		D3FA245726083A0800714157 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FA245626083A0800714157 /* ProfileView.swift */; };
 		D3FA246326083A3300714157 /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FA246226083A3300714157 /* ExploreView.swift */; };
 		D3FA246C26083A4A00714157 /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FA246B26083A4A00714157 /* ExerciseView.swift */; };
@@ -125,6 +128,8 @@
 		D3892AA12606C7AD0006CA38 /* WorkoutHTTPRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutHTTPRequester.swift; sourceTree = "<group>"; };
 		D3892AA62606C7C10006CA38 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		D3959E042606D76A00F9F847 /* SearchHTTPRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHTTPRequester.swift; sourceTree = "<group>"; };
+		D39F2CB9264602C800064536 /* FollowerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListView.swift; sourceTree = "<group>"; };
+		D39F2CBB264602D500064536 /* FollowingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingListView.swift; sourceTree = "<group>"; };
 		D3AFD07D260E3EE600E33443 /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 		D3C569E926154FB8007476EF /* LoadingAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingAnimation.swift; sourceTree = "<group>"; };
 		D3E5EB6E2605C207002DAD24 /* ProfilePictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePictureView.swift; sourceTree = "<group>"; };
@@ -132,6 +137,7 @@
 		D3E5EB7E260675C0002DAD24 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		D3E5EB84260675F2002DAD24 /* KeepFitLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeepFitLogoView.swift; sourceTree = "<group>"; };
 		D3ECF651263915D500C258A0 /* RecommendWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendWorkoutView.swift; sourceTree = "<group>"; };
+		D3F808A7264738A100CEA32C /* FollowingPublishedExercisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingPublishedExercisesView.swift; sourceTree = "<group>"; };
 		D3FA245626083A0800714157 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		D3FA246226083A3300714157 /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
 		D3FA246B26083A4A00714157 /* ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseView.swift; sourceTree = "<group>"; };
@@ -397,6 +403,8 @@
 			isa = PBXGroup;
 			children = (
 				D3FA245626083A0800714157 /* ProfileView.swift */,
+				D39F2CB9264602C800064536 /* FollowerListView.swift */,
+				D39F2CBB264602D500064536 /* FollowingListView.swift */,
 			);
 			path = ProfileView;
 			sourceTree = "<group>";
@@ -413,6 +421,7 @@
 			isa = PBXGroup;
 			children = (
 				D3FA246B26083A4A00714157 /* ExerciseView.swift */,
+				D3F808A7264738A100CEA32C /* FollowingPublishedExercisesView.swift */,
 			);
 			path = ExerciseView;
 			sourceTree = "<group>";
@@ -630,8 +639,11 @@
 				D30EFA7B2605AB2A00E7B32A /* UserHTTPRequester.swift in Sources */,
 				D3959E052606D76A00F9F847 /* SearchHTTPRequester.swift in Sources */,
 				D3707EC42624F3140091C942 /* FitCalendarCellView.swift in Sources */,
+				D3F808A8264738A100CEA32C /* FollowingPublishedExercisesView.swift in Sources */,
 				D3FA245726083A0800714157 /* ProfileView.swift in Sources */,
 				D37533BE263C65590077CDAB /* CreateLivestreamView.swift in Sources */,
+				D39F2CBC264602D500064536 /* FollowingListView.swift in Sources */,
+				D39F2CBA264602C800064536 /* FollowerListView.swift in Sources */,
 				D37F4A37263CE7B5000685F4 /* ViewExtensions.swift in Sources */,
 				D34428D42638B0C7002D07CC /* FileManager.swift in Sources */,
 				D35364C226099C0000268AED /* CategoryView.swift in Sources */,

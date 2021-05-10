@@ -35,8 +35,15 @@ struct ExerciseView: View {
                     Label("Do Situps!", systemImage: "face.smiling.fill")
                 }
                 .padding()
-                .background(RoundedRectangle(cornerRadius: 10).stroke())
+                .background(RoundedRectangle(cornerRadius: 10).stroke().foregroundColor(.contrast))
                 .padding()
+                
+                NavigationLink(destination: FollowingPublishedWorkoutsView()) {
+                    Label("Followings' Published Workouts", systemImage: "flame.fill")
+                        .padding()
+                        .background(RoundedRectangle(cornerRadius: 10).stroke().foregroundColor(.contrast))
+                        .padding()
+                }
                 
                 Divider()
                 Text("Liked Workouts")

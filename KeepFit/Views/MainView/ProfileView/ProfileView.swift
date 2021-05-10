@@ -43,6 +43,11 @@ struct ProfileView: View {
                     }
                 }
                 
+                Section(header: Text("View Users")) {
+                    FollowerListView.createNavigationLink()
+                    FollowingListView.createNavigationLink()
+                }
+                
                 Section(header: Text("Review Stuff")) {
                     NavigationLink("Review Workout Sessions", destination:
                                     VStack {

@@ -13,6 +13,7 @@ struct UserPreviewView: View {
     
     static func createNavigationLink(userPreview: UserPreview) -> some View {
         return NavigationLink(destination: LazyView({UserPreviewView(userPreview: userPreview)})) {
+            HStack {
             Text(userPreview.username)
                 .italic()
                 .centered()
@@ -20,6 +21,10 @@ struct UserPreviewView: View {
                 .padding()
                 .background(Capsule().foregroundColor(.contrast))
                 .padding()
+                Image(uiImage: userPreview.profilePicture)
+                    .resizable()
+                    .scaledToFit()
+            }
         }
     }
     
@@ -79,8 +84,10 @@ struct UserPreviewView: View {
     }
 }
 
-//struct UserPreviewView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        UserPreviewView()
-//    }
-//}
+struct UserPreviewView_Previews: PreviewProvider {
+    static var previews: some View {
+//        UserPreviewView(userPreview: User.currentUser.toUserPreview())
+        UserPreviewView.createNavigationLink(userPreview: User.currentUser.toUserPreview())
+            .frame(height:100)
+    }
+}

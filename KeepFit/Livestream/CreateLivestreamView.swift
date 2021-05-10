@@ -20,6 +20,7 @@ struct CreateLivestreamView: View {
     @State var date = Date()
     @State var errorMessage: String? = nil
     @State var completedCreation = false
+    @State var maximumParticipants = 4
     
     func publishLiveStream() {
         guard let url = URL(string: urlString) else {
@@ -31,7 +32,7 @@ struct CreateLivestreamView: View {
             return
         }
         
-        let livestream = Livestream(url: url, description: description, date: date)
+        let livestream = Livestream(url: url, description: description, date: date, maximumParticipants: maximumParticipants)
         
         LivestreamStore.singleton.add(livestream: livestream)
         completedCreation = true
@@ -52,6 +53,10 @@ struct CreateLivestreamView: View {
             // Section(header: Text("Livestream Date")) {
             Section(header: Text("Livestream Date")) {
                 DatePicker("Choose Date:", selection: $date)
+            }
+            
+            Section(header: Text("Maximum Participants")) {
+                Stepper("\(maximumParticipants) Participants", value: $maximumParticipants, in: 2...16)
             }
             
             if completedCreation {
